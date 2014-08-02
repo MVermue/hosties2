@@ -3609,6 +3609,9 @@ InitializeGame(iPartnersIndex)
 		GetArrayString(gH_DArray_LR_CustomNames, _:(selection - LastRequest), LR_Name, MAX_DISPLAYNAME_SIZE);
 		LogToGame("\"%L\" started a LR game (\"%s\") with \"%L\"", LR_Player_Prisoner, LR_Name, LR_Player_Guard);
 	}
+
+	SetEntData(LR_Player_Prisoner, g_Offset_Armor, 0);
+	SetEntData(LR_Player_Guard, g_Offset_Armor, 0);
 	
 	switch (selection)
 	{
@@ -3969,8 +3972,6 @@ InitializeGame(iPartnersIndex)
 			// set HP
 			SetEntData(LR_Player_Prisoner, g_Offset_Health, 1);
 			SetEntData(LR_Player_Guard, g_Offset_Health, 1);
-			SetEntData(LR_Player_Prisoner, g_Offset_Armor, 0);
-			SetEntData(LR_Player_Guard, g_Offset_Armor, 0);
 
 			// give flashbangs
 			new flash1 = GivePlayerItem(LR_Player_Prisoner, "weapon_flashbang");
