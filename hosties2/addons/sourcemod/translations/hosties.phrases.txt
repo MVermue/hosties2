@@ -358,6 +358,14 @@
 	{
 		"en"		"Scissors"
 	}
+	"Lizard"
+	{
+		"en"		"Lizard"
+	}
+	"Spock"
+	{
+		"en"		"Spock"
+	}
 	"LR RPS No Answer"
 	{
 		"#format"	"{1:N}"

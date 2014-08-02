@@ -81,14 +81,16 @@ public StartWeapons_Spawn(Handle:event, const String:name[], bool:dontBroadcast)
 			{
 				for (new Tidx = 0; Tidx < g_iSizeOfTList; Tidx++)
 				{
-					GivePlayerItem(client, gs_T_WeaponList[Tidx]);
+					new iTWeapon = GivePlayerItem(client, gs_T_WeaponList[Tidx]);
+					EquipPlayerWeapon(client, iTWeapon);
 				}
 			}
 			case CS_TEAM_CT:
 			{
 				for (new CTidx = 0; CTidx < g_iSizeOfCTList; CTidx++)
 				{
-					GivePlayerItem(client, gs_CT_WeaponList[CTidx]);
+					new iCTWeapon = GivePlayerItem(client, gs_CT_WeaponList[CTidx]);
+					EquipPlayerWeapon(client, iCTWeapon);
 				}
 			}
 		}

@@ -23,6 +23,7 @@
 #include <adminmenu>
 #include <sdkhooks>
 #include <hosties>
+#include <emitsoundany>
 
 #undef REQUIRE_PLUGIN
 #undef REQUIRE_EXTENSIONS
@@ -137,7 +138,7 @@ new Handle:gH_Cvar_Display_Advert = INVALID_HANDLE;
 public Plugin:myinfo =
 {
 	name = "SM_Hosties v2",
-	author = "databomb & dataviruset & comando",
+	author = "databomb & dataviruset & comando & Bara",
 	description = "Hosties/jailbreak plugin for SourceMod",
 	version = PLUGIN_VERSION,
 	url = "http://forums.alliedmods.net/showthread.php?t=108810"

@@ -860,11 +860,11 @@ public Native_ChangeRebelStatus(Handle:h_Plugin, iNumParameters)
 public Native_IsClientInLR(Handle:h_Plugin, iNumParameters)
 {
 	new client = GetNativeCell(1);
-	if (!IsClientInGame(client))
+	if (IsClientInGame(client))
 	{
-		return ThrowNativeError(SP_ERROR_NATIVE, "Given client index (%d) not in game", client);
+		return Local_IsClientInLR(client);
 	}
-	return Local_IsClientInLR(client);
+	return ThrowNativeError(SP_ERROR_NATIVE, "Given client index (%d) not in game", client);
 }
 
 Local_IsClientInLR(client)
@@ -1051,17 +1051,17 @@ public LastRequest_PlayerDeath(Handle:event, const String:name[], bool:dontBroad
 				{
 					if (g_Game == Game_CSS)
 					{
-						EmitSoundToAll(gShadow_LR_Sound);
+						EmitSoundToAllAny(gShadow_LR_Sound);
 					}
 					else
 					{
 						decl String:sCommand[PLATFORM_MAX_PATH];
 						for (new idx = 1; idx <= MaxClients; idx++)
 						{
-							if (IsClientInGame(idx))
+							if (idx > 0 && IsClientInGame(idx))
 							{
 								Format(sCommand, sizeof(sCommand), "play *%s", gShadow_LR_Sound);
-								ClientCommand(idx, sCommand);
+								EmitSoundToClientAny(idx, sCommand);
 							}
 						}
 					}
@@ -1233,7 +1233,7 @@ public LastRequest_PlayerHurt(Handle:event, const String:name[], bool:dontBroadc
 		{
 			if (g_Game == Game_CSS)
 			{
-				EmitSoundToAll(gShadow_Freekill_Sound);
+				EmitSoundToAllAny(gShadow_Freekill_Sound);
 			}
 			else
 			{
@@ -1243,7 +1243,7 @@ public LastRequest_PlayerHurt(Handle:event, const String:name[], bool:dontBroadc
 					if (IsClientInGame(idx))
 					{
 						Format(sCommand, sizeof(sCommand), "play *%s", gShadow_Freekill_Sound);
-						ClientCommand(idx, sCommand);
+						EmitSoundToClientAny(idx, sCommand);
 					}
 				}
 			}
@@ -3911,9 +3911,8 @@ InitializeGame(iPartnersIndex)
 			SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, potatoClient, _:Block_Global1); // HPloser
 
 			// create the potato deagle
-			new HPdeagle = CreateEntityByName("weapon_deagle");
+			new HPdeagle = GivePlayerItem(potatoClient, "weapon_deagle");
 			SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, HPdeagle, _:Block_Global4);
-			DispatchSpawn(HPdeagle);
 			EquipPlayerWeapon(potatoClient, HPdeagle);
 
 			// set ammo (Clip2) 0
@@ -4004,10 +4003,8 @@ InitializeGame(iPartnersIndex)
 			SetEntData(LR_Player_Guard, g_Offset_Armor, 0);
 
 			// give flashbangs
-			new flash1 = CreateEntityByName("weapon_flashbang");
-			new flash2 = CreateEntityByName("weapon_flashbang");
-			DispatchSpawn(flash1);
-			DispatchSpawn(flash2);
+			new flash1 = GivePlayerItem(LR_Player_Prisoner, "weapon_flashbang");
+			new flash2 = GivePlayerItem(LR_Player_Guard, "weapon_flashbang");
 			EquipPlayerWeapon(LR_Player_Prisoner, flash1);
 			EquipPlayerWeapon(LR_Player_Guard, flash2);
 
@@ -4087,50 +4084,48 @@ InitializeGame(iPartnersIndex)
 				{
 					case NSW_AWP:
 					{
-						NSW_Prisoner = CreateEntityByName("weapon_awp");
-						NSW_Guard = CreateEntityByName("weapon_awp");
+						NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_awp");
+						NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_awp");
 					}
 					case NSW_Scout:
 					{
 						if (g_Game == Game_CSS)
 						{
-							NSW_Prisoner = CreateEntityByName("weapon_scout");
-							NSW_Guard = CreateEntityByName("weapon_scout");
+							NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_scout");
+							NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_scout");
 						}
 						else if (g_Game == Game_CSGO)
 						{
-							NSW_Prisoner = CreateEntityByName("weapon_ssg08");
-							NSW_Guard = CreateEntityByName("weapon_ssg08");
+							NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_ssg08");
+							NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_ssg08");
 						}
 					}
 					case NSW_SG550:
 					{
 						if (g_Game == Game_CSS)
 						{
-							NSW_Prisoner = CreateEntityByName("weapon_sg550");
-							NSW_Guard = CreateEntityByName("weapon_sg550");
+							NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_sg550");
+							NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_sg550");
 						}
 						else if (g_Game == Game_CSGO)
 						{
-							NSW_Prisoner = CreateEntityByName("weapon_scar20");
-							NSW_Guard = CreateEntityByName("weapon_scar20");
+							NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_scar20");
+							NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_scar20");
 						}
 					}
 					case NSW_G3SG1:
 					{
-						NSW_Prisoner = CreateEntityByName("weapon_g3sg1");
-						NSW_Guard = CreateEntityByName("weapon_g3sg1");
+						NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_g3sg1");
+						NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_g3sg1");
 					}
 					default:
 					{
 						LogError("hit default NS");
-						NSW_Prisoner = CreateEntityByName("weapon_awp");
-						NSW_Guard = CreateEntityByName("weapon_awp");
+						NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_awp");
+						NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_awp");
 					}
 				}
 				
-				DispatchSpawn(NSW_Prisoner);
-				DispatchSpawn(NSW_Guard);
 				EquipPlayerWeapon(LR_Player_Prisoner, NSW_Prisoner);
 				EquipPlayerWeapon(LR_Player_Guard, NSW_Guard);
 				SetEntData(NSW_Prisoner, g_Offset_Clip1, 99);
@@ -4140,7 +4135,7 @@ InitializeGame(iPartnersIndex)
 				{
 					if (g_Game == Game_CSS)
 					{
-						EmitSoundToAll(gShadow_LR_NoScope_Sound);
+						EmitSoundToAllAny(gShadow_LR_NoScope_Sound);
 					}
 					else
 					{
@@ -4150,7 +4145,7 @@ InitializeGame(iPartnersIndex)
 							if (IsClientInGame(idx))
 							{
 								Format(sCommand, sizeof(sCommand), "play *%s", gShadow_LR_NoScope_Sound);
-								ClientCommand(idx, sCommand);
+								EmitSoundToClientAny(idx, sCommand);
 							}
 						}
 					}
@@ -4200,9 +4195,12 @@ InitializeGame(iPartnersIndex)
 			StripAllWeapons(LR_Player_Prisoner);
 
 			// give knife, deagle, and m249
-			GivePlayerItem(LR_Player_Prisoner, "weapon_knife");
+			new RebelKnife = GivePlayerItem(LR_Player_Prisoner, "weapon_knife");
 			new RebelDeagle = GivePlayerItem(LR_Player_Prisoner, "weapon_deagle");
-			GivePlayerItem(LR_Player_Prisoner, "weapon_m249");
+			new RebelM249 = GivePlayerItem(LR_Player_Prisoner, "weapon_m249");
+			EquipPlayerWeapon(LR_Player_Prisoner, RebelKnife);
+			EquipPlayerWeapon(LR_Player_Prisoner, RebelDeagle);
+			EquipPlayerWeapon(LR_Player_Prisoner, RebelM249);
 
 			// set primary and secondary ammo
 			SetEntData(RebelDeagle, g_Offset_Clip1, 7);
@@ -4420,7 +4418,9 @@ InitializeGame(iPartnersIndex)
 			new Pistol_PrisonerEntRef = EntIndexToEntRef(Pistol_Prisoner);
 			new Pistol_GuardEntRef = EntIndexToEntRef(Pistol_Guard);
 			SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, Pistol_PrisonerEntRef, _:Block_PrisonerData);
-			SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, Pistol_GuardEntRef, _:Block_GuardData);		
+			SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, Pistol_GuardEntRef, _:Block_GuardData);
+			EquipPlayerWeapon(LR_Player_Prisoner, Pistol_Prisoner);
+			EquipPlayerWeapon(LR_Player_Guard, Pistol_Guard);
 				
 			PrintToChatAll(CHAT_BANNER, "LR RR Start", LR_Player_Prisoner, LR_Player_Guard);
 			
@@ -4999,8 +4999,7 @@ public Action:Timer_RemoveFlashbang(Handle:timer, any:entity)
 		
 		if ((client != -1) && IsClientInGame(client) && IsPlayerAlive(client) && Local_IsClientInLR(client))
 		{
-			new flash = CreateEntityByName("weapon_flashbang");
-			DispatchSpawn(flash);
+			new flash = GivePlayerItem(client, "weapon_flashbang");
 			EquipPlayerWeapon(client, flash);		
 		}
 	}
@@ -5084,50 +5083,48 @@ public Action:Timer_Countdown(Handle:timer)
 					{
 						case NSW_AWP:
 						{
-							NSW_Prisoner = CreateEntityByName("weapon_awp");
-							NSW_Guard = CreateEntityByName("weapon_awp");
+							NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_awp");
+							NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_awp");
 						}
 						case NSW_Scout:
 						{
 							if(g_Game == Game_CSS)
 							{
-								NSW_Prisoner = CreateEntityByName("weapon_scout");
-								NSW_Guard = CreateEntityByName("weapon_scout");
+								NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_scout");
+								NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_scout");
 							}
 							else if(g_Game == Game_CSGO)
 							{
-								NSW_Prisoner = CreateEntityByName("weapon_ssg08");
-								NSW_Guard = CreateEntityByName("weapon_ssg08");
+								NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_ssg08");
+								NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_ssg08");
 							}
 						}
 						case NSW_SG550:
 						{
 							if(g_Game == Game_CSS)
 							{
-								NSW_Prisoner = CreateEntityByName("weapon_sg550");
-								NSW_Guard = CreateEntityByName("weapon_sg550");
+								NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_sg550");
+								NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_sg550");
 							}
 							else if(g_Game == Game_CSGO)
 							{
-								NSW_Prisoner = CreateEntityByName("weapon_scar20");
-								NSW_Guard = CreateEntityByName("weapon_scar20");
+								NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_scar20");
+								NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_scar20");
 							}
 						}
 						case NSW_G3SG1:
 						{
-							NSW_Prisoner = CreateEntityByName("weapon_g3sg1");
-							NSW_Guard = CreateEntityByName("weapon_g3sg1");
+							NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_g3sg1");
+							NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_g3sg1");
 						}
 						default:
 						{
 							LogError("hit default NS");
-							NSW_Prisoner = CreateEntityByName("weapon_awp");
-							NSW_Guard = CreateEntityByName("weapon_awp");
+							NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_awp");
+							NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_awp");
 						}
 					}
 					
-					DispatchSpawn(NSW_Prisoner);
-					DispatchSpawn(NSW_Guard);
 					EquipPlayerWeapon(LR_Player_Prisoner, NSW_Prisoner);
 					EquipPlayerWeapon(LR_Player_Guard, NSW_Guard);
 					SetEntData(NSW_Prisoner, g_Offset_Clip1, 99);
@@ -5137,17 +5134,17 @@ public Action:Timer_Countdown(Handle:timer)
 					{
 						if (g_Game == Game_CSS)
 						{
-							EmitSoundToAll(gShadow_LR_NoScope_Sound);
+							EmitSoundToAllAny(gShadow_LR_NoScope_Sound);
 						}
 						else
 						{
 							decl String:sCommand[PLATFORM_MAX_PATH];
 							for (new idx2 = 1; idx2 <= MaxClients; idx2++)
 							{
-								if (IsClientInGame(idx))
+								if (idx > 0 && IsClientInGame(idx))
 								{
 									Format(sCommand, sizeof(sCommand), "play *%s", gShadow_LR_NoScope_Sound);
-									ClientCommand(idx, sCommand);
+									EmitSoundToClientAny(idx, sCommand);
 								}
 							}
 						}
