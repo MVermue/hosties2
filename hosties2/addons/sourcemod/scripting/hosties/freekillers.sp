@@ -120,11 +120,10 @@ Freekillers_OnConfigsExecuted()
 {
 	// check for -1 for backward compatibility
 	GetConVarString(gH_Cvar_Freekill_Sound, gShadow_Freekill_Sound, sizeof(gShadow_Freekill_Sound));
-	if ((strlen(gShadow_Freekill_Sound) > 0) && !StrEqual(gShadow_Freekill_Sound, "-1"))
-	{
-		new MediaType:soundfile = type_Sound;
-		CacheTheFile(gShadow_Freekill_Sound, soundfile);
-	}
+	decl String:sBuffer[PLATFORM_MAX_PATH];
+	PrecacheSoundAny(gShadow_Freekill_Sound);
+	Format(sBuffer, sizeof(sBuffer), "sound/%s", gShadow_Freekill_Sound);
+	AddFileToDownloadsTable(sBuffer);
 	
 	gShadow_Freekill_Threshold = GetConVarInt(gH_Cvar_Freekill_Threshold);
 	gShadow_Freekill_Notify = GetConVarBool(gH_Cvar_Freekill_Notify);

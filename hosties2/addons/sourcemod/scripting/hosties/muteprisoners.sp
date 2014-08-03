@@ -255,7 +255,7 @@ public MutePrisoners_RoundEnd(Handle:event, const String:name[], bool:dontBroadc
 	
 	if (gH_Timer_Unmuter != INVALID_HANDLE)
 	{
-		CloseHandle(gH_Timer_Unmuter);
+		KillTimer(gH_Timer_Unmuter);
 		gH_Timer_Unmuter = INVALID_HANDLE;
 	}
 }

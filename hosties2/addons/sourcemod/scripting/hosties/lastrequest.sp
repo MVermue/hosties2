@@ -2283,23 +2283,22 @@ LastRequest_OnConfigsExecuted()
 	}
 	g_bPushedToMenu = true;
 	
-	// check for -1 for backward compatibility
-	new MediaType:soundfile = type_Sound;
+	decl String:sBuffer1[PLATFORM_MAX_PATH], String:sBuffer2[PLATFORM_MAX_PATH], String:sBuffer3[PLATFORM_MAX_PATH];
 	GetConVarString(gH_Cvar_LR_NoScope_Sound, gShadow_LR_NoScope_Sound, sizeof(gShadow_LR_NoScope_Sound));
-	if ((strlen(gShadow_LR_NoScope_Sound) > 0) && !StrEqual(gShadow_LR_NoScope_Sound, "-1"))
-	{		
-		CacheTheFile(gShadow_LR_NoScope_Sound, soundfile);
-	}
+	PrecacheSoundAny(gShadow_LR_NoScope_Sound);
+	Format(sBuffer1, sizeof(sBuffer1), "sound/%s", gShadow_LR_NoScope_Sound);
+	AddFileToDownloadsTable(sBuffer1);
+
 	GetConVarString(gH_Cvar_LR_Sound, gShadow_LR_Sound, sizeof(gShadow_LR_Sound));
-	if ((strlen(gShadow_LR_Sound) > 0) && !StrEqual(gShadow_LR_Sound, "-1"))
-	{
-		CacheTheFile(gShadow_LR_Sound, soundfile);
-	}
+	PrecacheSoundAny(gShadow_LR_Sound);
+	Format(sBuffer2, sizeof(sBuffer2), "sound/%s", gShadow_LR_Sound);
+	AddFileToDownloadsTable(sBuffer2);
+
 	GetConVarString(gH_Cvar_LR_Beacon_Sound, gShadow_LR_Beacon_Sound, sizeof(gShadow_LR_Beacon_Sound));
-	if ((strlen(gShadow_LR_Beacon_Sound) > 0) && !StrEqual(gShadow_LR_Beacon_Sound, "-1"))
-	{
-		CacheTheFile(gShadow_LR_Beacon_Sound, soundfile);
-	}
+	PrecacheSoundAny(gShadow_LR_Beacon_Sound);
+	Format(sBuffer3, sizeof(sBuffer3), "sound/%s", gShadow_LR_Beacon_Sound);
+	AddFileToDownloadsTable(sBuffer3);
+
 	
 	// update settings from configs
 	gShadow_LR_Enable = bool:GetConVarInt(gH_Cvar_LR_Enable);
@@ -3974,10 +3973,29 @@ InitializeGame(iPartnersIndex)
 			SetEntData(LR_Player_Guard, g_Offset_Health, 1);
 
 			// give flashbangs
-			new flash1 = GivePlayerItem(LR_Player_Prisoner, "weapon_flashbang");
-			new flash2 = GivePlayerItem(LR_Player_Guard, "weapon_flashbang");
-			EquipPlayerWeapon(LR_Player_Prisoner, flash1);
-			EquipPlayerWeapon(LR_Player_Guard, flash2);
+			new p_iWeapon = GetPlayerWeaponSlot(LR_Player_Prisoner, CS_SLOT_GRENADE);
+			new g_iWeapon = GetPlayerWeaponSlot(LR_Player_Guard, CS_SLOT_GRENADE);
+
+			if (p_iWeapon != INVALID_ENT_REFERENCE)
+			{
+				RemovePlayerItem(LR_Player_Prisoner, p_iWeapon);
+				AcceptEntityInput(p_iWeapon, "Kill");
+				GivePlayerItem(LR_Player_Prisoner, "weapon_flashbang");
+			}
+			else
+			{
+				GivePlayerItem(LR_Player_Prisoner, "weapon_flashbang");
+			}
+			if (g_iWeapon != INVALID_ENT_REFERENCE)
+			{
+				RemovePlayerItem(LR_Player_Guard, g_iWeapon);
+				AcceptEntityInput(g_iWeapon, "Kill");
+				GivePlayerItem(LR_Player_Guard, "weapon_flashbang");
+			}
+			else
+			{
+				GivePlayerItem(LR_Player_Guard, "weapon_flashbang");
+			}
 
 			SetEntityGravity(LR_Player_Prisoner, gShadow_LR_Dodgeball_Gravity);
 			SetEntityGravity(LR_Player_Guard, gShadow_LR_Dodgeball_Gravity);
@@ -4955,8 +4973,17 @@ public Action:Timer_RemoveFlashbang(Handle:timer, any:entity)
 		
 		if ((client != -1) && IsClientInGame(client) && IsPlayerAlive(client) && Local_IsClientInLR(client))
 		{
-			new flash = GivePlayerItem(client, "weapon_flashbang");
-			EquipPlayerWeapon(client, flash);		
+			new iWeapon = GetPlayerWeaponSlot(client, CS_SLOT_GRENADE);
+			if (iWeapon != INVALID_ENT_REFERENCE)
+			{
+				RemovePlayerItem(client, iWeapon);
+				AcceptEntityInput(iWeapon, "Kill");
+				GivePlayerItem(client, "weapon_flashbang");
+			}
+			else
+			{
+				GivePlayerItem(client, "weapon_flashbang");
+			}
 		}
 	}
 }
