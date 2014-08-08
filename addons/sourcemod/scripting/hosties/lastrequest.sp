@@ -1212,12 +1212,14 @@ public LastRequest_PlayerHurt(Handle:event, const String:name[], bool:dontBroadc
 			}
 		}
 		
+		#if (MODULE_FREEKILL == 1)
 		// "freeattack" sound
 		if ((gShadow_Freekill_Sound_Mode == 0) && (strlen(gShadow_Freekill_Sound) > 0) \
 			&& !StrEqual(gShadow_Freekill_Sound, "-1") && (!bPrisonerHasGun))
 		{
 			EmitSoundToAllAny(gShadow_Freekill_Sound);
 		}
+		#endif
 	}
 }
 
@@ -5057,57 +5059,65 @@ public Action:Timer_Countdown(Handle:timer)
 					// grab weapon choice
 					new NoScopeWeapon:NS_Selection;
 					NS_Selection = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_Global2);					
-					new NSW_Prisoner, NSW_Guard;
 					switch (NS_Selection)
 					{
 						case NSW_AWP:
 						{
-							NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_awp");
-							NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_awp");
+							GiveItem(LR_Player_Prisoner, "weapon_awp", CS_SLOT_PRIMARY);
+							GiveItem(LR_Player_Guard, "weapon_awp", CS_SLOT_PRIMARY);
+							Client_SetWeaponClipAmmo(LR_Player_Prisoner, "weapon_awp", 99, 80);
+							Client_SetWeaponClipAmmo(LR_Player_Guard, "weapon_awp", 99, 80);
 						}
 						case NSW_Scout:
 						{
 							if(g_Game == Game_CSS)
 							{
-								NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_scout");
-								NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_scout");
+								GiveItem(LR_Player_Prisoner, "weapon_scout", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Guard, "weapon_scout", CS_SLOT_PRIMARY);
+								Client_SetWeaponClipAmmo(LR_Player_Prisoner, "weapon_scout", 99, 80);
+								Client_SetWeaponClipAmmo(LR_Player_Guard, "weapon_scout", 99, 80);
 							}
 							else if(g_Game == Game_CSGO)
 							{
-								NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_ssg08");
-								NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_ssg08");
+								GiveItem(LR_Player_Prisoner, "weapon_ssg08", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Guard, "weapon_ssg08", CS_SLOT_PRIMARY);
+								Client_SetWeaponClipAmmo(LR_Player_Prisoner, "weapon_ssg08", 99, 80);
+								Client_SetWeaponClipAmmo(LR_Player_Guard, "weapon_ssg08", 99, 80);
 							}
 						}
 						case NSW_SG550:
 						{
 							if(g_Game == Game_CSS)
 							{
-								NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_sg550");
-								NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_sg550");
+								GiveItem(LR_Player_Prisoner, "weapon_sg550", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Guard, "weapon_sg550", CS_SLOT_PRIMARY);
+								Client_SetWeaponClipAmmo(LR_Player_Prisoner, "weapon_sg550", 99, 80);
+								Client_SetWeaponClipAmmo(LR_Player_Guard, "weapon_sg550", 99, 80);
 							}
 							else if(g_Game == Game_CSGO)
 							{
-								NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_scar20");
-								NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_scar20");
+								GiveItem(LR_Player_Prisoner, "weapon_scar20", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Guard, "weapon_scar20", CS_SLOT_PRIMARY);
+								Client_SetWeaponClipAmmo(LR_Player_Prisoner, "weapon_scar20", 99, 80);
+								Client_SetWeaponClipAmmo(LR_Player_Guard, "weapon_scar20", 99, 80);
 							}
 						}
 						case NSW_G3SG1:
 						{
-							NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_g3sg1");
-							NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_g3sg1");
+							GiveItem(LR_Player_Prisoner, "weapon_g3sg1", CS_SLOT_PRIMARY);
+							GiveItem(LR_Player_Guard, "weapon_g3sg1", CS_SLOT_PRIMARY);
+							Client_SetWeaponClipAmmo(LR_Player_Prisoner, "weapon_g3sg1", 99, 80);
+							Client_SetWeaponClipAmmo(LR_Player_Guard, "weapon_g3sg1", 99, 80);
 						}
 						default:
 						{
 							LogError("hit default NS");
-							NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_awp");
-							NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_awp");
+							GiveItem(LR_Player_Prisoner, "weapon_awp", CS_SLOT_PRIMARY);
+							GiveItem(LR_Player_Guard, "weapon_awp", CS_SLOT_PRIMARY);
+							Client_SetWeaponClipAmmo(LR_Player_Prisoner, "weapon_awp", 99, 80);
+							Client_SetWeaponClipAmmo(LR_Player_Guard, "weapon_awp", 99, 80);
 						}
-					}
-					
-					EquipPlayerWeapon(LR_Player_Prisoner, NSW_Prisoner);
-					EquipPlayerWeapon(LR_Player_Guard, NSW_Guard);
-					SetEntData(NSW_Prisoner, g_Offset_Clip1, 99);
-					SetEntData(NSW_Guard, g_Offset_Clip1, 99);		
+					}	
 					
 					if ((strlen(gShadow_LR_NoScope_Sound) > 0) && !StrEqual(gShadow_LR_NoScope_Sound, "-1"))
 					{
