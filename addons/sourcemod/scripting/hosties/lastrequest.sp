@@ -370,8 +370,8 @@ LastRequest_OnPluginStart()
 	HookEvent("player_death", LastRequest_PlayerDeath);
 	HookEvent("bullet_impact", LastRequest_BulletImpact);
 	HookEvent("player_disconnect", LastRequest_PlayerDisconnect);
-	HookEvent("weapon_zoom", LastRequest_WeaponZoom, EventHookMode_Pre);
 	HookEvent("weapon_fire", LastRequest_WeaponFire);
+	HookEvent("weapon_fire", LastRequest_WeaponFirePost, EventHookMode_Post);
 	HookEvent("player_jump", LastRequest_PlayerJump);
 	
 	// Make global arrays
@@ -635,6 +635,7 @@ LastRequest_OnPluginStart()
 			SDKHook(idx, SDKHook_WeaponEquip, OnWeaponEquip);
 			SDKHook(idx, SDKHook_WeaponCanUse, OnWeaponDecideUse);
 			SDKHook(idx, SDKHook_OnTakeDamage, OnTakeDamage);
+			SDKHook(idx, SDKHook_PreThink, OnPreThink);
 		}
 		g_bIsARebel[idx] = false;
 		g_bInLastRequest[idx] = false;
@@ -1475,49 +1476,6 @@ public LastRequest_BulletImpact(Handle:event, const String:name[], bool:dontBroa
 	}
 }
 
-public Action:OnPlayerRunCmd(client, &buttons, &impulse, Float:vel[3], Float:angles[3], &weapon)
-{
-	for (new idx = 0; idx < GetArraySize(gH_DArray_LR_Partners); idx++)
-	{	
-		new LastRequest:type = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_LRType);
-		if (type == LR_NoScope)
-		{
-			new LR_Player_Prisoner = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_Prisoner);
-			new LR_Player_Guard = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_Guard);
-			if (client == LR_Player_Prisoner || client == LR_Player_Guard)
-			{
-				buttons &= ~IN_ATTACK2;
-			}
-		}
-	}
-	return Plugin_Continue;
-}
-
-public Action:LastRequest_WeaponZoom(Handle:event, const String:name[], bool:dontBroadcast)
-{
-	new iArraySize = GetArraySize(gH_DArray_LR_Partners);
-	if (iArraySize > 0)
-	{
-		new client = GetClientOfUserId(GetEventInt(event, "userid"));
-		for (new idx = 0; idx < GetArraySize(gH_DArray_LR_Partners); idx++)
-		{	
-			new LastRequest:type = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_LRType);
-			if (type == LR_NoScope)
-			{
-				new LR_Player_Prisoner = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_Prisoner);
-				new LR_Player_Guard = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_Guard);
-				if (client == LR_Player_Prisoner || client == LR_Player_Guard)
-				{
-					SetEntData(client, g_Offset_FOV, 0, 4, true);
-					return Plugin_Handled;
-				}
-			}
-		}
-	}
-	
-	return Plugin_Continue;
-}
-
 public LastRequest_PlayerJump(Handle:event, const String:name[], bool:dontBroadcast)
 {
 	new iArraySize = GetArraySize(gH_DArray_LR_Partners);
@@ -1808,35 +1766,38 @@ public LastRequest_WeaponFire(Handle:event, const String:name[], bool:dontBroadc
 					}
 				}	
 			}			
-			else if (type == LR_NoScope)
+		}
+	}
+} // end LastRequest_WeaponFire
+
+public LastRequest_WeaponFirePost(Handle:event, const String:name[], bool:dontBroadcast)
+{
+	new iArraySize = GetArraySize(gH_DArray_LR_Partners);
+	if (iArraySize > 0)
+	{
+		new client = GetClientOfUserId(GetEventInt(event, "userid"));
+		for (new idx = 0; idx < GetArraySize(gH_DArray_LR_Partners); idx++)
+		{
+			new LastRequest:type = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_LRType);
+			if (type == LR_NoScope)
 			{
 				new LR_Player_Prisoner = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_Prisoner);
 				new LR_Player_Guard = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_Guard);
 				if (client == LR_Player_Prisoner || client == LR_Player_Guard)
 				{
-					// grab weapon choice
-					new NoScopeWeapon:NS_Selection;
-					NS_Selection = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_Global2);					
-					switch (NS_Selection)
+					decl String:sWeapon[32];
+					GetEventString(event, "weapon", sWeapon, sizeof(sWeapon));
+
+					if(StrEqual(sWeapon, "weapon_awp", false) || StrEqual(sWeapon, "weapon_scout", false) || StrEqual(sWeapon, "weapon_ssg08", false) || StrEqual(sWeapon, "weapon_sg550", false) || StrEqual(sWeapon, "weapon_scar20", false) || StrEqual(sWeapon, "weapon_g3sg1", false))
 					{
-						case NSW_AWP:
-						{
-							CreateTimer(1.8, Timer_ResetZoom, GetClientUserId(client), TIMER_FLAG_NO_MAPCHANGE);
-						}
-						case NSW_Scout:
-						{
-							CreateTimer(1.3, Timer_ResetZoom, GetClientUserId(client), TIMER_FLAG_NO_MAPCHANGE);
-						}
-						default:
-						{
-							CreateTimer(0.5, Timer_ResetZoom, GetClientUserId(client), TIMER_FLAG_NO_MAPCHANGE);
-						}
+						new iClientWeapon = GetEntDataEnt2(client, g_Offset_ActiveWeapon);	
+						SetEntDataFloat(iClientWeapon, g_Offset_SecAttack, GetGameTime() + 9999.9);
 					}
 				}
 			}
 		}
 	}
-} // end LastRequest_WeaponFire
+}
 
 public Action:Timer_ResetZoom(Handle:timer, any:UserId)
 {
@@ -1927,6 +1888,41 @@ public Action:OnTakeDamage(victim, &attacker, &inflictor, &Float:damage, &damage
 	}
 	return Plugin_Continue;
 }  
+
+public Action:OnPreThink(client)
+{
+	new iArraySize = GetArraySize(gH_DArray_LR_Partners);
+	if (iArraySize > 0)
+	{
+		for (new idx = 0; idx < GetArraySize(gH_DArray_LR_Partners); idx++)
+		{
+			new LastRequest:type = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_LRType);
+			if (type == LR_NoScope)
+			{
+				new LR_Player_Prisoner = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_Prisoner);
+				new LR_Player_Guard = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_Guard);
+				if (client == LR_Player_Prisoner || client == LR_Player_Guard)
+				{
+					new iWeapon = GetEntPropEnt(client, Prop_Send, "m_hActiveWeapon");
+
+					if(!IsValidEdict(iWeapon))
+					{
+						return;
+					}
+
+					decl String:sWeapon[32];
+					GetEdictClassname(iWeapon, sWeapon, sizeof(sWeapon));
+
+					if(StrEqual(sWeapon, "weapon_awp", false) || StrEqual(sWeapon, "weapon_scout", false) || StrEqual(sWeapon, "weapon_ssg08", false) || StrEqual(sWeapon, "weapon_sg550", false) || StrEqual(sWeapon, "weapon_scar20", false) || StrEqual(sWeapon, "weapon_g3sg1", false))
+					{
+						new iClientWeapon = GetEntDataEnt2(client, g_Offset_ActiveWeapon);	
+						SetEntDataFloat(iClientWeapon, g_Offset_SecAttack, GetGameTime() + 9999.9);
+					}
+				}
+			}
+		}
+	}
+}
 
 public Action:OnWeaponDecideUse(client, weapon)
 {
@@ -2055,6 +2051,17 @@ public Action:OnWeaponEquip(client, weapon)
 								PrintToChat(LR_Player_Guard, CHAT_BANNER, "Hot Potato Pickup", client);
 							}
 						}
+					}
+				}
+				else if (type == LR_NoScope)
+				{
+					decl String:sWeapon[32];
+					GetEdictClassname(weapon, sWeapon, sizeof(sWeapon));
+
+					if(StrEqual(sWeapon, "weapon_awp", false) || StrEqual(sWeapon, "weapon_scout", false) || StrEqual(sWeapon, "weapon_ssg08", false) || StrEqual(sWeapon, "weapon_sg550", false) || StrEqual(sWeapon, "weapon_scar20", false) || StrEqual(sWeapon, "weapon_g3sg1", false))
+					{
+						new iClientWeapon = GetEntDataEnt2(client, g_Offset_ActiveWeapon);	
+						SetEntDataFloat(iClientWeapon, g_Offset_SecAttack, GetGameTime() + 9999.9);
 					}
 				}
 			}
@@ -2766,6 +2773,7 @@ LastRequest_ClientPutInServer(client)
 	SDKHook(client, SDKHook_WeaponEquip, OnWeaponEquip);
 	SDKHook(client, SDKHook_WeaponCanUse, OnWeaponDecideUse);
 	SDKHook(client, SDKHook_OnTakeDamage, OnTakeDamage); 
+	SDKHook(client, SDKHook_PreThink, OnPreThink); 
 }
 
 public Action:Command_LastRequest(client, args)
@@ -4070,57 +4078,51 @@ InitializeGame(iPartnersIndex)
 			// launch now if there's no countdown requested
 			else
 			{				
-				new NSW_Prisoner, NSW_Guard;
 				switch (WeaponChoice)
 				{
 					case NSW_AWP:
-					{
-						NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_awp");
-						NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_awp");
-					}
-					case NSW_Scout:
-					{
-						if (g_Game == Game_CSS)
 						{
-							NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_scout");
-							NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_scout");
+							GiveItem(LR_Player_Prisoner, "weapon_awp", CS_SLOT_PRIMARY);
+							GiveItem(LR_Player_Guard, "weapon_awp", CS_SLOT_PRIMARY);
 						}
-						else if (g_Game == Game_CSGO)
+						case NSW_Scout:
 						{
-							NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_ssg08");
-							NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_ssg08");
+							if(g_Game == Game_CSS)
+							{
+								GiveItem(LR_Player_Prisoner, "weapon_scout", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Guard, "weapon_scout", CS_SLOT_PRIMARY);
+							}
+							else if(g_Game == Game_CSGO)
+							{
+								GiveItem(LR_Player_Prisoner, "weapon_ssg08", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Guard, "weapon_ssg08", CS_SLOT_PRIMARY);
+							}
 						}
-					}
-					case NSW_SG550:
-					{
-						if (g_Game == Game_CSS)
+						case NSW_SG550:
 						{
-							NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_sg550");
-							NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_sg550");
+							if(g_Game == Game_CSS)
+							{
+								GiveItem(LR_Player_Prisoner, "weapon_sg550", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Guard, "weapon_sg550", CS_SLOT_PRIMARY);
+							}
+							else if(g_Game == Game_CSGO)
+							{
+								GiveItem(LR_Player_Prisoner, "weapon_scar20", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Guard, "weapon_scar20", CS_SLOT_PRIMARY);
+							}
 						}
-						else if (g_Game == Game_CSGO)
+						case NSW_G3SG1:
 						{
-							NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_scar20");
-							NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_scar20");
+							GiveItem(LR_Player_Prisoner, "weapon_g3sg1", CS_SLOT_PRIMARY);
+							GiveItem(LR_Player_Guard, "weapon_g3sg1", CS_SLOT_PRIMARY);
 						}
-					}
-					case NSW_G3SG1:
-					{
-						NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_g3sg1");
-						NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_g3sg1");
-					}
-					default:
-					{
-						LogError("hit default NS");
-						NSW_Prisoner = GivePlayerItem(LR_Player_Prisoner, "weapon_awp");
-						NSW_Guard = GivePlayerItem(LR_Player_Guard, "weapon_awp");
-					}
+						default:
+						{
+							LogError("hit default NS");
+							GiveItem(LR_Player_Prisoner, "weapon_awp", CS_SLOT_PRIMARY);
+							GiveItem(LR_Player_Guard, "weapon_awp", CS_SLOT_PRIMARY);
+						}
 				}
-				
-				EquipPlayerWeapon(LR_Player_Prisoner, NSW_Prisoner);
-				EquipPlayerWeapon(LR_Player_Guard, NSW_Guard);
-				SetEntData(NSW_Prisoner, g_Offset_Clip1, 99);
-				SetEntData(NSW_Guard, g_Offset_Clip1, 99);		
 				
 				if ((strlen(gShadow_LR_NoScope_Sound) > 0) && !StrEqual(gShadow_LR_NoScope_Sound, "-1"))
 				{
@@ -5065,8 +5067,6 @@ public Action:Timer_Countdown(Handle:timer)
 						{
 							GiveItem(LR_Player_Prisoner, "weapon_awp", CS_SLOT_PRIMARY);
 							GiveItem(LR_Player_Guard, "weapon_awp", CS_SLOT_PRIMARY);
-							Client_SetWeaponClipAmmo(LR_Player_Prisoner, "weapon_awp", 99, 80);
-							Client_SetWeaponClipAmmo(LR_Player_Guard, "weapon_awp", 99, 80);
 						}
 						case NSW_Scout:
 						{
@@ -5074,15 +5074,11 @@ public Action:Timer_Countdown(Handle:timer)
 							{
 								GiveItem(LR_Player_Prisoner, "weapon_scout", CS_SLOT_PRIMARY);
 								GiveItem(LR_Player_Guard, "weapon_scout", CS_SLOT_PRIMARY);
-								Client_SetWeaponClipAmmo(LR_Player_Prisoner, "weapon_scout", 99, 80);
-								Client_SetWeaponClipAmmo(LR_Player_Guard, "weapon_scout", 99, 80);
 							}
 							else if(g_Game == Game_CSGO)
 							{
 								GiveItem(LR_Player_Prisoner, "weapon_ssg08", CS_SLOT_PRIMARY);
 								GiveItem(LR_Player_Guard, "weapon_ssg08", CS_SLOT_PRIMARY);
-								Client_SetWeaponClipAmmo(LR_Player_Prisoner, "weapon_ssg08", 99, 80);
-								Client_SetWeaponClipAmmo(LR_Player_Guard, "weapon_ssg08", 99, 80);
 							}
 						}
 						case NSW_SG550:
@@ -5091,33 +5087,25 @@ public Action:Timer_Countdown(Handle:timer)
 							{
 								GiveItem(LR_Player_Prisoner, "weapon_sg550", CS_SLOT_PRIMARY);
 								GiveItem(LR_Player_Guard, "weapon_sg550", CS_SLOT_PRIMARY);
-								Client_SetWeaponClipAmmo(LR_Player_Prisoner, "weapon_sg550", 99, 80);
-								Client_SetWeaponClipAmmo(LR_Player_Guard, "weapon_sg550", 99, 80);
 							}
 							else if(g_Game == Game_CSGO)
 							{
 								GiveItem(LR_Player_Prisoner, "weapon_scar20", CS_SLOT_PRIMARY);
 								GiveItem(LR_Player_Guard, "weapon_scar20", CS_SLOT_PRIMARY);
-								Client_SetWeaponClipAmmo(LR_Player_Prisoner, "weapon_scar20", 99, 80);
-								Client_SetWeaponClipAmmo(LR_Player_Guard, "weapon_scar20", 99, 80);
 							}
 						}
 						case NSW_G3SG1:
 						{
 							GiveItem(LR_Player_Prisoner, "weapon_g3sg1", CS_SLOT_PRIMARY);
 							GiveItem(LR_Player_Guard, "weapon_g3sg1", CS_SLOT_PRIMARY);
-							Client_SetWeaponClipAmmo(LR_Player_Prisoner, "weapon_g3sg1", 99, 80);
-							Client_SetWeaponClipAmmo(LR_Player_Guard, "weapon_g3sg1", 99, 80);
 						}
 						default:
 						{
 							LogError("hit default NS");
 							GiveItem(LR_Player_Prisoner, "weapon_awp", CS_SLOT_PRIMARY);
 							GiveItem(LR_Player_Guard, "weapon_awp", CS_SLOT_PRIMARY);
-							Client_SetWeaponClipAmmo(LR_Player_Prisoner, "weapon_awp", 99, 80);
-							Client_SetWeaponClipAmmo(LR_Player_Guard, "weapon_awp", 99, 80);
 						}
-					}	
+					}
 					
 					if ((strlen(gShadow_LR_NoScope_Sound) > 0) && !StrEqual(gShadow_LR_NoScope_Sound, "-1"))
 					{

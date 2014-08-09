@@ -188,8 +188,26 @@ public Action:Timer_GiveItem(Handle:timer, Handle:hPack)
 		}
 		else
 		{
-			new iTeam = GivePlayerItem(client, sWeapon);
-			EquipPlayerWeapon(client, iTeam);
+			new iItem = GivePlayerItem(client, sWeapon);
+			EquipPlayerWeapon(client, iItem);
+
+			if(StrEqual(sWeapon, "weapon_awp", false) || StrEqual(sWeapon, "weapon_scout", false) || StrEqual(sWeapon, "weapon_ssg08", false) || StrEqual(sWeapon, "weapon_sg550", false) || StrEqual(sWeapon, "weapon_scar20", false) || StrEqual(sWeapon, "weapon_g3sg1", false))
+			{
+				Weapon_SetClips(iItem, 100, 100):
+
+				new g_Offset_NextSecAttack = FindSendPropOffs("CBaseCombatWeapon", "m_flNextSecondaryAttack");
+				SetEntDataFloat(iItem, g_Offset_NextSecAttack, GetGameTime() + 9999.9);
+			}
+
+			if(StrEqual(sWeapon, "weapon_m249", false))
+			{
+				Weapon_SetClips(iItem, 100, 200):
+			}
+
+			if(StrEqual(sWeapon, "weapon_deagle", false))
+			{
+				Weapon_SetClips(iItem, 7, 35):
+			}
 		}
 	}
 }
