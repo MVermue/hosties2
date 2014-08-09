@@ -69,6 +69,11 @@ StartWeapons_OnConfigsExecuted()
 public StartWeapons_Spawn(Handle:event, const String:name[], bool:dontBroadcast)
 {
 	new client = GetClientOfUserId(GetEventInt(event, "userid"));
+
+	if(!IsClientInGame(client) || IsFakeClient(client))
+	{
+		return;
+	}
 	
 	if (gShadow_StartWeaponsOn)
 	{
