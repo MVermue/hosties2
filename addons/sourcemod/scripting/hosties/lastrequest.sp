@@ -371,7 +371,6 @@ LastRequest_OnPluginStart()
 	HookEvent("bullet_impact", LastRequest_BulletImpact);
 	HookEvent("player_disconnect", LastRequest_PlayerDisconnect);
 	HookEvent("weapon_fire", LastRequest_WeaponFire);
-	HookEvent("weapon_fire", LastRequest_WeaponFirePost, EventHookMode_Post);
 	HookEvent("player_jump", LastRequest_PlayerJump);
 	
 	// Make global arrays
@@ -1769,35 +1768,6 @@ public LastRequest_WeaponFire(Handle:event, const String:name[], bool:dontBroadc
 		}
 	}
 } // end LastRequest_WeaponFire
-
-public LastRequest_WeaponFirePost(Handle:event, const String:name[], bool:dontBroadcast)
-{
-	new iArraySize = GetArraySize(gH_DArray_LR_Partners);
-	if (iArraySize > 0)
-	{
-		new client = GetClientOfUserId(GetEventInt(event, "userid"));
-		for (new idx = 0; idx < GetArraySize(gH_DArray_LR_Partners); idx++)
-		{
-			new LastRequest:type = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_LRType);
-			if (type == LR_NoScope)
-			{
-				new LR_Player_Prisoner = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_Prisoner);
-				new LR_Player_Guard = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_Guard);
-				if (client == LR_Player_Prisoner || client == LR_Player_Guard)
-				{
-					decl String:sWeapon[32];
-					GetEventString(event, "weapon", sWeapon, sizeof(sWeapon));
-
-					if(StrEqual(sWeapon, "weapon_awp", false) || StrEqual(sWeapon, "weapon_scout", false) || StrEqual(sWeapon, "weapon_ssg08", false) || StrEqual(sWeapon, "weapon_sg550", false) || StrEqual(sWeapon, "weapon_scar20", false) || StrEqual(sWeapon, "weapon_g3sg1", false))
-					{
-						new iClientWeapon = GetEntDataEnt2(client, g_Offset_ActiveWeapon);	
-						SetEntDataFloat(iClientWeapon, g_Offset_SecAttack, GetGameTime() + 9999.9);
-					}
-				}
-			}
-		}
-	}
-}
 
 public Action:Timer_ResetZoom(Handle:timer, any:UserId)
 {
