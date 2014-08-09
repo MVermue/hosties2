@@ -1874,20 +1874,7 @@ public Action:OnPreThink(client)
 				if (client == LR_Player_Prisoner || client == LR_Player_Guard)
 				{
 					new iWeapon = GetEntPropEnt(client, Prop_Send, "m_hActiveWeapon");
-
-					if(!IsValidEdict(iWeapon))
-					{
-						return;
-					}
-
-					decl String:sWeapon[32];
-					GetEdictClassname(iWeapon, sWeapon, sizeof(sWeapon));
-
-					if(StrEqual(sWeapon, "weapon_awp", false) || StrEqual(sWeapon, "weapon_scout", false) || StrEqual(sWeapon, "weapon_ssg08", false) || StrEqual(sWeapon, "weapon_sg550", false) || StrEqual(sWeapon, "weapon_scar20", false) || StrEqual(sWeapon, "weapon_g3sg1", false))
-					{
-						new iClientWeapon = GetEntDataEnt2(client, g_Offset_ActiveWeapon);	
-						SetEntDataFloat(iClientWeapon, g_Offset_SecAttack, GetGameTime() + 9999.9);
-					}
+					SetNoScope(iWeapon);
 				}
 			}
 		}
@@ -2025,14 +2012,7 @@ public Action:OnWeaponEquip(client, weapon)
 				}
 				else if (type == LR_NoScope)
 				{
-					decl String:sWeapon[32];
-					GetEdictClassname(weapon, sWeapon, sizeof(sWeapon));
-
-					if(StrEqual(sWeapon, "weapon_awp", false) || StrEqual(sWeapon, "weapon_scout", false) || StrEqual(sWeapon, "weapon_ssg08", false) || StrEqual(sWeapon, "weapon_sg550", false) || StrEqual(sWeapon, "weapon_scar20", false) || StrEqual(sWeapon, "weapon_g3sg1", false))
-					{
-						new iClientWeapon = GetEntDataEnt2(client, g_Offset_ActiveWeapon);	
-						SetEntDataFloat(iClientWeapon, g_Offset_SecAttack, GetGameTime() + 9999.9);
-					}
+					SetNoScope(weapon);
 				}
 			}
 		}

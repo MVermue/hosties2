@@ -193,21 +193,34 @@ public Action:Timer_GiveItem(Handle:timer, Handle:hPack)
 
 			if(StrEqual(sWeapon, "weapon_awp", false) || StrEqual(sWeapon, "weapon_scout", false) || StrEqual(sWeapon, "weapon_ssg08", false) || StrEqual(sWeapon, "weapon_sg550", false) || StrEqual(sWeapon, "weapon_scar20", false) || StrEqual(sWeapon, "weapon_g3sg1", false))
 			{
-				Weapon_SetClips(iItem, 100, 100):
-
-				new g_Offset_NextSecAttack = FindSendPropOffs("CBaseCombatWeapon", "m_flNextSecondaryAttack");
-				SetEntDataFloat(iItem, g_Offset_NextSecAttack, GetGameTime() + 9999.9);
+				Weapon_SetClips(iItem, 100, 100);
+				SetNoScope(iItem);
 			}
 
 			if(StrEqual(sWeapon, "weapon_m249", false))
 			{
-				Weapon_SetClips(iItem, 100, 200):
+				Weapon_SetClips(iItem, 100, 200);
 			}
 
 			if(StrEqual(sWeapon, "weapon_deagle", false))
 			{
-				Weapon_SetClips(iItem, 7, 35):
+				Weapon_SetClips(iItem, 7, 35);
 			}
+		}
+	}
+}
+
+stock SetNoScope(weapon)
+{
+	if(IsValidEdict(weapon))
+	{
+		decl String:sWeapon[32];
+		GetEdictClassname(weapon, sWeapon, sizeof(sWeapon));
+
+		if(StrEqual(sWeapon, "weapon_awp", false) || StrEqual(sWeapon, "weapon_scout", false) || StrEqual(sWeapon, "weapon_ssg08", false) || StrEqual(sWeapon, "weapon_sg550", false) || StrEqual(sWeapon, "weapon_scar20", false) || StrEqual(sWeapon, "weapon_g3sg1", false))
+		{
+			new g_Offset_NextSecAttack = FindSendPropOffs("CBaseCombatWeapon", "m_flNextSecondaryAttack");
+			SetEntDataFloat(weapon, g_Offset_NextSecAttack, GetGameTime() + 9999.9);
 		}
 	}
 }
