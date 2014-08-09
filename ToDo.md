@@ -22,10 +22,13 @@
 + Anti Gun Plant
 + I mean the last request "Freeday"
 + Players choose: "Freeday"
-+ He is killed (auto slay)
-+ In the next round is distinguished (beacon, color) 
+ + He is killed (auto slay)
+ + In the next round is distinguished (beacon, color) 
 + How do I set it so lr can only be used once per player. I do not want people able to use it more than once. It is last request after all.
-+ Better noscope method ( https://forums.alliedmods.net/showpost.php?p=2095775&postcount=2 )
++ Add noscope method ( https://forums.alliedmods.net/showpost.php?p=2095775&postcount=2 )
++ Fix Server crash when bots joined a team
++ Improve 3th person
++ Fix a bug in paper stone scissors
 
 1.Admin Menu
  + Make Rebel
