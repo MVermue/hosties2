@@ -5,4 +5,5 @@
 + Rewritten NoScope method
 + Added EmitSoundAny for better sound support under csgo
 + Remove armor when a lr game is starting
++ Plugin works now with bots
 + Fix a few bugs

@@ -216,6 +216,9 @@ public OnMapStart()
 	#if (MODULE_CONTROL == 1)
 	Control_OnMapStart();
 	#endif
+	#if (MODULE_MUTE == 1)
+	MutePrisoners_OnMapStart();
+	#endif
 }
 
 public OnMapEnd()
