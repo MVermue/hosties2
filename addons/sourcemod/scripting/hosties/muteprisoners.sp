@@ -87,15 +87,6 @@ MutePrisoners_OnConfigsExecuted()
 	MutePrisoners_CalcImmunity();
 }
 
-MutePrisoners_OnMapStart()
-{
-	if (gH_Timer_Unmuter != INVALID_HANDLE)
-	{
-		CloseHandle(gH_Timer_Unmuter);
-		gH_Timer_Unmuter = INVALID_HANDLE;
-	}
-}
-
 stock MuteTs()
 {
 	for(new i = 1; i <= MaxClients; i++)
@@ -291,12 +282,6 @@ public MutePrisoners_RoundStart(Handle:event, const String:name[], bool:dontBroa
 		}
 		
 		// Unmute Timer
-		if (gH_Timer_Unmuter != INVALID_HANDLE)
-		{
-			CloseHandle(gH_Timer_Unmuter);
-			gH_Timer_Unmuter = INVALID_HANDLE;
-		}
-
 		gH_Timer_Unmuter = CreateTimer(gShadow_MuteLength, Timer_UnmutePrisoners, _, TIMER_FLAG_NO_MAPCHANGE);
 		
 		PrintToChatAll(CHAT_BANNER, "Ts Muted", RoundToNearest(gShadow_MuteLength));
