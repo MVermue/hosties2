@@ -73,7 +73,7 @@ stock StripAllWeapons(client)
 	new wepIdx;
 	for (new i; i < 4; i++)
 	{
-		if ((wepIdx = GetPlayerWeaponSlot(client, i)) != -1)
+		while ((wepIdx = GetPlayerWeaponSlot(client, i)) != -1)
 		{
 			RemovePlayerItem(client, wepIdx);
 			AcceptEntityInput(wepIdx, "Kill");
