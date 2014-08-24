@@ -5262,33 +5262,17 @@ public RPSmenuHandler(Handle:menu, MenuAction:action, client, param2)
 							SetMenuExitButton(rpsmenu2, true);
 							DisplayMenu(rpsmenu2, LR_Player_Guard, 15);
 						}
-						// if THIS player has won
+						// if the Guard has won
 						else if ( (RPS_Guard_Choice == 0 && RPS_Prisoner_Choice == 2) || (RPS_Guard_Choice == 1 && RPS_Prisoner_Choice == 0) || (RPS_Guard_Choice == 2 && RPS_Prisoner_Choice == 1) )
 						{
-							if (client == LR_Player_Prisoner)
-							{
-								KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
-								PrintToChatAll(CHAT_BANNER, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Prisoner);
-							}
-							else
-							{
-								KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
-								PrintToChatAll(CHAT_BANNER, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Guard);
-							}
+							KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
+							PrintToChatAll(CHAT_BANNER, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Guard);
 						}
-						// otherwise THIS player has lost
+						// otherwise the Prisoner has won
 						else
 						{
-							if (client == LR_Player_Guard)
-							{
-								KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
-								PrintToChatAll(CHAT_BANNER, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Prisoner);
-							}
-							else
-							{
-								KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
-								PrintToChatAll(CHAT_BANNER, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Guard);
-							}
+							KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
+							PrintToChatAll(CHAT_BANNER, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Prisoner);
 						}				
 					}				
 				}		
