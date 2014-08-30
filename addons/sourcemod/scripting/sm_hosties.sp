@@ -80,6 +80,8 @@ new GameType:g_Game = Game_Unknown;
 new Handle:gH_TopMenu = INVALID_HANDLE;
 new TopMenuObject:gM_Hosties = INVALID_TOPMENUOBJECT;
 
+new Handle:gH_Cvar_Thirdperson = INVALID_HANDLE;
+
 #if (MODULE_FREEKILL == 1)
 new Handle:gH_Cvar_Freekill_Sound = INVALID_HANDLE;
 new Handle:gH_Cvar_Freekill_Threshold = INVALID_HANDLE;
@@ -162,6 +164,13 @@ public OnPluginStart()
 	gH_Cvar_Display_Advert = CreateConVar("sm_hosties_display_advert", "1", "Enable or disable the display of the Powered by SM Hosties message at the start of each round.", FCVAR_PLUGIN, true, 0.0, true, 1.0);
 	
 	CreateConVar("sm_hosties_version", PLUGIN_VERSION, "SM_Hosties plugin version (unchangeable)", FCVAR_PLUGIN|FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY|FCVAR_DONTRECORD);
+	
+	gH_Cvar_Thirdperson = FindConVar("sv_allow_thirdperson");
+	if (gH_Cvar_Thirdperson != INVALID_HANDLE)
+	{
+		SetConVarInt(gH_Cvar_Thirdperson, 1);
+		HookConVarChange(gH_Cvar_Thirdperson, ConVarChanged);
+	}
 	
 	RegAdminCmd("sm_hostiesadmin", Command_HostiesAdmin, ADMFLAG_SLAY);
 	
@@ -396,3 +405,10 @@ public HostiesCategoryHandler(Handle:h_TopMenu, TopMenuAction:action, TopMenuObj
 	}
 }
 
+public ConVarChanged(Handle:cvar, const String:oldVal[], const String:newVal[])
+{
+	if (cvar == gH_Cvar_Thirdperson) {
+		if(StringToInt(newVal) != 1)
+			SetConVarInt(gH_Cvar_Thirdperson, 1);
+	}
+}
