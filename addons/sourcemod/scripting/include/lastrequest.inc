@@ -192,9 +192,7 @@ stock SetThirdPerson(client)
 {
 	if (IsValidEntity(client) && IsClientInGame(client))
 	{
-		decl String:game[64];
-		GetGameFolderName(game, sizeof(game));
-		if (StrEqual(game, "csgo"))
+		if (GetEngineVersion() == SOURCE_SDK_CSGO)
 		{
 			ClientCommand(client, "thirdperson");
 		}
@@ -212,9 +210,7 @@ stock SetFirstPerson(client)
 {
 	if (IsValidEntity(client) && IsClientInGame(client))
 	{
-		decl String:game[64];
-		GetGameFolderName(game, sizeof(game));
-		if (StrEqual(game, "csgo"))
+		if (GetEngineVersion() == SOURCE_SDK_CSGO)
 		{
 			ClientCommand(client, "firstperson");
 		}
