@@ -165,11 +165,15 @@ public OnPluginStart()
 	
 	CreateConVar("sm_hosties_version", PLUGIN_VERSION, "SM_Hosties plugin version (unchangeable)", FCVAR_PLUGIN|FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY|FCVAR_DONTRECORD);
 	
-	gH_Cvar_Thirdperson = FindConVar("sv_allow_thirdperson");
-	if (gH_Cvar_Thirdperson != INVALID_HANDLE)
+	if (g_Game == Game_CSGO)
 	{
-		SetConVarInt(gH_Cvar_Thirdperson, 1);
-		HookConVarChange(gH_Cvar_Thirdperson, ConVarChanged);
+		//just to be sure so it can't throw any errors in case valve decides to remove or change it
+		if ((gH_Cvar_Thirdperson = FindConVar("sv_allow_thirdperson")) != INVALID_HANDLE)
+		{
+			SetConVarInt(gH_Cvar_Thirdperson, 1);
+			HookConVarChange(gH_Cvar_Thirdperson, ConVarChanged);
+		}
+		else LogError("Valve removed or changed the cvar to allow for thirdperson in LR's :(");
 	}
 	
 	RegAdminCmd("sm_hostiesadmin", Command_HostiesAdmin, ADMFLAG_SLAY);

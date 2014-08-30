@@ -192,7 +192,7 @@ stock SetThirdPerson(client)
 {
 	if (IsValidEntity(client) && IsClientInGame(client))
 	{
-		if (GetEngineVersion() == EngineVersion:SOURCE_SDK_CSGO)
+		if (GetEngineVersion() == Engine_CSGO)
 		{
 			ClientCommand(client, "thirdperson");
 		}
@@ -210,7 +210,7 @@ stock SetFirstPerson(client)
 {
 	if (IsValidEntity(client) && IsClientInGame(client))
 	{
-		if (GetEngineVersion() == EngineVersion:SOURCE_SDK_CSGO)
+		if (GetEngineVersion() == Engine_CSGO)
 		{
 			ClientCommand(client, "firstperson");
 		}
