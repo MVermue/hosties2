@@ -13,7 +13,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.4"
+#define PLUGIN_VERSION "1.0.5"
 
 // Game types
 #define Game_CSS 0
@@ -105,7 +105,10 @@ public OnPluginStart()
 {
 	Hosties_CheckGame();
 
-	Hosties_IsLoaded();
+	if (!Hosties_IsLoaded())
+	{
+		SetFailState("SM_Hosties not loaded!");
+	}
 	
 	// Load translations
 	LoadTranslations("LR.GunGolf.phrases");

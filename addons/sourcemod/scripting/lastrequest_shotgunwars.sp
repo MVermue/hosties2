@@ -28,7 +28,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.6"
+#define PLUGIN_VERSION "1.0.8"
 
 // This global will store the index number for the new Last Request
 new g_LREntryNum;
@@ -60,7 +60,10 @@ public OnPluginStart()
 {
 	Hosties_CheckGame();
 
-	Hosties_IsLoaded();
+	if (!Hosties_IsLoaded())
+	{
+		SetFailState("SM_Hosties not loaded!");
+	}
 	
 	// Load translations
 	LoadTranslations("shotgunwars.phrases");
