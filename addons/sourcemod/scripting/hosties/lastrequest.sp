@@ -4032,45 +4032,45 @@ InitializeGame(iPartnersIndex)
 				{
 					case NSW_AWP:
 						{
-							GiveItem(LR_Player_Prisoner, "weapon_awp", CS_SLOT_PRIMARY);
-							GiveItem(LR_Player_Guard, "weapon_awp", CS_SLOT_PRIMARY);
+							GiveItem(LR_Player_Prisoner, "weapon_awp", CS_SLOT_PRIMARY, true, true);
+							GiveItem(LR_Player_Guard, "weapon_awp", CS_SLOT_PRIMARY, true, true);
 						}
 						case NSW_Scout:
 						{
 							if(g_Game == Game_CSS)
 							{
-								GiveItem(LR_Player_Prisoner, "weapon_scout", CS_SLOT_PRIMARY);
-								GiveItem(LR_Player_Guard, "weapon_scout", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Prisoner, "weapon_scout", CS_SLOT_PRIMARY, true, true);
+								GiveItem(LR_Player_Guard, "weapon_scout", CS_SLOT_PRIMARY, true, true);
 							}
 							else if(g_Game == Game_CSGO)
 							{
-								GiveItem(LR_Player_Prisoner, "weapon_ssg08", CS_SLOT_PRIMARY);
-								GiveItem(LR_Player_Guard, "weapon_ssg08", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Prisoner, "weapon_ssg08", CS_SLOT_PRIMARY, true, true);
+								GiveItem(LR_Player_Guard, "weapon_ssg08", CS_SLOT_PRIMARY, true, true);
 							}
 						}
 						case NSW_SG550:
 						{
 							if(g_Game == Game_CSS)
 							{
-								GiveItem(LR_Player_Prisoner, "weapon_sg550", CS_SLOT_PRIMARY);
-								GiveItem(LR_Player_Guard, "weapon_sg550", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Prisoner, "weapon_sg550", CS_SLOT_PRIMARY, true, true);
+								GiveItem(LR_Player_Guard, "weapon_sg550", CS_SLOT_PRIMARY, true, true);
 							}
 							else if(g_Game == Game_CSGO)
 							{
-								GiveItem(LR_Player_Prisoner, "weapon_scar20", CS_SLOT_PRIMARY);
-								GiveItem(LR_Player_Guard, "weapon_scar20", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Prisoner, "weapon_scar20", CS_SLOT_PRIMARY, true, true);
+								GiveItem(LR_Player_Guard, "weapon_scar20", CS_SLOT_PRIMARY, true, true);
 							}
 						}
 						case NSW_G3SG1:
 						{
-							GiveItem(LR_Player_Prisoner, "weapon_g3sg1", CS_SLOT_PRIMARY);
-							GiveItem(LR_Player_Guard, "weapon_g3sg1", CS_SLOT_PRIMARY);
+							GiveItem(LR_Player_Prisoner, "weapon_g3sg1", CS_SLOT_PRIMARY, true, true);
+							GiveItem(LR_Player_Guard, "weapon_g3sg1", CS_SLOT_PRIMARY, true, true);
 						}
 						default:
 						{
 							LogError("hit default NS");
-							GiveItem(LR_Player_Prisoner, "weapon_awp", CS_SLOT_PRIMARY);
-							GiveItem(LR_Player_Guard, "weapon_awp", CS_SLOT_PRIMARY);
+							GiveItem(LR_Player_Prisoner, "weapon_awp", CS_SLOT_PRIMARY, true, true);
+							GiveItem(LR_Player_Guard, "weapon_awp", CS_SLOT_PRIMARY, true, true);
 						}
 				}
 				
@@ -4123,8 +4123,8 @@ InitializeGame(iPartnersIndex)
 			StripAllWeapons(LR_Player_Prisoner);
 
 			// give knife, deagle, and m249
-			GiveItem(LR_Player_Prisoner, "weapon_m249", CS_SLOT_PRIMARY);
-			GiveItem(LR_Player_Prisoner, "weapon_deagle", CS_SLOT_SECONDARY);
+			GiveItem(LR_Player_Prisoner, "weapon_m249", CS_SLOT_PRIMARY, true, true);
+			GiveItem(LR_Player_Prisoner, "weapon_deagle", CS_SLOT_SECONDARY, true);
 			GiveItem(LR_Player_Prisoner, "weapon_knife", CS_SLOT_KNIFE);
 
 			// set primary and secondary ammo
@@ -5015,45 +5015,45 @@ public Action:Timer_Countdown(Handle:timer)
 					{
 						case NSW_AWP:
 						{
-							GiveItem(LR_Player_Prisoner, "weapon_awp", CS_SLOT_PRIMARY);
-							GiveItem(LR_Player_Guard, "weapon_awp", CS_SLOT_PRIMARY);
+							GiveItem(LR_Player_Prisoner, "weapon_awp", CS_SLOT_PRIMARY, true, true);
+							GiveItem(LR_Player_Guard, "weapon_awp", CS_SLOT_PRIMARY, true, true);
 						}
 						case NSW_Scout:
 						{
 							if(g_Game == Game_CSS)
 							{
-								GiveItem(LR_Player_Prisoner, "weapon_scout", CS_SLOT_PRIMARY);
-								GiveItem(LR_Player_Guard, "weapon_scout", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Prisoner, "weapon_scout", CS_SLOT_PRIMARY, true, true);
+								GiveItem(LR_Player_Guard, "weapon_scout", CS_SLOT_PRIMARY, true, true);
 							}
 							else if(g_Game == Game_CSGO)
 							{
-								GiveItem(LR_Player_Prisoner, "weapon_ssg08", CS_SLOT_PRIMARY);
-								GiveItem(LR_Player_Guard, "weapon_ssg08", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Prisoner, "weapon_ssg08", CS_SLOT_PRIMARY, true, true);
+								GiveItem(LR_Player_Guard, "weapon_ssg08", CS_SLOT_PRIMARY, true, true);
 							}
 						}
 						case NSW_SG550:
 						{
 							if(g_Game == Game_CSS)
 							{
-								GiveItem(LR_Player_Prisoner, "weapon_sg550", CS_SLOT_PRIMARY);
-								GiveItem(LR_Player_Guard, "weapon_sg550", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Prisoner, "weapon_sg550", CS_SLOT_PRIMARY, true, true);
+								GiveItem(LR_Player_Guard, "weapon_sg550", CS_SLOT_PRIMARY, true, true);
 							}
 							else if(g_Game == Game_CSGO)
 							{
-								GiveItem(LR_Player_Prisoner, "weapon_scar20", CS_SLOT_PRIMARY);
-								GiveItem(LR_Player_Guard, "weapon_scar20", CS_SLOT_PRIMARY);
+								GiveItem(LR_Player_Prisoner, "weapon_scar20", CS_SLOT_PRIMARY, true, true);
+								GiveItem(LR_Player_Guard, "weapon_scar20", CS_SLOT_PRIMARY, true, true);
 							}
 						}
 						case NSW_G3SG1:
 						{
-							GiveItem(LR_Player_Prisoner, "weapon_g3sg1", CS_SLOT_PRIMARY);
-							GiveItem(LR_Player_Guard, "weapon_g3sg1", CS_SLOT_PRIMARY);
+							GiveItem(LR_Player_Prisoner, "weapon_g3sg1", CS_SLOT_PRIMARY, true, true);
+							GiveItem(LR_Player_Guard, "weapon_g3sg1", CS_SLOT_PRIMARY, true, true);
 						}
 						default:
 						{
 							LogError("hit default NS");
-							GiveItem(LR_Player_Prisoner, "weapon_awp", CS_SLOT_PRIMARY);
-							GiveItem(LR_Player_Guard, "weapon_awp", CS_SLOT_PRIMARY);
+							GiveItem(LR_Player_Prisoner, "weapon_awp", CS_SLOT_PRIMARY, true, true);
+							GiveItem(LR_Player_Guard, "weapon_awp", CS_SLOT_PRIMARY, true, true);
 						}
 					}
 					

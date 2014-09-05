@@ -154,29 +154,41 @@ stock CacheTheFile(const String:path[], MediaType:filetype)
 	}
 }
 
-stock GiveItem(client, const String:sWeapon[], slot)
+stock GiveItem(client, const String:sWeapon[], slot, bool:bAmmoReplace = false, bool:bNoScope = false)
 {
 	new iWeapon = GetPlayerWeaponSlot(client, slot);
+	new Handle:hPack;
+
 	if (iWeapon != INVALID_ENT_REFERENCE)
 	{
 		RemovePlayerItem(client, iWeapon);
 		AcceptEntityInput(iWeapon, "Kill");
 	}
 
-	new Handle:hPack;
 	CreateDataTimer(0.1, Timer_GiveItem, hPack);
+
 	WritePackCell(hPack, GetClientUserId(client));
-	WritePackString(hPack, sWeapon);
 	WritePackCell(hPack, slot);
+	WritePackCell(hPack, bAmmoReplace);
+	WritePackCell(hPack, bNoScope);
+
+	WritePackString(hPack, sWeapon);
 }
 
 public Action:Timer_GiveItem(Handle:timer, Handle:hPack)
 {
-	ResetPack(hPack);
-	new client = GetClientOfUserId(ReadPackCell(hPack));
+	new client, slot;
+	new bool:bAmmoReplace, bool:bNoScope;
 	decl String:sWeapon[64];
+
+	ResetPack(hPack);
+
+	client = GetClientOfUserId(ReadPackCell(hPack));
+	slot = ReadPackCell(hPack);
+	bAmmoReplace = ReadPackCell(hPack);
+	bNoScope = ReadPackCell(hPack);
+
 	ReadPackString(hPack, sWeapon, sizeof(sWeapon));
-	new slot = ReadPackCell(hPack);
 
 	if(IsClientInGame(client))
 	{
@@ -193,18 +205,31 @@ public Action:Timer_GiveItem(Handle:timer, Handle:hPack)
 
 			if(StrEqual(sWeapon, "weapon_awp", false) || StrEqual(sWeapon, "weapon_scout", false) || StrEqual(sWeapon, "weapon_ssg08", false) || StrEqual(sWeapon, "weapon_sg550", false) || StrEqual(sWeapon, "weapon_scar20", false) || StrEqual(sWeapon, "weapon_g3sg1", false))
 			{
-				Weapon_SetClips(iItem, 100, 100);
-				SetNoScope(iItem);
+				if(bAmmoReplace)
+				{
+					Weapon_SetClips(iItem, 100, 100);
+				}
+				
+				if(bNoScope)
+				{
+					SetNoScope(iItem);
+				}
 			}
 
 			if(StrEqual(sWeapon, "weapon_m249", false))
 			{
-				Weapon_SetClips(iItem, 100, 200);
+				if(bAmmoReplace)
+				{
+					Weapon_SetClips(iItem, 100, 200);
+				}
 			}
 
 			if(StrEqual(sWeapon, "weapon_deagle", false))
 			{
-				Weapon_SetClips(iItem, 7, 35);
+				if(bAmmoReplace)
+				{
+					Weapon_SetClips(iItem, 7, 35);
+				}
 			}
 		}
 	}
