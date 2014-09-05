@@ -1,0 +1,97 @@
+"Phrases"
+{
+	"HP Fight"
+	{
+		"en"		"HP Fight's"
+	}
+
+	"M4A1 Fight"
+	{
+		"#format"	"{1:s}"
+		"en"		"{1} Fight"
+	}
+
+	"MP5 Fight"
+	{
+		"#format"	"{1:s}"
+		"en"		"{1} Fight"
+	}
+
+	"Bizon Fight"
+	{
+		"#format"	"{1:s}"
+		"en"		"{1} Fight"
+	}
+
+	"Galil Fight"
+	{
+		"#format"	"{1:s}"
+		"en"		"{1} Fight"
+	}
+
+	"AK47 Fight"
+	{
+		"#format"	"{1:s}"
+		"en"		"{1} Fight"
+	}
+
+	"P90 Fight"
+	{
+		"#format"	"{1:s}"
+		"en"		"{1} Fight"
+	}
+
+	"MachineGun Fight"
+	{
+		"#format"	"{1:s}"
+		"en"		"{1} Fight"
+	}
+
+	"LR M4A1 Start"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{1} chose to have a hp fight (M4A1) with {2}."
+	}
+
+	"LR MP5 Start"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{1} chose to have a hp fight (MP5)  with {2}."
+	}
+
+	"LR Bizon Start"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{1} chose to have a hp fight (Bizon)  with {2}."
+	}
+
+	"LR Galil Start"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{1} chose to have a hp fight (Galil)  with {2}."
+	}
+
+	"LR AK47 Start"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{1} chose to have a hp fight (AK47)  with {2}."
+	}
+
+	"LR P90 Start"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{1} chose to have a hp fight (P90)  with {2}."
+	}
+
+	"LR MGUN Start"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{1} chose to have a hp fight (M249)  with {2}."
+	}
+
+	"HF Win"
+	{
+		"#format"	"{1:N}"
+		"en"		"{1} won the HP Fight.."
+	}
+}
