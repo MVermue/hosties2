@@ -28,7 +28,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.4"
+#define PLUGIN_VERSION "1.0.5"
 
 // This global will store the index number for the new Last Request
 new g_LREntryNum;
@@ -59,6 +59,8 @@ public Plugin:myinfo =
 public OnPluginStart()
 {
 	CheckGame();
+
+	IsHostiesLoaded();
 	
 	// Load translations
 	LoadTranslations("shotgunwars.phrases");

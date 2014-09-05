@@ -257,3 +257,11 @@ stock CheckGame()
 		SetFailState("Only Counter-Strike: Source and Counter-Strike: Global Offensive are supported");
 	}
 }
+
+stock IsHostiesLoaded()
+{
+	if (!LibraryExists("hosties"))
+	{
+		SetFailState("SM_Hosties not loaded!");
+	}
+}
