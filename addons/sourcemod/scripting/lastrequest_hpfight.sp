@@ -10,7 +10,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.3"
+#define PLUGIN_VERSION "1.4"
 
 new g_LREntryNum;
 new g_This_LR_Type;
@@ -233,8 +233,16 @@ public LR_AfterMenu(weapon)
 		}
 		case 3:
 		{
-			wep1 = GivePlayerItem(g_LR_Player_Prisoner, "weapon_galil");
-			wep2 = GivePlayerItem(g_LR_Player_Guard, "weapon_galil");
+			if(GetEngineVersion() == Engine_CSS)
+			{
+				wep1 = GivePlayerItem(g_LR_Player_Prisoner, "weapon_galil");
+				wep2 = GivePlayerItem(g_LR_Player_Guard, "weapon_galil");
+			}
+			else if (GetEngineVersion() == Engine_CSGO)
+			{
+				wep1 = GivePlayerItem(g_LR_Player_Prisoner, "weapon_galilar");
+				wep2 = GivePlayerItem(g_LR_Player_Guard, "weapon_galilar");
+			}
 			
 			PrintToChatAll(CHAT_BANNER, "LR Galil Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
 		}
