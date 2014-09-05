@@ -15,7 +15,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.1.2"
+#define PLUGIN_VERSION "1.1.3"
 
 // This global will store the index number for the new Last Request
 new g_LREntryNum;
@@ -89,6 +89,8 @@ public Plugin:myinfo =
 public OnPluginStart()
 {
 	CheckGame();
+
+	IsHostiesLoaded();
 	
 	// Load translations
 	LoadTranslations("LR.Fruitninja.phrases");
