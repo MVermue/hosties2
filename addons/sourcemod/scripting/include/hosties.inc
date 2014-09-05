@@ -249,3 +249,11 @@ stock SetNoScope(weapon)
 		}
 	}
 }
+
+stock CheckGame()
+{
+	if(GetEngineVersion() != Engine_CSS && GetEngineVersion() != Engine_CSGO)
+	{
+		SetFailState("Only Counter-Strike: Source and Counter-Strike: Global Offensive are supported");
+	}
+}
