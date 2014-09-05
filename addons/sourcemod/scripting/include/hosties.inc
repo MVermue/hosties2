@@ -260,8 +260,5 @@ stock Hosties_CheckGame()
 
 stock Hosties_IsLoaded()
 {
-	if (!LibraryExists("hosties"))
-	{
-		SetFailState("SM_Hosties not loaded!");
-	}
+	return LibraryExists("hosties");
 }
