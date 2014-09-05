@@ -15,7 +15,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.1.5"
+#define PLUGIN_VERSION "1.1.9"
 
 // This global will store the index number for the new Last Request
 new g_LREntryNum;
@@ -89,11 +89,6 @@ public Plugin:myinfo =
 public OnPluginStart()
 {
 	Hosties_CheckGame();
-
-	if (!Hosties_IsLoaded())
-	{
-		SetFailState("SM_Hosties not loaded!");
-	}
 	
 	// Load translations
 	LoadTranslations("LR.Fruitninja.phrases");
@@ -149,6 +144,11 @@ public OnPluginStart()
 	AutoExecConfig_ExecuteFile();
 	
 	CreateMenus();
+}
+
+public OnAllPluginsLoaded()
+{
+	Hosties_IsLoaded();
 }
 
 public ConVarChanged(Handle:convar, const String:oldValue[], const String:newValue[])
