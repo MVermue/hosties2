@@ -13,7 +13,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.3"
+#define PLUGIN_VERSION "1.0.4"
 
 // Game types
 #define Game_CSS 0
@@ -103,9 +103,9 @@ enum Weapons
 
 public OnPluginStart()
 {
-	CheckGame();
+	Hosties_CheckGame();
 
-	IsHostiesLoaded();
+	Hosties_IsLoaded();
 	
 	// Load translations
 	LoadTranslations("LR.GunGolf.phrases");

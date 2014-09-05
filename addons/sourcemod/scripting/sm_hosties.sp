@@ -153,7 +153,7 @@ public Plugin:myinfo =
 
 public OnPluginStart()
 {
-	CheckGame();
+	Hosties_CheckGame();
 	
 	// Load translations
 	LoadTranslations("common.phrases");

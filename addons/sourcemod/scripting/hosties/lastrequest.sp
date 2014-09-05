@@ -2756,7 +2756,7 @@ public Action:Command_LastRequest(client, args)
 								}
 								else
 								{
-									PrintToChat(client, CHAT_BANNER,"No CTs Are Available");
+									PrintToChat(client, CHAT_BANNER, "LR No CTs Are Available");
 								}
 							}
 							else
