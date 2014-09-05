@@ -10,7 +10,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.10"
+#define PLUGIN_VERSION "1.0.12"
 
 new g_LREntryNum;
 new g_This_LR_Type;
@@ -38,11 +38,6 @@ public Plugin:myinfo =
 public OnPluginStart()
 {
 	Hosties_CheckGame();
-
-	if (!Hosties_IsLoaded())
-	{
-		SetFailState("SM_Hosties not loaded!");
-	}
 	
 	// Load translations
 	LoadTranslations("hpfight.phrases");
@@ -95,6 +90,11 @@ public OnPluginStart()
 	AddMenuItem(Menu, "M5", sBuffer5);
 	AddMenuItem(Menu, "M6", sBuffer6);
 	SetMenuExitButton(Menu, true);
+}
+
+public OnAllPluginsLoaded()
+{
+	Hosties_IsLoaded();
 }
 
 public OnConfigsExecuted()
