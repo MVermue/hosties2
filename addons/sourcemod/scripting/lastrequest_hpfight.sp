@@ -10,7 +10,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.6"
+#define PLUGIN_VERSION "1.0.9"
 
 new g_LREntryNum;
 new g_This_LR_Type;
@@ -37,9 +37,9 @@ public Plugin:myinfo =
 
 public OnPluginStart()
 {
-	CheckGame();
+	Hosties_CheckGame();
 
-	IsHostiesLoaded();
+	Hosties_IsLoaded();
 	
 	// Load translations
 	LoadTranslations("hpfight.phrases");

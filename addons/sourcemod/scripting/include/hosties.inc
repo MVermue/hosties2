@@ -250,7 +250,7 @@ stock SetNoScope(weapon)
 	}
 }
 
-stock CheckGame()
+stock Hosties_CheckGame()
 {
 	if(GetEngineVersion() != Engine_CSS && GetEngineVersion() != Engine_CSGO)
 	{
@@ -258,7 +258,7 @@ stock CheckGame()
 	}
 }
 
-stock IsHostiesLoaded()
+stock Hosties_IsLoaded()
 {
 	if (!LibraryExists("hosties"))
 	{
