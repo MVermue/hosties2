@@ -160,6 +160,9 @@ public OnPluginStart()
 	// Events hooks
 	HookEvent("round_start", Event_RoundStart);
 
+	AutoExecConfig_SetFile("sm_hosties2");
+	AutoExecConfig_SetCreateFile(true);
+
 	// Create ConVars
 	gH_Cvar_Add_ServerTag = AutoExecConfig_CreateConVar("sm_hosties_add_servertag", "1", "Enable or disable automatic adding of SM_Hosties in sv_tags (visible from the server browser in CS:S): 0 - disable, 1 - enable", FCVAR_PLUGIN, true, 0.0, true, 1.0);
 	gH_Cvar_Display_Advert = AutoExecConfig_CreateConVar("sm_hosties_display_advert", "1", "Enable or disable the display of the Powered by SM Hosties message at the start of each round.", FCVAR_PLUGIN, true, 0.0, true, 1.0);
@@ -216,7 +219,8 @@ public OnPluginStart()
 	Control_OnPluginStart();
 	#endif
 	
-	AutoExecConfig(true, "sm_hosties2");
+	AutoExecConfig_CleanFile();
+	AutoExecConfig_ExecuteFile();
 }
 
 public OnMapStart()
