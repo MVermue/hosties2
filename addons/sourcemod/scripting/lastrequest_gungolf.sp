@@ -10,10 +10,11 @@
 #include <smlib>
 #include <hosties>
 #include <lastrequest>
+#include <multicolors>
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.7"
+#define PLUGIN_VERSION "1.0.8"
 
 // Game types
 #define Game_CSS 0
@@ -312,18 +313,18 @@ public PointMenuHandler(Handle:menu, MenuAction:action, param1, param2)
 					{
 						gH_Timer_GunGolf = CreateTimer(0.1, Timer_GunGolf, _, TIMER_REPEAT|TIMER_FLAG_NO_MAPCHANGE);
 					}
-					PrintToChatAll(CHAT_BANNER, "GG Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
+					CPrintToChatAll(CHAT_BANNER, "GG Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
 					InitializeLR(param1);
 				}
 				else
 				{
-					PrintToChat(param1, CHAT_BANNER, "Obstacle");
+					CPrintToChat(param1, CHAT_BANNER, "Obstacle");
 					DisplayMenu(g_PointSelect, param1, 0);
 				}
 			}
 			else
 			{
-				PrintToChat(param1, CHAT_BANNER, "On Ground");
+				CPrintToChat(param1, CHAT_BANNER, "On Ground");
 				DisplayMenu(g_PointSelect, param1, 0);
 			}
 		}
@@ -654,21 +655,21 @@ public GunGolf_Stop(Type, Prisoner, Guard)
 				SetEntityHealth(Guard, 100);
 				StripAllWeapons(Guard);
 				GivePlayerItem(Guard, "weapon_knife");
-				PrintToChatAll(CHAT_BANNER, "GG Stopped");
+				CPrintToChatAll(CHAT_BANNER, "GG Stopped");
 			}
 			else if(IsPlayerAlive(Prisoner))
 			{
 				SetEntityHealth(Prisoner, 100);
 				StripAllWeapons(Prisoner);
 				GivePlayerItem(Prisoner, "weapon_knife");
-				PrintToChatAll(CHAT_BANNER, "GG Winner", Prisoner);
+				CPrintToChatAll(CHAT_BANNER, "GG Winner", Prisoner);
 			}
 			else if (IsPlayerAlive(Guard))
 			{
 				SetEntityHealth(Guard, 100);
 				StripAllWeapons(Guard);
 				GivePlayerItem(Guard, "weapon_knife");
-				PrintToChatAll(CHAT_BANNER, "GG Winner", Guard);
+				CPrintToChatAll(CHAT_BANNER, "GG Winner", Guard);
 			}
 		}
 		else if (IsClientInGame(Prisoner))
@@ -678,7 +679,7 @@ public GunGolf_Stop(Type, Prisoner, Guard)
 				SetEntityHealth(Prisoner, 100);
 				StripAllWeapons(Prisoner);
 				GivePlayerItem(Prisoner, "weapon_knife");
-				PrintToChatAll(CHAT_BANNER, "GG Winner", Prisoner);
+				CPrintToChatAll(CHAT_BANNER, "GG Winner", Prisoner);
 			}
 		}
 		else if (IsClientInGame(Guard))
@@ -688,7 +689,7 @@ public GunGolf_Stop(Type, Prisoner, Guard)
 				SetEntityHealth(Guard, 100);
 				StripAllWeapons(Guard);
 				GivePlayerItem(Guard, "weapon_knife");
-				PrintToChatAll(CHAT_BANNER, "GG Winner", Guard);
+				CPrintToChatAll(CHAT_BANNER, "GG Winner", Guard);
 			}
 		}
 		g_bGunGolfRunning = false;
