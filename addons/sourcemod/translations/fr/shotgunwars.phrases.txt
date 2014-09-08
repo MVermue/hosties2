@@ -6,10 +6,10 @@
 	}
 	"LR SGW Start"
 	{
-		"fr"		"{1} choisis de faire une Guerre de Pompes avec {2}."
+		"fr"		"{default}{1} {lightgreen}choisis de faire une Guerre de Pompes avec {default}{2}{lightgreen}."
 	}
 	"SGW Win"
 	{
-		"fr"		"{1} a gagné la guerre des pompes."
+		"fr"		"{default}{1} {lightgreen}a gagné la guerre des pompes."
 	}
 }

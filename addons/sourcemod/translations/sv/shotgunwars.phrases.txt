@@ -6,10 +6,10 @@
 	}
 	"LR SGW Start"
 	{
-		"sv"		"{1} valde att ha Shotgun War med {2}."
+		"sv"		"{default}{1} {lightgreen}valde att ha Shotgun War med {default}{2}{lightgreen}."
 	}
 	"SGW Win"
 	{
-		"en"		"{1} vann Shotgun War."
+		"en"		"{default}{1} {lightgreen}vann Shotgun War."
 	}
 }

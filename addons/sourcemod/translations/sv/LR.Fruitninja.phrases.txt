@@ -6,7 +6,7 @@
 	}
 	"LR FruitNinja Start"
 	{
-		"sv"		"{1} valde att spela Fruktninja med {2}."
+		"sv"		"{default}{1} {lightgreen}valde att spela Fruktninja med {default}{2}{lightgreen}."
 	}
 	"Tie and Slay"
 	{
@@ -14,7 +14,7 @@
 	}
 	"Tie and Extra"
 	{
-		"sv"		"Spelarnas poäng var samma, {1} extra sekunder har lagts till!"
+		"sv"		"Spelarnas poäng var samma, {default}{1} {lightgreen}extra sekunder har lagts till!"
 	}
 	"Obstacle"
 	{
