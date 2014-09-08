@@ -6,10 +6,10 @@
 	}
 	"LR SGW Start"
 	{
-		"da"		"{1} valgte at have Shotgun Krig med {2}."
+		"da"		"{default}{1} {lightgreen}valgte at have Shotgun Krig med {default}{2}{lightgreen}."
 	}
 	"SGW Win"
 	{
-		"da"		"{1} vandt Shotgun krigen."
+		"da"		"{default}{1} {lightgreen}vandt Shotgun krigen."
 	}
 }

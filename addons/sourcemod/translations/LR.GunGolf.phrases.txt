@@ -19,12 +19,12 @@
 	"GG Winner"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} won the Gun Golf!"
+		"en"		"{default}{1} {lightgreen}won the Gun Golf!"
 	}
 	"GG Start"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} started Gun Golf with {2}!"
+		"en"		"{default}{1} {lightgreen}started Gun Golf with {default}{2}{lightgreen}!"
 	}
 	"GG Stopped"
 	{

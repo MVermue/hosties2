@@ -6,10 +6,10 @@
 	}
 	"LR SGW Start"
 	{
-		"pt"		"{1} escolheu ter Guerra de 12 com {2}."
+		"pt"		"{default}{1} {lightgreen}escolheu ter Guerra de 12 com {default}{2}{lightgreen}."
 	}
 	"SGW Win"
 	{
-		"pt"		"{1} Ganhou a Guerra de 12."
+		"pt"		"{default}{1} {lightgreen}Ganhou a Guerra de 12."
 	}
 }

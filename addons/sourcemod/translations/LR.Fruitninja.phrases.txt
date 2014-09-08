@@ -7,7 +7,7 @@
 	"LR FruitNinja Start"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} chose to have FruitNinja with {2}."
+		"en"		"{default}{1} {lightgreen}chose to have FruitNinja with {default}{2}{lightgreen}."
 	}
 	"Tie and Slay"
 	{
@@ -16,7 +16,7 @@
 	"Tie and Extra"
 	{
 		"#format"	"{1:i}"
-		"en"		"Players' scores were the same, {1} extra seconds have been added!"
+		"en"		"Players' scores were the same, {default}{1} {lightgreenextra seconds have been added!"
 	}
 	"Obstacle"
 	{
