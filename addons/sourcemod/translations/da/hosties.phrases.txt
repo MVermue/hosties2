@@ -1,5 +1,5 @@
 // Exported from SourceMod Translator
-// Date: 2014-09-08 21:11:43 UTC
+// Date: 2014-09-08 22:31:37 UTC
 // Language: Danish (da)
 // 
 // To view other translations for this plugin, please visit:
@@ -93,14 +93,9 @@
 		"da"		"Du har allerede smidt din deagle!"
 	}
 
-	"Hot Potato PickUp"
-	{
-		"da"		"{1} Samlede den varme kartoffel op!"
-	}
-
 	"Powered By Hosties"
 	{
-		"da"		"Denne server er drevet af SM_Hosties v2, god fornøjelse!"
+		"da"		"Denne server er drevet af {default}SM_Hosties v2{lightgreen}, god fornøjelse!"
 	}
 
 	"Please Follow Rules"
@@ -108,59 +103,44 @@
 		"da"		"Følg venligst de regler, der er nævnt i !rules."
 	}
 
-	"Knife Fight Gun Attack Slay"
-	{
-		"da"		"{1} blev slået ihjel for at angribe {2} med {3} under en knivkamp."
-	}
-
 	"Knife Fight Gun Attack Abort"
 	{
-		"da"		"{1} angreb {2} med en {3} - knivkampen er slut."
+		"da"		"{default}{1} {lightgreen}angreb {default}{2} {lightgreen}med en {default}{3} {lightgreen}- knivkampen er slut."
 	}
 
 	"Chicken Fight Gun Attack Slay"
 	{
-		"da"		"{1} blev dræbt for at angribe {2} med {3} under Kyllingekampen."
-	}
-
-	"Chicken Fight Gun Attack Abort"
-	{
-		"da"		"{1} angreb {2} med en {3} - Kyllingekampen er slut."
+		"da"		"{default}{1} {lightgreen}blev dræbt for at angribe {default}{2} {lightgreen}med {default}{3} {lightgreen}under Kyllingekampen."
 	}
 
 	"Hot Potato Attack Slay"
 	{
-		"da"		"{1} blev dræbt for at angribe {2} under varm kartoffel Konkurrencen."
+		"da"		"{default}{1} {lightgreen}blev dræbt for at angribe {default}{2} {lightgreen}under varm kartoffel Konkurrencen."
 	}
 
 	"Hot Potato Attack Abort"
 	{
-		"da"		"{1} angreb {2} - Varm kartoffel er slut."
+		"da"		"{default}{1} {lightgreen}angreb {default}{2} {lightgreen}- Varm kartoffel er slut."
 	}
 
 	"New Rebel"
 	{
-		"da"		"{1} Er nu oprører."
+		"da"		"{default}{1} {lightgreen}Er nu oprører."
 	}
 
 	"Freeattack"
 	{
-		"da"		"{1} angreb {2}."
-	}
-
-	"Non LR Kill LR Slay"
-	{
-		"da"		"Ikke LR-Spiller {1} blev dræbt for at angribe LR-Spilleren {2}."
+		"da"		"{default}{1} {lightgreen}angreb {default}{2}{lightgreen}."
 	}
 
 	"Non LR Kill LR Abort"
 	{
-		"da"		"Ikke LR-Spiller {1} dræbte LR-Spiller {2} - LR er afsluttet."
+		"da"		"Ikke LR-Spiller {default}{1} {lightgreen}dræbte LR-Spiller {default}{2} {lightgreen}- LR er afsluttet."
 	}
 
 	"Rebel Kill"
 	{
-		"da"		"{1} Dræbte oprøreren {2}."
+		"da"		"{default}{1} {lightgreen}Dræbte oprøreren {default}{2}{lightgreen}."
 	}
 
 	"LR Available"
@@ -170,27 +150,22 @@
 
 	"LR Player Disconnect"
 	{
-		"da"		"LR-Spiller {1} afbrød forbindelsen - LR er slut."
-	}
-
-	"Chicken Fight Win And Slay"
-	{
-		"da"		"{1} vandt kyllingekampen - {2} blev dræbt."
+		"da"		"LR-Spiller {default}{1} {lightgreen}afbrød forbindelsen - LR er slut."
 	}
 
 	"Chicken Fight Win"
 	{
-		"da"		"{1} vandt kyllingekampen."
+		"da"		"{default}{1} {lightgreen}vandt kyllingekampen."
 	}
 
 	"Chicken Fight Kill Loser"
 	{
-		"da"		"Dræb {1}!"
+		"da"		"Dræb {default}{1}{lightgreen}!"
 	}
 
 	"S4S Shot Taken"
 	{
-		"da"		"{1} Har taget sit skud."
+		"da"		"{default}{1} {lightgreen}Har taget sit skud."
 	}
 
 	"Distance Meter"
@@ -210,7 +185,7 @@
 
 	"No CTs Alive"
 	{
-		"da"		"Der er ingen CT'er (I live) til at lave LR med."
+		"da"		"Der er ingen CTer (I live) til at lave LR med."
 	}
 
 	"Too Many Ts"
@@ -255,7 +230,7 @@
 
 	"Asking For Permission"
 	{
-		"da"		"Spørger {1} om tilladelse fordi du er en rebel..."
+		"da"		"Spørger {default}{1} {lightgreen}om tilladelse fordi du er en rebel..."
 	}
 
 	"Target Is Not Alive Or In Wrong Team"
@@ -265,7 +240,7 @@
 
 	"Declined LR Request"
 	{
-		"da"		"{1} Afslog dit LR forslag."
+		"da"		"{default}{1} {lightgreen}Afslog dit LR forslag."
 	}
 
 	"LR Partner Died"
@@ -280,77 +255,57 @@
 
 	"LR Request Decline Or Too Long"
 	{
-		"da"		"{1} afslog dit LR forslag, eller var for lang tid om at svare."
-	}
-
-	"LR KF Start"
-	{
-		"da"		"{1} Valgte at lave kniv duel med {2}."
+		"da"		"{default}{1} {lightgreen}afslog dit LR forslag, eller var for lang tid om at svare."
 	}
 
 	"LR S4S Start"
 	{
-		"da"		"{1} Valgte at lave skud for skud med {2}."
+		"da"		"{default}{1} {lightgreen}Valgte at lave skud for skud med {default}{2}{lightgreen}."
 	}
 
 	"LR GT Start"
 	{
-		"da"		"{1} valgte at lave pistolkast med {2}."
-	}
-
-	"LR CF Start"
-	{
-		"da"		"{1} valgte at lave kyllingekamp med {2}."
+		"da"		"{default}{1} {lightgreen}valgte at lave pistolkast med {default}{2}{lightgreen}."
 	}
 
 	"LR HP Start"
 	{
-		"da"		"{1} Valgte at have varm kartoffel med {2}."
+		"da"		"{default}{1} {lightgreen}Valgte at have varm kartoffel med {default}{2}{lightgreen}."
 	}
 
 	"LR DB Start"
 	{
-		"da"		"{1} valgte at have høvdingebold med {2}."
+		"da"		"{default}{1} {lightgreen}valgte at have høvdingebold med {default}{2}{lightgreen}."
 	}
 
 	"LR NS Start"
 	{
-		"da"		"{1} valgte at have ingen sigte kamp med {2}."
-	}
-
-	"LR RPS Start"
-	{
-		"da"		"{1} Valgte at have sten saks papir med {2}."
+		"da"		"{default}{1} {lightgreen}valgte at have ingen sigte kamp med {default}{2}{lightgreen}."
 	}
 
 	"LR Mag4Mag Start"
 	{
-		"da"		"{1} valgte at have mag for mag med {2}."
+		"da"		"{default}{1} {lightgreen}valgte at have mag for mag med {default}{2}{lightgreen}."
 	}
 
 	"LR RR Start"
 	{
-		"da"		"{1} valgte at have russisk Roulette med {2}."
+		"da"		"{default}{1} {lightgreen}valgte at have russisk Roulette med {default}{2}{lightgreen}."
 	}
 
 	"LR Has Chosen to Rebel!"
 	{
-		"da"		"{1} Har valgt at lave oprør"
-	}
-
-	"Start Jump Contest"
-	{
-		"da"		"{1} Valgte en flest hop kamp med {2}."
+		"da"		"{default}{1} {lightgreen}Har valgt at lave oprør"
 	}
 
 	"Start Brink of Death"
 	{
-		"da"		"{1} valgte at have på randen af ​​døden med{2}."
+		"da"		"{default}{1} {lightgreen}valgte at have på randen af ​​døden med{default}{2}{lightgreen}."
 	}
 
 	"Start Farthest Jump"
 	{
-		"da"		"{1} Valgte at have længste hop med {2}."
+		"da"		"{default}{1} {lightgreen}Valgte at have længste hop med {default}{2}{lightgreen}."
 	}
 
 	"No Rebels ATM"
@@ -375,17 +330,12 @@
 
 	"HP Win"
 	{
-		"da"		"{1} Vandt varm kartoffel - {2} blev dræbt."
+		"da"		"{default}{1} {lightgreen}Vandt varm kartoffel - {default}{2} {lightgreen}blev dræbt."
 	}
 
 	"HP Last One To Have The Potato"
 	{
 		"da"		"Du var den sidste der havde den varme kartoffel."
-	}
-
-	"Ts Muted"
-	{
-		"da"		"Terrorister er stumme de første {1} sekunder af runden!"
 	}
 
 	"Ts Can Speak Again"
@@ -405,7 +355,7 @@
 
 	"CT Attack T Gun"
 	{
-		"da"		"{1} angreb {2} som havde en pistol..."
+		"da"		"{default}{1} {lightgreen}angreb {default}{2} {lightgreen}som havde en pistol..."
 	}
 
 	"Rock"
@@ -423,19 +373,9 @@
 		"da"		"Saks"
 	}
 
-	"LR RPS No Answer"
-	{
-		"da"		"{1} valgte ikke sten, saks eller papir, eller valgte ikke i tide."
-	}
-
-	"LR RPS Done"
-	{
-		"da"		"{1} valgte {2}, {3} valgte {4} - {5} vandt"
-	}
-
 	"LR RPS Tie"
 	{
-		"da"		"{1} valgte {2}, {3} valgte {4} - uafgjort."
+		"da"		"{default}{1} {lightgreen}valgte {default}{2}{lightgreen}, {default}{3} {lightgreen}valgte {default}{4} {lightgreen}- uafgjort."
 	}
 
 	"LR Not With Bot"
@@ -450,17 +390,12 @@
 
 	"LR Delay Announcement"
 	{
-		"da"		"Terrorister kan ikke have LR før der er gået {1} sekunder!"
+		"da"		"Terrorister kan ikke have LR før der er gået {default}{1} {lightgreen}sekunder!"
 	}
 
 	"Freekill Slay"
 	{
-		"da"		"{1} blev dræbt for at dræbe for mange ikke oprørende terrorister!"
-	}
-
-	"Freekill Kick"
-	{
-		"da"		"{1} blev smidt ud for at dræbe for mange ikke oprørende terrorister!"
+		"da"		"{default}{1} {lightgreen}blev dræbt for at dræbe for mange ikke oprørende terrorister!"
 	}
 
 	"Freekill Kick Reason"
@@ -470,7 +405,7 @@
 
 	"Freekill Ban"
 	{
-		"da"		"{1} blev banned for at dræbe for mange, ikke oprørende terrorister!"
+		"da"		"{default}{1} {lightgreen}blev banned for at dræbe for mange, ikke oprørende terrorister!"
 	}
 
 	"Freekill Ban Reason"
@@ -485,17 +420,17 @@
 
 	"Race Won"
 	{
-		"da"		"{1} Vandt ræset!"
+		"da"		"{default}{1} {lightgreen}Vandt ræset!"
 	}
 
 	"Won Jump Contest"
 	{
-		"da"		"{1} Vandt hoppe konkurrencen!"
+		"da"		"{default}{1} {lightgreen}Vandt hoppe konkurrencen!"
 	}
 
 	"Russian Roulette - Hit"
 	{
-		"da"		"Russisk Roulette: kugle ramte {1}!"
+		"da"		"Russisk Roulette: kugle ramte {default}{1}{lightgreen}!"
 	}
 
 	"Russian Roulette - Miss"
@@ -505,62 +440,47 @@
 
 	"Randomly Chose First Player"
 	{
-		"da"		"Udvalgte tilfældigt {1} til at skyde først."
-	}
-
-	"LR Interference Slay"
-	{
-		"da"		"{1} blev dræbt for at angribe {2} med {3} Under LR."
+		"da"		"Udvalgte tilfældigt {default}{1} {lightgreen}til at skyde først."
 	}
 
 	"LR Interference Abort"
 	{
-		"da"		"{1} Angreb {2} med {3}. LR afbrudt."
+		"da"		"{default}{1} {lightgreen}Angreb {default}{2}{lightgreen} med {default}{3}{lightgreen}. LR afbrudt."
 	}
 
 	"LR Interference Slay - No Victim"
 	{
-		"da"		"{1} blev dræbt for at angribe {2} under LR."
+		"da"		"{default}{1} {lightgreen}blev dræbt for at angribe {default}{2}{lightgreen} under LR."
 	}
 
 	"LR Interference Abort - No Victim"
 	{
-		"da"		"{1} angrebet med {2}. LR slut."
+		"da"		"{default}{1} {lightgreen}angrebet med {default}{2}{lightgreen}. LR slut."
 	}
 
 	"LR Cheating Abort"
 	{
-		"da"		"{1} snød LR afbrudt."
-	}
-
-	"LR Cheating Slay"
-	{
-		"da"		"{1} dræbt for at snyde under LR."
+		"da"		"{default}{1} {lightgreen}snød LR afbrudt."
 	}
 
 	"Noscope Knife Attack Slay"
 	{
-		"da"		"{1} dræbt for at angribe {2} med en kniv under ingen sigte kamp."
-	}
-
-	"Noscope Knife Attack Abort"
-	{
-		"da"		"{1} angreb {2} med en kniv - ingen sigte kamp afbrudt."
+		"da"		"{default}{1} {lightgreen}dræbt for at angribe {default}{2} {lightgreen}med en kniv under ingen sigte kamp."
 	}
 
 	"S4S Rebel Slayed"
 	{
-		"da"		"{1} var dræbt for at lave oprør under Skud For Skud."
+		"da"		"{default}{1} {lightgreen}var dræbt for at lave oprør under Skud For Skud."
 	}
 
 	"S4S Rebel Aborted"
 	{
-		"da"		"{1} lavede oprør under LR - Skud For Skud afbrudt."
+		"da"		"{default}{1} {lightgreen}lavede oprør under LR - Skud For Skud afbrudt."
 	}
 
 	"M4M Mag Used"
 	{
-		"da"		"{1} Har brugt sit magasin."
+		"da"		"{default}{1} {lightgreen}Har brugt sit magasin."
 	}
 
 	"LR No CTs Available"
@@ -570,7 +490,7 @@
 
 	"LR Aborted"
 	{
-		"da"		"Afsluttede alle iganværende LR's!"
+		"da"		"Afsluttede alle iganværende LRs!"
 	}
 
 	"Knife Fight Selection Menu"
@@ -713,14 +633,94 @@
 		"da"		"Du skal være på jorden for at vælge dette."
 	}
 
-	"Farthest Jump Won"
-	{
-		"da"		"{1} vandt længste hop {3} i forhold til {2}'s {4}."
-	}
-
 	"Race Could Start Soon"
 	{
-		"da"		"{1} valgte ræs LR. Kig efter start og slut punkt!"
+		"da"		"{default}{1} {lightgreen}valgte ræs LR. Kig efter start og slut punkt!"
+	}
+
+	"Hot Potato PickUp"
+	{
+		"da"		"{default}{1} {lightgreen}Samlede den varme kartoffel op!"
+	}
+
+	"Knife Fight Gun Attack Slay"
+	{
+		"da"		"{default}{1} {lightgreen}blev slået ihjel for at angribe {default}{2} {lightgreen}med {default}{3} {lightgreen}under en knivkamp."
+	}
+
+	"Chicken Fight Gun Attack Abort"
+	{
+		"da"		"{default}{1} {lightgreen}angreb {default}{2} {lightgreen} med en {default}{3} {lightgreen}- Kyllingekampen er slut."
+	}
+
+	"Non LR Kill LR Slay"
+	{
+		"da"		"Ikke LR-Spiller {default}{1} {lightgreen}blev dræbt for at angribe LR-Spilleren {default}{2}{lightgreen}."
+	}
+
+	"Chicken Fight Win And Slay"
+	{
+		"da"		"{default}{1} {lightgreen}vandt kyllingekampen - {default}{2} {lightgreen}blev dræbt."
+	}
+
+	"LR KF Start"
+	{
+		"da"		"{default}{1} {lightgreen}Valgte at lave kniv duel med {default}{2}{lightgreen}."
+	}
+
+	"LR CF Start"
+	{
+		"da"		"{default}{1} {lightgreen}valgte at lave kyllingekamp med {default}{2}{lightgreen}."
+	}
+
+	"LR RPS Start"
+	{
+		"da"		"{default}{1} {lightgreen}Valgte at have sten saks papir med {default}{2}{lightgreen}."
+	}
+
+	"Start Jump Contest"
+	{
+		"da"		"{default}{1} {lightgreen}Valgte en flest hop kamp med {default}{2}{lightgreen}."
+	}
+
+	"Ts Muted"
+	{
+		"da"		"Terrorister er stumme de første {default}{1} {lightgreen}sekunder af runden!"
+	}
+
+	"LR RPS No Answer"
+	{
+		"da"		"{default}{1} {lightgreen}valgte ikke sten, saks eller papir, eller valgte ikke i tide."
+	}
+
+	"LR RPS Done"
+	{
+		"da"		"{default}{1} {lightgreen}valgte {default}{2}{lightgreen}, {default}{3} {lightgreen}valgte {default}{4} {lightgreen}- {default}{5} {lightgreen}vandt"
+	}
+
+	"Freekill Kick"
+	{
+		"da"		"{default}{1} {lightgreen}blev smidt ud for at dræbe for mange ikke oprørende terrorister!"
+	}
+
+	"LR Interference Slay"
+	{
+		"da"		"{default}{1} {lightgreen}blev dræbt for at angribe {default}{2}{lightgreen} med {default}{3}{lightgreen} Under LR."
+	}
+
+	"LR Cheating Slay"
+	{
+		"da"		"{default}{1} {lightgreen}dræbt for at snyde under LR."
+	}
+
+	"Noscope Knife Attack Abort"
+	{
+		"da"		"{default}{1} {lightgreen}angreb {default}{2} {lightgreen}med en kniv - ingen sigte kamp afbrudt."
+	}
+
+	"Farthest Jump Won"
+	{
+		"da"		"{default}{1} {lightgreen}vandt længste hop {default}{3} {lightgreen}i forhold til {default}{2}{lightgreen}s {default}{4}{lightgreen}."
 	}
 
 }

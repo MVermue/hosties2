@@ -1,5 +1,5 @@
 // Exported from SourceMod Translator
-// Date: 2014-09-08 21:11:43 UTC
+// Date: 2014-09-08 22:31:37 UTC
 // Language: French (fr)
 // 
 // To view other translations for this plugin, please visit:
@@ -53,11 +53,6 @@
 		"fr"		"Balle aux Prisonniers"
 	}
 
-	"No Scope Battle"
-	{
-		"fr"		"Combat d'Unscop"
-	}
-
 	"Rock Paper Scissors"
 	{
 		"fr"		"Pierre Feuille Ciseaux"
@@ -93,14 +88,9 @@
 		"fr"		"Vous avez déjà jeté votre Deagle !"
 	}
 
-	"Hot Potato PickUp"
-	{
-		"fr"		"{1} a ramassé la patate chaude !"
-	}
-
 	"Powered By Hosties"
 	{
-		"fr"		"Bienvenue sur le Serveur BA_JAIL des Monsieurs"
+		"fr"		"Bienvenue sur le Serveur {default}BA_JAIL {lightgreen}des Monsieurs"
 	}
 
 	"Please Follow Rules"
@@ -108,59 +98,44 @@
 		"fr"		"Veuillez lire les Règles en tapant regles dans le chat."
 	}
 
-	"Knife Fight Gun Attack Slay"
-	{
-		"fr"		"{1} a été tué pour avoir attaqué {2} avec {3} durant un Combat de Cut."
-	}
-
 	"Knife Fight Gun Attack Abort"
 	{
-		"fr"		"{1} a attaqué {2} avec {3} - Combat de Cut abandonné."
+		"fr"		"{default}{1} {lightgreen}a attaqué {default}{2} {lightgreen}avec {default}{3} {lightgreen}- Combat de Cut abandonné."
 	}
 
 	"Chicken Fight Gun Attack Slay"
 	{
-		"fr"		"{1} a été tué pour avoir attaqué {2} avec {3} durant un Combat de Poule."
-	}
-
-	"Chicken Fight Gun Attack Abort"
-	{
-		"fr"		"{1} a attaqué {2} avec {3} - Combat de Poule abandonné."
+		"fr"		"{default}{1} {lightgreen}a été tué pour avoir attaqué {default}{2} {lightgreen}avec {default}{3} {lightgreen}durant un Combat de Poule."
 	}
 
 	"Hot Potato Attack Slay"
 	{
-		"fr"		"{1} a été tué pour avoir attaqué {2} pendant le Duel de la Patate Chaude."
+		"fr"		"{default}{1} {lightgreen}a été tué pour avoir attaqué {default}{2} {lightgreen}pendant le Duel de la Patate Chaude."
 	}
 
 	"Hot Potato Attack Abort"
 	{
-		"fr"		"{1} a attaqué {2} - Duel de la Patate Chaude abandonné."
+		"fr"		"{default}{1} {lightgreen}a attaqué {default}{2} {lightgreen}- Duel de la Patate Chaude abandonné."
 	}
 
 	"New Rebel"
 	{
-		"fr"		"{1} est maintenant un Rebel."
+		"fr"		"{default}{1} {lightgreen}est maintenant un Rebel."
 	}
 
 	"Freeattack"
 	{
-		"fr"		"{1} a attaqué {2}."
-	}
-
-	"Non LR Kill LR Slay"
-	{
-		"fr"		"Le Joueur [Hors DV] {1} a été tué pour avoir tué le Joueur [EN DV] {2}."
+		"fr"		"{default}{1} {lightgreen}a attaqué {default}{2}{lightgreen}."
 	}
 
 	"Non LR Kill LR Abort"
 	{
-		"fr"		"Le Joueur [Hors DV] {1} a tué le Joueur [EN DV] {2} - DV abandonné."
+		"fr"		"Le Joueur [Hors DV] {default}{1} {lightgreen}a tué le Joueur [EN DV] {default}{2} {lightgreen}- DV abandonné."
 	}
 
 	"Rebel Kill"
 	{
-		"fr"		"{1} a tué le Rebelle {2}."
+		"fr"		"{default}{1} {lightgreen}a tué le Rebelle {default}{2}{lightgreen}."
 	}
 
 	"LR Available"
@@ -170,27 +145,22 @@
 
 	"LR Player Disconnect"
 	{
-		"fr"		"Le Joueur [EN DV] {1} s'est déconnecté - DV abandonné."
+		"fr"		"Le Joueur [EN DV] {default}{1} {lightgreen}sest déconnecté - DV abandonné."
 	}
 
 	"Chicken Fight Win And Slay"
 	{
-		"fr"		"{1} a gagné le Combat de Poule - {2} a été tué."
+		"fr"		"{default}{1} {lightgreen}a gagné le Combat de Poule - {default}{2} {lightgreen}a été tué."
 	}
 
 	"Chicken Fight Win"
 	{
-		"fr"		"{1} a gagné le Combat de Poule."
+		"fr"		"{default}{1} {lightgreen}a gagné le Combat de Poule."
 	}
 
 	"Chicken Fight Kill Loser"
 	{
-		"fr"		"Tue {1}!"
-	}
-
-	"S4S Shot Taken"
-	{
-		"fr"		"{1} a tiré une fois."
+		"fr"		"Tue {default}{1}{lightgreen}!"
 	}
 
 	"Distance Meter"
@@ -210,17 +180,12 @@
 
 	"No CTs Alive"
 	{
-		"fr"		"Il n'y a pas de CT en vie pour avoir votre DV."
+		"fr"		"Il ny a pas de CT en vie pour avoir votre DV."
 	}
 
 	"Too Many Ts"
 	{
 		"fr"		"Il y a trop de Terroristes en vie pour avoir une DV maintenant !"
-	}
-
-	"Not Alive Or In Wrong Team"
-	{
-		"fr"		"Vous n'êtes pas en vie ou dans la bonne équipe (Terroristes) pour avoir une DV."
 	}
 
 	"Another LR In Progress"
@@ -255,17 +220,17 @@
 
 	"Asking For Permission"
 	{
-		"fr"		"Demande à {1} en cours pour avoir votre DV car vous êtes une Rebelle ..."
+		"fr"		"Demande à {default}{1} {lightgreen}en cours pour avoir votre DV car vous êtes une Rebelle ..."
 	}
 
 	"Target Is Not Alive Or In Wrong Team"
 	{
-		"fr"		"La cible n'est pas en vie ou dans la bonne équipe (Anti-Terroristes) pour la DV."
+		"fr"		"La cible nest pas en vie ou dans la bonne équipe (Anti-Terroristes) pour la DV."
 	}
 
 	"Declined LR Request"
 	{
-		"fr"		"{1} a refusé votre demande de DV."
+		"fr"		"{default}{1} {lightgreen}a refusé votre demande de DV."
 	}
 
 	"LR Partner Died"
@@ -280,82 +245,57 @@
 
 	"LR Request Decline Or Too Long"
 	{
-		"fr"		"{1} a refusé votre demande de DV ou a mis trop de temps à répondre."
-	}
-
-	"LR KF Start"
-	{
-		"fr"		"{1} a choisis de faire un Combat de Cut avec {2}."
+		"fr"		"{default}{1} {lightgreen}a refusé votre demande de DV ou a mis trop de temps à répondre."
 	}
 
 	"LR S4S Start"
 	{
-		"fr"		"{1} a choisis de faire une Roulette avec {2}."
+		"fr"		"{default}{1} {lightgreen}a choisis de faire une Roulette avec {default}{2}{lightgreen}."
 	}
 
 	"LR GT Start"
 	{
-		"fr"		"{1} a choisis de faire un Lancer de Deagle avec {2}."
+		"fr"		"{default}{1} {lightgreen}a choisis de faire un Lancer de Deagle avec {default}{2}{lightgreen}."
 	}
 
 	"LR CF Start"
 	{
-		"fr"		"{1} a choisis de faire un Combat de Poule avec {2}."
-	}
-
-	"LR HP Start"
-	{
-		"fr"		"{1} a choisis de faire un Duel de Patate Chaude avec {2}."
+		"fr"		"{default}{1} {lightgreen}a choisis de faire un Combat de Poule avec {default}{2}{lightgreen}."
 	}
 
 	"LR DB Start"
 	{
-		"fr"		"{1} a choisis de faire une Balle aux Prisonniers avec {2}."
+		"fr"		"{default}{1} {lightgreen}a choisis de faire une Balle aux Prisonniers avec {default}{2}{lightgreen}."
 	}
 
 	"LR NS Start"
 	{
-		"fr"		"{1} a choisis de faire un Combat d'Unscop avec {2}."
+		"fr"		"{default}{1} {lightgreen}a choisis de faire un Combat dUnscop avec {default}{2}{lightgreen}."
 	}
 
 	"LR RPS Start"
 	{
-		"fr"		"{1} a choisis de Jouer à Pierre Feuille Ciseaux avec {2}."
-	}
-
-	"LR Mag4Mag Start"
-	{
-		"fr"		"{1} a choisis de faire la DV Magasine avec {2}."
+		"fr"		"{default}{1} {lightgreen}a choisis de Jouer à Pierre Feuille Ciseaux avec {default}{2}{lightgreen}."
 	}
 
 	"LR RR Start"
 	{
-		"fr"		"{1} a choisis de Jouer à la Roulette Russe avec {2}."
-	}
-
-	"LR Has Chosen to Rebel!"
-	{
-		"fr"		"{1} a choisis de se Rebeller !"
+		"fr"		"{default}{1} {lightgreen}a choisis de Jouer à la Roulette Russe avec {default}{2}{lightgreen}."
 	}
 
 	"Start Jump Contest"
 	{
-		"fr"		"{1} a choisis de faire un Concours de Sauts avec {2}."
-	}
-
-	"Start Brink of Death"
-	{
-		"fr"		"{1} a choisis de faire un Concours de Sauts à mort avec {2}."
+		"fr"		"{default}{1} {lightgreen}a choisis de faire un Concours de Sauts avec {default}{2}{lightgreen}."
 	}
 
 	"Start Farthest Jump"
 	{
-		"fr"		"{1} a choisis de faire un Concours de Sauts en Longueur avec {2}."
+		"fr"		"{default}{1} {lightgreen}a choisis de faire un Concours de Sauts en Longueur avec {default}{2}{lightgreen}."
 	}
 
 	"No Rebels ATM"
 	{
-		"fr"		"Il n'y a pas de Terroristes Rebelle pour le moment."
+		"fr"		"Il ny a pas de Terroristes Rebelle pour le moment."
 	}
 
 	"Rebelling Terrorists"
@@ -375,7 +315,7 @@
 
 	"HP Win"
 	{
-		"fr"		"{1} a gagné le Duel de la Patate Chaude - {2} a été tué."
+		"fr"		"{default}{1} {lightgreen}a gagné le Duel de la Patate Chaude - {default}{2} {lightgreen}a été tué."
 	}
 
 	"HP Last One To Have The Potato"
@@ -385,7 +325,7 @@
 
 	"Ts Muted"
 	{
-		"fr"		"Les Terroristes sont muté les {1} premières secondes du rounds !"
+		"fr"		"Les Terroristes sont muté les {default}{1} {lightgreen}premières secondes du rounds !"
 	}
 
 	"Ts Can Speak Again"
@@ -400,12 +340,12 @@
 
 	"NS Weapon Chooser Menu"
 	{
-		"fr"		"Choisissez une arme à utiliser lors du Combat d'Unscop:"
+		"fr"		"Choisissez une arme à utiliser lors du Combat dUnscop:"
 	}
 
 	"CT Attack T Gun"
 	{
-		"fr"		"{1} a attaqué {2} possédant une arme ..."
+		"fr"		"{default}{1} {lightgreen}a attaqué {default}{2} {lightgreen}possédant une arme ..."
 	}
 
 	"Rock"
@@ -423,19 +363,9 @@
 		"fr"		"Ciseaux"
 	}
 
-	"LR RPS No Answer"
-	{
-		"fr"		"{1} N'a rien choisis, ou n'a pas choisis à temps."
-	}
-
 	"LR RPS Done"
 	{
-		"fr"		"{1} a choisis {2}, {3} a choisis {4} - {5} a gagné"
-	}
-
-	"LR RPS Tie"
-	{
-		"fr"		"{1} a choisis {2}, {3} a choisis {4} - Matche Nul"
+		"fr"		"{default}{1} {lightgreen}a choisis {default}{2}{lightgreen}, {default}{3} {lightgreen}a choisis {default}{4} {lightgreen}- {default}{5} {lightgreen}a gagné"
 	}
 
 	"LR Not With Bot"
@@ -450,17 +380,17 @@
 
 	"LR Delay Announcement"
 	{
-		"fr"		"Les Terroristes ne peuvent avoir de DV avant que {1} seconde(s) se soit écoulé !"
+		"fr"		"Les Terroristes ne peuvent avoir de DV avant que {default}{1} {lightgreen}seconde(s) se soit écoulé !"
 	}
 
 	"Freekill Slay"
 	{
-		"fr"		"{1} a été tué pour avoir tué beaucoups de Terroristes Innocents."
+		"fr"		"{default}{1} {lightgreen}a été tué pour avoir tué beaucoups de Terroristes Innocents."
 	}
 
 	"Freekill Kick"
 	{
-		"fr"		"{1} a été Kick pour avoir tué beaucoups de Terroristes Innocents."
+		"fr"		"{default}{1} {lightgreen}a été Kick pour avoir tué beaucoups de Terroristes Innocents."
 	}
 
 	"Freekill Kick Reason"
@@ -470,7 +400,7 @@
 
 	"Freekill Ban"
 	{
-		"fr"		"{1} a été Bannis pour avoir tue beaucoups de Terroristes Innocents."
+		"fr"		"{default}{1} {lightgreen}a été Bannis pour avoir tue beaucoups de Terroristes Innocents."
 	}
 
 	"Freekill Ban Reason"
@@ -485,17 +415,17 @@
 
 	"Race Won"
 	{
-		"fr"		"{1} a gagné la Course !"
+		"fr"		"{default}{1} {lightgreen}a gagné la Course !"
 	}
 
 	"Won Jump Contest"
 	{
-		"fr"		"{1} a gagné le Concours de Saut !"
+		"fr"		"{default}{1} {lightgreen}a gagné le Concours de Saut !"
 	}
 
 	"Russian Roulette - Hit"
 	{
-		"fr"		"Roulette Russe : Balle Tiré {1}!"
+		"fr"		"Roulette Russe : Balle Tiré {default}{1}{lightgreen}!"
 	}
 
 	"Russian Roulette - Miss"
@@ -503,69 +433,54 @@
 		"fr"		"Roulette Russe : Manqué. Retentez votre Chance ..."
 	}
 
-	"Randomly Chose First Player"
-	{
-		"fr"		" {1} a été aléatoirement choisis pour tirer le premier."
-	}
-
 	"LR Interference Slay"
 	{
-		"fr"		"{1} a été tué pour avoir attaqué {2} avec {3} durant une DV."
-	}
-
-	"LR Interference Abort"
-	{
-		"fr"		"{1} a attaqué {2} avec {3}. Dernière Volonté abandonné."
+		"fr"		"{default}{1} {lightgreen}a été tué pour avoir attaqué {default}{2}{lightgreen} avec {default}{3}{lightgreen} durant une DV."
 	}
 
 	"LR Interference Slay - No Victim"
 	{
-		"fr"		"{1} a été tué pour avoir attaqué {2} durant une DV."
+		"fr"		"{default}{1} {lightgreen}a été tué pour avoir attaqué {default}{2}{lightgreen} durant une DV."
 	}
 
 	"LR Interference Abort - No Victim"
 	{
-		"fr"		"{1} a attaqué avec {2}. DV abandonné."
+		"fr"		"{default}{1} {lightgreen}a attaqué avec {default}{2}{lightgreen}. DV abandonné."
 	}
 
 	"LR Cheating Abort"
 	{
-		"fr"		"{1} Tricherie ! DV abandonné."
+		"fr"		"{default}{1} {lightgreen}Tricherie ! DV abandonné."
 	}
 
 	"LR Cheating Slay"
 	{
-		"fr"		"{1} a été tué pour avoir triché durant une DV."
-	}
-
-	"Noscope Knife Attack Slay"
-	{
-		"fr"		"{1} a été tué pour avoir attaqué {2} avec un Cut durant un Combat d'Unscop."
+		"fr"		"{default}{1} {lightgreen}a été tué pour avoir triché durant une DV."
 	}
 
 	"Noscope Knife Attack Abort"
 	{
-		"fr"		"{1} a attaqué {2} avec un Cut - Combat d'Unscop abandonné."
+		"fr"		"{default}{1} {lightgreen}a attaqué {default}{2} {lightgreen}avec un Cut - Combat dUnscop abandonné."
 	}
 
 	"S4S Rebel Slayed"
 	{
-		"fr"		"{1} a été tué pour s'être rebellé durant une Roulette."
+		"fr"		"{default}{1} {lightgreen}a été tué pour sêtre rebellé durant une Roulette."
 	}
 
 	"S4S Rebel Aborted"
 	{
-		"fr"		"{1} s'est rebellé durant une DV - Roulette abandonné."
+		"fr"		"{default}{1} {lightgreen}sest rebellé durant une DV - Roulette abandonné."
 	}
 
 	"M4M Mag Used"
 	{
-		"fr"		"{1} a utilisé son Magasine."
+		"fr"		"{default}{1} {lightgreen}a utilisé son Magasine."
 	}
 
 	"LR No CTs Available"
 	{
-		"fr"		"Il n'y a actuellement pas de CT disponible pour avoir votre DV."
+		"fr"		"Il ny a actuellement pas de CT disponible pour avoir votre DV."
 	}
 
 	"LR Aborted"
@@ -670,7 +585,7 @@
 
 	"Choose an End Point"
 	{
-		"fr"		"Choisissez une position d'arrivé"
+		"fr"		"Choisissez une position darrivé"
 	}
 
 	"Use Current Position"
@@ -680,7 +595,7 @@
 
 	"Race Points too Close"
 	{
-		"fr"		"Votre position d'arrivé a été fermé pour la position de Départ."
+		"fr"		"Votre position darrivé a été fermé pour la position de Départ."
 	}
 
 	"Too Near Obstruction"
@@ -715,12 +630,97 @@
 
 	"Farthest Jump Won"
 	{
-		"fr"		"{1} a gagné le Saut en Longueur avec {3} par rapport à {2} {4}."
+		"fr"		"{default}{1} {lightgreen}a gagné le Saut en Longueur avec {default}{3} {lightgreen}par rapport à {default}{2}{lightgreen} {default}{4}{lightgreen}."
 	}
 
 	"Race Could Start Soon"
 	{
-		"fr"		"{1} a choisis de faire une Course. Veuillez placer le Point de départ et d'arrivé !"
+		"fr"		"{default}{1} {lightgreen}a choisis de faire une Course. Veuillez placer le Point de départ et darrivé !"
+	}
+
+	"No Scope Battle"
+	{
+		"fr"		"Combat dUnscop"
+	}
+
+	"Hot Potato PickUp"
+	{
+		"fr"		"{default}{1} {lightgreen}a ramassé la patate chaude !"
+	}
+
+	"Knife Fight Gun Attack Slay"
+	{
+		"fr"		"{default}{1} {lightgreen}a été tué pour avoir attaqué {default}{2} {lightgreen}avec {default}{3} {lightgreen}durant un Combat de Cut."
+	}
+
+	"Chicken Fight Gun Attack Abort"
+	{
+		"fr"		"{default}{1} {lightgreen}a attaqué {default}{2} {lightgreen} avec {default}{3} {lightgreen}- Combat de Poule abandonné."
+	}
+
+	"Non LR Kill LR Slay"
+	{
+		"fr"		"Le Joueur [Hors DV] {default}{1} {lightgreen}a été tué pour avoir tué le Joueur [EN DV] {default}{2}{lightgreen}."
+	}
+
+	"S4S Shot Taken"
+	{
+		"fr"		"{default}{1} {lightgreen}a tiré une fois."
+	}
+
+	"Not Alive Or In Wrong Team"
+	{
+		"fr"		"Vous nêtes pas en vie ou dans la bonne équipe (Terroristes) pour avoir une DV."
+	}
+
+	"LR KF Start"
+	{
+		"fr"		"{default}{1} {lightgreen}a choisis de faire un Combat de Cut avec {default}{2}{lightgreen}."
+	}
+
+	"LR HP Start"
+	{
+		"fr"		"{default}{1} {lightgreen}a choisis de faire un Duel de Patate Chaude avec {default}{2}{lightgreen}."
+	}
+
+	"LR Mag4Mag Start"
+	{
+		"fr"		"{default}{1} {lightgreen}a choisis de faire la DV Magasine avec {default}{2}{lightgreen}."
+	}
+
+	"LR Has Chosen to Rebel!"
+	{
+		"fr"		"{default}{1} {lightgreen}a choisis de se Rebeller !"
+	}
+
+	"Start Brink of Death"
+	{
+		"fr"		"{default}{1} {lightgreen}a choisis de faire un Concours de Sauts à mort avec {default}{2}{lightgreen}."
+	}
+
+	"LR RPS No Answer"
+	{
+		"fr"		"{default}{1} {lightgreen}Na rien choisis, ou na pas choisis à temps."
+	}
+
+	"LR RPS Tie"
+	{
+		"fr"		"{default}{1} {lightgreen}a choisis {default}{2}{lightgreen}, {default}{3} {lightgreen}a choisis {default}{4} {lightgreen}- Matche Nul"
+	}
+
+	"Randomly Chose First Player"
+	{
+		"fr"		" {default}{1} {lightgreen}a été aléatoirement choisis pour tirer le premier."
+	}
+
+	"LR Interference Abort"
+	{
+		"fr"		"{default}{1} {lightgreen}a attaqué {default}{2}{lightgreen} avec {default}{3}{lightgreen}. Dernière Volonté abandonné."
+	}
+
+	"Noscope Knife Attack Slay"
+	{
+		"fr"		"{default}{1} {lightgreen}a été tué pour avoir attaqué {default}{2} {lightgreen}avec un Cut durant un Combat dUnscop."
 	}
 
 }

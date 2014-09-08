@@ -1,5 +1,5 @@
 // Exported from SourceMod Translator
-// Date: 2014-09-08 21:11:43 UTC
+// Date: 2014-09-08 22:31:38 UTC
 // Language: English (en)
 // 
 // To view other translations for this plugin, please visit:
@@ -78,15 +78,9 @@
 		"en"		"You have already dropped your deagle!"
 	}
 
-	"Hot Potato PickUp"
-	{
-		"#format"	"{1:N}"
-		"en"		"{1} picked up the hot potato!"
-	}
-
 	"Powered By Hosties"
 	{
-		"en"		"This server is powered by SM_Hosties v2, enjoy!"
+		"en"		"This server is powered by {default}SM_Hosties v2{lightgreen}, enjoy!"
 	}
 
 	"Please Follow Rules"
@@ -94,70 +88,46 @@
 		"en"		"Please follow the rules listed in !rules."
 	}
 
-	"Knife Fight Gun Attack Slay"
-	{
-		"#format"	"{1:N},{2:N},{3:s}"
-		"en"		"{1} was slain for attacking {2} with {3} during Knife Fight."
-	}
-
 	"Knife Fight Gun Attack Abort"
 	{
 		"#format"	"{1:N},{2:N},{3:s}"
-		"en"		"{1} attacked {2} with {3} - Knife Fight aborted."
+		"en"		"{default}{1} {lightgreen}attacked {default}{2} {lightgreen}with {default}{3} {lightgreen}- Knife Fight aborted."
 	}
 
 	"Chicken Fight Gun Attack Slay"
 	{
 		"#format"	"{1:N},{2:N},{3:s}"
-		"en"		"{1} was slain for attacking {2} with {3} during Chicken Fight."
-	}
-
-	"Chicken Fight Gun Attack Abort"
-	{
-		"#format"	"{1:N},{2:N},{3:s}"
-		"en"		"{1} attacked {2} with {3} - Chicken Fight aborted."
+		"en"		"{default}{1} {lightgreen}was slain for attacking {default}{2} {lightgreen}with {default}{3} {lightgreen}during Chicken Fight."
 	}
 
 	"Hot Potato Attack Slay"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} was slain for attacking {2} during Hot Potato competition."
-	}
-
-	"Hot Potato Attack Abort"
-	{
-		"#format"	"{1:N},{2:N}"
-		"en"		"{1} attacked {2} - Hot Potato competition aborted."
+		"en"		"{default}{1} {lightgreen}was slain for attacking {default}{2} {lightgreen}during Hot Potato competition."
 	}
 
 	"New Rebel"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} is now a rebel."
+		"en"		"{default}{1} {lightgreen}is now a rebel."
 	}
 
 	"Freeattack"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} attacked {2}."
+		"en"		"{default}{1} {lightgreen}attacked {default}{2}{lightgreen}."
 	}
 
 	"Non LR Kill LR Slay"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"Non LR-player {1} was slain for killing LR-player {2}."
-	}
-
-	"Non LR Kill LR Abort"
-	{
-		"#format"	"{1:N},{2:N}"
-		"en"		"Non LR-player {1} killed LR-player {2} - LR aborted."
+		"en"		"Non LR-player {default}{1} {lightgreen}was slain for killing LR-player {default}{2}{lightgreen}."
 	}
 
 	"Rebel Kill"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} killed the rebel {2}."
+		"en"		"{default}{1} {lightgreen}killed the rebel {default}{2}{lightgreen}."
 	}
 
 	"LR Available"
@@ -168,41 +138,36 @@
 	"LR Player Disconnect"
 	{
 		"#format"	"{1:N}"
-		"en"		"LR-player {1} disconnected - LR aborted."
+		"en"		"LR-player {default}{1} {lightgreen}disconnected - LR aborted."
 	}
 
 	"Chicken Fight Win And Slay"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} won the Chicken Fight - {2} slayed."
+		"en"		"{default}{1} {lightgreen}won the Chicken Fight - {default}{2} {lightgreen}slayed."
 	}
 
 	"Chicken Fight Win"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} won the Chicken Fight."
+		"en"		"{default}{1} {lightgreen}won the Chicken Fight."
 	}
 
 	"Chicken Fight Kill Loser"
 	{
 		"#format"	"{1:N}"
-		"en"		"Kill {1}!"
+		"en"		"Kill {default}{1}{lightgreen}!"
 	}
 
 	"S4S Shot Taken"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} has taken his shot."
+		"en"		"{default}{1} {lightgreen}has taken his shot."
 	}
 
 	"Distance Meter"
 	{
 		"en"		"Distance meter :"
-	}
-
-	"LR Rebel Not Allowed"
-	{
-		"en"		"You can not have an LR when you're rebel."
 	}
 
 	"LR Choose"
@@ -212,7 +177,7 @@
 
 	"No CTs Alive"
 	{
-		"en"		"There are no CT's (alive) to have your LR with."
+		"en"		"There are no CTs (alive) to have your LR with."
 	}
 
 	"Too Many Ts"
@@ -222,12 +187,12 @@
 
 	"Not Alive Or In Wrong Team"
 	{
-		"en"		"You're not alive or in the wrong team for LR."
+		"en"		"Youre not alive or in the wrong team for LR."
 	}
 
 	"Another LR In Progress"
 	{
-		"en"		"There's already an LR in progress."
+		"en"		"Theres already an LR in progress."
 	}
 
 	"LR Disabled"
@@ -259,7 +224,7 @@
 	"Asking For Permission"
 	{
 		"#format"	"{1:N}"
-		"en"		"Asking {1} for permission because you are a rebel..."
+		"en"		"Asking {default}{1} {lightgreen}for permission because you are a rebel..."
 	}
 
 	"Target Is Not Alive Or In Wrong Team"
@@ -270,7 +235,7 @@
 	"Declined LR Request"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} declined your LR request."
+		"en"		"{default}{1} {lightgreen}declined your LR request."
 	}
 
 	"LR Partner Died"
@@ -280,97 +245,73 @@
 
 	"Too Slow Another LR In Progress"
 	{
-		"en"		"Oops, too slow. There's already another LR in progress."
+		"en"		"Oops, too slow. Theres already another LR in progress."
 	}
 
 	"LR Request Decline Or Too Long"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} declined your LR request or took to long to answer it."
-	}
-
-	"LR KF Start"
-	{
-		"#format"	"{1:N},{2:N}"
-		"en"		"{1} chose to have Knife Fight with {2}."
+		"en"		"{default}{1} {lightgreen}declined your LR request or took to long to answer it."
 	}
 
 	"LR S4S Start"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} chose to have Shot4Shot with {2}."
+		"en"		"{default}{1} {lightgreen}chose to have Shot4Shot with {default}{2}{lightgreen}."
 	}
 
 	"LR GT Start"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} chose to have Gun Toss with {2}."
+		"en"		"{default}{1} {lightgreen}chose to have Gun Toss with {default}{2}{lightgreen}."
 	}
 
 	"LR CF Start"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} chose to have Chicken Fight with {2}."
-	}
-
-	"LR HP Start"
-	{
-		"#format"	"{1:N},{2:N}"
-		"en"		"{1} chose to have Hot Potato with {2}."
+		"en"		"{default}{1} {lightgreen}chose to have Chicken Fight with {default}{2}{lightgreen}."
 	}
 
 	"LR DB Start"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} chose to have Dodgeball with {2}."
+		"en"		"{default}{1} {lightgreen}chose to have Dodgeball with {default}{2}{lightgreen}."
 	}
 
 	"LR NS Start"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} chose to have a No Scope Battle with {2}."
-	}
-
-	"LR RPS Start"
-	{
-		"#format"	"{1:N},{2:N}"
-		"en"		"{1} chose to play Rock Paper Scissors with {2}."
+		"en"		"{default}{1} {lightgreen}chose to have a No Scope Battle with {default}{2}{lightgreen}."
 	}
 
 	"LR Mag4Mag Start"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} chose to have Mag4Mag with {2}."
+		"en"		"{default}{1} {lightgreen}chose to have Mag4Mag with {default}{2}{lightgreen}."
 	}
 
 	"LR RR Start"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} chose to play Russian Roulette with {2}."
+		"en"		"{default}{1} {lightgreen}chose to play Russian Roulette with {default}{2}{lightgreen}."
 	}
 
 	"LR Has Chosen to Rebel!"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} has chosen to rebel!"
-	}
-
-	"Start Jump Contest"
-	{
-		"#format"	"{1:N},{2:N}"
-		"en"		"{1} selected a Most Jumps Contest with {2}."
+		"en"		"{default}{1} {lightgreen}has chosen to rebel!"
 	}
 
 	"Start Brink of Death"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} selected a To The Brink of Death Contest with {2}."
+		"en"		"{default}{1} {lightgreen}selected a To The Brink of Death Contest with {default}{2}{lightgreen}."
 	}
 
 	"Start Farthest Jump"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} selected to have a Farthest Jumping competition with {2}."
+		"en"		"{default}{1} {lightgreen}selected to have a Farthest Jumping competition with {default}{2}{lightgreen}."
 	}
 
 	"No Rebels ATM"
@@ -396,18 +337,12 @@
 	"HP Win"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} won the Hot Potato contest - {2} slayed."
+		"en"		"{default}{1} {lightgreen}won the Hot Potato contest - {default}{2} {lightgreen}slayed."
 	}
 
 	"HP Last One To Have The Potato"
 	{
 		"en"		"You were the last one who has the potato!"
-	}
-
-	"Ts Muted"
-	{
-		"#format"	"{1:d}"
-		"en"		"Terrorists are muted the first {1} seconds of the round!"
 	}
 
 	"Ts Can Speak Again"
@@ -428,7 +363,7 @@
 	"CT Attack T Gun"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} attacked {2} who has a gun..."
+		"en"		"{default}{1} {lightgreen}attacked {default}{2} {lightgreen}who has a gun..."
 	}
 
 	"Rock"
@@ -449,47 +384,30 @@
 	"LR RPS No Answer"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} didn't choose rock, paper or scissors, or didn't choose in time."
-	}
-
-	"LR RPS Done"
-	{
-		"#format"	"{1:N},{2:s},{3:N},{4:s},{5:N}"
-		"en"		"{1} chose {2}, {3} chose {4} - {5} wins"
+		"en"		"{default}{1} {lightgreen}didnt choose rock, paper or scissors, or didnt choose in time."
 	}
 
 	"LR RPS Tie"
 	{
 		"#format"	"{1:N},{2:s},{3:N},{4:s}"
-		"en"		"{1} chose {2}, {3} chose {4} - tie"
+		"en"		"{default}{1} {lightgreen}chose {default}{2}{lightgreen}, {default}{3} {lightgreen}chose {default}{4} {lightgreen}- tie"
 	}
 
 	"LR Not With Bot"
 	{
-		"en"		"Sorry, you can't have that LR with a bot."
-	}
-
-	"LR Not Available"
-	{
-		"en"		"You can't have a last request right now."
-	}
-
-	"LR Delay Announcement"
-	{
-		"#format"	"{1:d}"
-		"en"		"Terrorists cannot have last requests until {1} second(s) has elapsed!"
+		"en"		"Sorry, you cant have that LR with a bot."
 	}
 
 	"Freekill Slay"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} was slain for killing too many non-rebelling terrorists."
+		"en"		"{default}{1} {lightgreen}was slain for killing too many non-rebelling terrorists."
 	}
 
 	"Freekill Kick"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} was kicked for killing too many non-rebelling terrorists."
+		"en"		"{default}{1} {lightgreen}was kicked for killing too many non-rebelling terrorists."
 	}
 
 	"Freekill Kick Reason"
@@ -500,7 +418,7 @@
 	"Freekill Ban"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} was banned for killing too many non-rebelling terrorists."
+		"en"		"{default}{1} {lightgreen}was banned for killing too many non-rebelling terrorists."
 	}
 
 	"Freekill Ban Reason"
@@ -517,19 +435,19 @@
 	"Race Won"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} won the Race!"
+		"en"		"{default}{1} {lightgreen}won the Race!"
 	}
 
 	"Won Jump Contest"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} won the Jumping Contest!"
+		"en"		"{default}{1} {lightgreen}won the Jumping Contest!"
 	}
 
 	"Russian Roulette - Hit"
 	{
 		"#format"	"{1:N}"
-		"en"		"Russian Roulette: Bullet hit {1}!"
+		"en"		"Russian Roulette: Bullet hit {default}{1}{lightgreen}!"
 	}
 
 	"Russian Roulette - Miss"
@@ -540,73 +458,55 @@
 	"Randomly Chose First Player"
 	{
 		"#format"	"{1:N}"
-		"en"		"Randomly selected {1} to shoot first."
-	}
-
-	"LR Interference Slay"
-	{
-		"#format"	"{1:N},{2:N},{3:s}"
-		"en"		"{1} was slain for attacking {2} with {3} during LR."
+		"en"		"Randomly selected {default}{1} {lightgreen}to shoot first."
 	}
 
 	"LR Interference Abort"
 	{
 		"#format"	"{1:N},{2:N},{3:s}"
-		"en"		"{1} attacked {2} with {3}. LR aborted."
+		"en"		"{default}{1} {lightgreen}attacked {default}{2}{lightgreen} with {default}{3}{lightgreen}. LR aborted."
 	}
 
 	"LR Interference Slay - No Victim"
 	{
 		"#format"	"{1:N},{2:s}"
-		"en"		"{1} was slain for attacking with {2} during LR."
-	}
-
-	"LR Interference Abort - No Victim"
-	{
-		"#format"	"{1:N},{2:s}"
-		"en"		"{1} attacked with {2}. LR aborted."
+		"en"		"{default}{1} {lightgreen}was slain for attacking with {default}{2}{lightgreen} during LR."
 	}
 
 	"LR Cheating Abort"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} cheated! LR aborted."
+		"en"		"{default}{1} {lightgreen}cheated! LR aborted."
 	}
 
 	"LR Cheating Slay"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} was slain for cheating during LR."
+		"en"		"{default}{1} {lightgreen}was slain for cheating during LR."
 	}
 
 	"Noscope Knife Attack Slay"
 	{
 		"#format"	"{1:N},{2:N}"
-		"en"		"{1} was slain for attacking {2} with a knife during No Scope."
-	}
-
-	"Noscope Knife Attack Abort"
-	{
-		"#format"	"{1:N},{2:N}"
-		"en"		"{1} attacked {2} with a knife - No Scope aborted."
+		"en"		"{default}{1} {lightgreen}was slain for attacking {default}{2} {lightgreen}with a knife during No Scope."
 	}
 
 	"S4S Rebel Slayed"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} was slain for rebelling during S4S."
+		"en"		"{default}{1} {lightgreen}was slain for rebelling during S4S."
 	}
 
 	"S4S Rebel Aborted"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} rebelled during LR - S4S aborted."
+		"en"		"{default}{1} {lightgreen}rebelled during LR - S4S aborted."
 	}
 
 	"M4M Mag Used"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} has used their magazine."
+		"en"		"{default}{1} {lightgreen}has used their magazine."
 	}
 
 	"LR No CTs Available"
@@ -784,22 +684,16 @@
 		"en"		"You must be on the ground to select this option."
 	}
 
-	"Farthest Jump Won"
-	{
-		"#format"	"{1:N},{2:N},{3:3.1f},{4:3.1f}"
-		"en"		"{1} won the farthest jump with {3} compared to {2}'s {4}."
-	}
-
 	"Race Could Start Soon"
 	{
 		"#format"	"{1:N}"
-		"en"		"{1} picked the Race LR. Watch for starting & ending points!"
+		"en"		"{default}{1} {lightgreen}picked the Race LR. Watch for starting &amp; ending points!"
 	}
 
 	"Respawned Target"
 	{
 		"#format"	"{1:s}"
-		"en"		"Respawned {1}"
+		"en"		"Respawned {default}{1}"
 	}
 
 	"Player Alive"
@@ -815,7 +709,7 @@
 	"Respawn Data Unavailable"
 	{
 		"#format"	"{1:N}"
-		"en"		"Player {1} did not have respawn data yet and was sent back to cells."
+		"en"		"Player {default}{1} {lightgreen}did not have respawn data yet and was sent back to cells."
 	}
 
 	"FruitNinja"
@@ -837,7 +731,7 @@
 	"Tie and Extra"
 	{
 		"#format"	"{1:i}"
-		"en"		"Players' scores were the same, {default}{1} {lightgreen}extra seconds have been added!"
+		"en"		"Players scores were the same, {default}{1} {lightgreen}extra seconds have been added!"
 	}
 
 	"Obstacle"
@@ -852,12 +746,12 @@
 
 	"Distance too small"
 	{
-		"en"		"Distance between fruits' spawn location is too small!"
+		"en"		"Distance between fruits spawn location is too small!"
 	}
 
 	"Distance too big"
 	{
-		"en"		"Distance between fruits' spawn location is too big!"
+		"en"		"Distance between fruits spawn location is too big!"
 	}
 
 	"Fruit Ninja Winner"
@@ -870,11 +764,6 @@
 	{
 		"#format"	"{1:s},{2:i},{3:s},{4:i},{5:i}"
 		"en"		"{1}: {2}\n{3}: {4}\nTime left to slice fruit: {5} seconds"
-	}
-
-	"HP Fight"
-	{
-		"en"		"HP Fight's"
 	}
 
 	"M4A1 Fight"
@@ -1019,6 +908,117 @@
 	{
 		"#format"	"{1:N}"
 		"en"		"{default}{1} {lightgreen}won the Shotgun War."
+	}
+
+	"HP Fight"
+	{
+		"en"		"HP Fights"
+	}
+
+	"Hot Potato PickUp"
+	{
+		"#format"	"{1:N}"
+		"en"		"{default}{1} {lightgreen}picked up the hot potato!"
+	}
+
+	"Knife Fight Gun Attack Slay"
+	{
+		"#format"	"{1:N},{2:N},{3:s}"
+		"en"		"{default}{1} {lightgreen}was slain for attacking {default}{2} {lightgreen}with {default}{3} {lightgreen}during Knife Fight."
+	}
+
+	"Chicken Fight Gun Attack Abort"
+	{
+		"#format"	"{1:N},{2:N},{3:s}"
+		"en"		"{default}{1} {lightgreen}attacked {default}{2} {lightgreen} with {default}{3} {lightgreen}- Chicken Fight aborted."
+	}
+
+	"Hot Potato Attack Abort"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{default}{1} {lightgreen}attacked {default}{2} {lightgreen}- Hot Potato competition aborted."
+	}
+
+	"Non LR Kill LR Abort"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"Non LR-player {default}{1} {lightgreen}killed LR-player {default}{2} {lightgreen}- LR aborted."
+	}
+
+	"LR Rebel Not Allowed"
+	{
+		"en"		"You can not have an LR when youre rebel."
+	}
+
+	"LR KF Start"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{default}{1} {lightgreen}chose to have Knife Fight with {default}{2}{lightgreen}."
+	}
+
+	"LR HP Start"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{default}{1} {lightgreen}chose to have Hot Potato with {default}{2}{lightgreen}."
+	}
+
+	"LR RPS Start"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{default}{1} {lightgreen}chose to play Rock Paper Scissors with {default}{2}{lightgreen}."
+	}
+
+	"Start Jump Contest"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{default}{1} {lightgreen}selected a Most Jumps Contest with {default}{2}{lightgreen}."
+	}
+
+	"Ts Muted"
+	{
+		"#format"	"{1:d}"
+		"en"		"Terrorists are muted the first {default}{1} {lightgreen}seconds of the round!"
+	}
+
+	"LR RPS Done"
+	{
+		"#format"	"{1:N},{2:s},{3:N},{4:s},{5:N}"
+		"en"		"{default}{1} {lightgreen}chose {default}{2}{lightgreen}, {default}{3} {lightgreen}chose {default}{4} {lightgreen}- {default}{5} {lightgreen}wins"
+	}
+
+	"LR Not Available"
+	{
+		"en"		"You cant have a last request right now."
+	}
+
+	"LR Delay Announcement"
+	{
+		"#format"	"{1:d}"
+		"en"		"Terrorists cannot have last requests until {default}{1} {lightgreen}second(s) has elapsed!"
+	}
+
+	"LR Interference Slay"
+	{
+		"#format"	"{1:N},{2:N},{3:s}"
+		"en"		"{default}{1} {lightgreen}was slain for attacking {default}{2}{lightgreen} with {default}{3}{lightgreen} during LR."
+	}
+
+	"LR Interference Abort - No Victim"
+	{
+		"#format"	"{1:N},{2:s}"
+		"en"		"{default}{1} {lightgreen}attacked with {default}{2}{lightgreen}. LR aborted."
+	}
+
+	"Noscope Knife Attack Abort"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{default}{1} {lightgreen}attacked {default}{2} {lightgreen}with a knife - No Scope aborted."
+	}
+
+	"Farthest Jump Won"
+	{
+		"#format"	"{1:N},{2:N},{3:3.1f},{4:3.1f}"
+		"en"		"{default}{1} {lightgreen}won the farthest jump with {default}{3} {lightgreen}compared to {default}{2}{lightgreen}s {default}{4}{lightgreen}."
 	}
 
 }

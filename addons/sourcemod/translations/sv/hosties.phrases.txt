@@ -1,5 +1,5 @@
 // Exported from SourceMod Translator
-// Date: 2014-09-08 21:11:43 UTC
+// Date: 2014-09-08 22:31:37 UTC
 // Language: Swedish (sv)
 // 
 // To view other translations for this plugin, please visit:
@@ -103,74 +103,49 @@
 		"sv"		"Du har redan kastat din deagle!"
 	}
 
-	"Hot Potato PickUp"
-	{
-		"sv"		"{1} plockade upp potatisen!"
-	}
-
-	"Powered By Hosties"
-	{
-		"sv"		"Denna servern kränger falukorv tack vare SM_Hosties v2, njut!"
-	}
-
 	"Please Follow Rules"
 	{
 		"sv"		"Vänligen följ reglerna enligt !rules."
 	}
 
-	"Knife Fight Gun Attack Slay"
-	{
-		"sv"		"{1} blev dräpt efter att ha attackerat {2} med {3} under Knivduell."
-	}
-
 	"Knife Fight Gun Attack Abort"
 	{
-		"sv"		"{1} attackerade {2} med {3} - Knivduell avbruten."
+		"sv"		"{default}{1} {lightgreen}attackerade {default}{2} {lightgreen}med {default}{3} {lightgreen}- Knivduell avbruten."
 	}
 
 	"Chicken Fight Gun Attack Slay"
 	{
-		"sv"		"{1} blev dräpt efter att ha attackerat {2} med {3} under Tuppfäktning."
+		"sv"		"{default}{1} {lightgreen}blev dräpt efter att ha attackerat {default}{2} {lightgreen}med {default}{3} {lightgreen}under Tuppfäktning."
 	}
 
 	"Chicken Fight Gun Attack Abort"
 	{
-		"sv"		"{1} attackerade {2} med {3} - Tuppfäktning avbruten."
-	}
-
-	"Hot Potato Attack Slay"
-	{
-		"sv"		"{1} blev dräpt efter att ha attackerat {2} under Het Potatis-tävling."
+		"sv"		"{default}{1} {lightgreen}attackerade {default}{2} {lightgreen} med {default}{3} {lightgreen}- Tuppfäktning avbruten."
 	}
 
 	"Hot Potato Attack Abort"
 	{
-		"sv"		"{1} attackerade {2} - Het Potatis-tävling avbruten."
+		"sv"		"{default}{1} {lightgreen}attackerade {default}{2} {lightgreen}- Het Potatis-tävling avbruten."
 	}
 
 	"New Rebel"
 	{
-		"sv"		"{1} är nu rebell."
+		"sv"		"{default}{1} {lightgreen}är nu rebell."
 	}
 
 	"Freeattack"
 	{
-		"sv"		"{1} attackerade {2}."
-	}
-
-	"Non LR Kill LR Slay"
-	{
-		"sv"		"Icke LR-spelare {1} blev dräpt efter att ha dödat LR-spelare {2}."
+		"sv"		"{default}{1} {lightgreen}attackerade {default}{2}{lightgreen}."
 	}
 
 	"Non LR Kill LR Abort"
 	{
-		"sv"		"Icke LR-spelare {1} dödade LR-spelare {2} - LR avbrutet."
+		"sv"		"Icke LR-spelare {default}{1} {lightgreen}dödade LR-spelare {default}{2} {lightgreen}- LR avbrutet."
 	}
 
 	"Rebel Kill"
 	{
-		"sv"		"{1} dödade rebellen {2}."
+		"sv"		"{default}{1} {lightgreen}dödade rebellen {default}{2}{lightgreen}."
 	}
 
 	"LR Available"
@@ -180,27 +155,22 @@
 
 	"LR Player Disconnect"
 	{
-		"sv"		"LR-spelare {1} kopplade från - sista önskan avbrutet."
+		"sv"		"LR-spelare {default}{1} {lightgreen}kopplade från - sista önskan avbrutet."
 	}
 
 	"Chicken Fight Win And Slay"
 	{
-		"sv"		"{1} vann Tuppfäktningen - {2} dräpt."
+		"sv"		"{default}{1} {lightgreen}vann Tuppfäktningen - {default}{2} {lightgreen}dräpt."
 	}
 
 	"Chicken Fight Win"
 	{
-		"sv"		"{1} vann Tuppfäktningen."
+		"sv"		"{default}{1} {lightgreen}vann Tuppfäktningen."
 	}
 
 	"Chicken Fight Kill Loser"
 	{
-		"sv"		"Döda {1}!"
-	}
-
-	"S4S Shot Taken"
-	{
-		"sv"		"{1} har skjutit sitt skott."
+		"sv"		"Döda {default}{1}{lightgreen}!"
 	}
 
 	"Distance Meter"
@@ -265,7 +235,7 @@
 
 	"Asking For Permission"
 	{
-		"sv"		"Ber {1} om lov eftersom du är rebell..."
+		"sv"		"Ber {default}{1} {lightgreen}om lov eftersom du är rebell..."
 	}
 
 	"Target Is Not Alive Or In Wrong Team"
@@ -275,7 +245,7 @@
 
 	"Declined LR Request"
 	{
-		"sv"		"{1} avböjde din sista önskan."
+		"sv"		"{default}{1} {lightgreen}avböjde din sista önskan."
 	}
 
 	"LR Partner Died"
@@ -290,77 +260,57 @@
 
 	"LR Request Decline Or Too Long"
 	{
-		"sv"		"{1} avböjde din sista önskan eller tog för lång tid att svara på den."
+		"sv"		"{default}{1} {lightgreen}avböjde din sista önskan eller tog för lång tid att svara på den."
 	}
 
 	"LR KF Start"
 	{
-		"sv"		"{1} valde att ha Knivduell med {2}."
-	}
-
-	"LR S4S Start"
-	{
-		"sv"		"{1} valde att ha Skott För Skott med {2}."
+		"sv"		"{default}{1} {lightgreen}valde att ha Knivduell med {default}{2}{lightgreen}."
 	}
 
 	"LR GT Start"
 	{
-		"sv"		"{1} valde att ha Kasta Deagle med {2}."
+		"sv"		"{default}{1} {lightgreen}valde att ha Kasta Deagle med {default}{2}{lightgreen}."
 	}
 
 	"LR CF Start"
 	{
-		"sv"		"{1} valde att ha Tuppfäktning med {2}."
-	}
-
-	"LR HP Start"
-	{
-		"sv"		"{1} valde att ha Het Potatis-tävling med {2}."
+		"sv"		"{default}{1} {lightgreen}valde att ha Tuppfäktning med {default}{2}{lightgreen}."
 	}
 
 	"LR DB Start"
 	{
-		"sv"		"{1} valde att ha Spökboll med {2}."
+		"sv"		"{default}{1} {lightgreen}valde att ha Spökboll med {default}{2}{lightgreen}."
 	}
 
 	"LR NS Start"
 	{
-		"sv"		"{1} valde att ha No Scope-duell med {2}."
-	}
-
-	"LR RPS Start"
-	{
-		"sv"		"{1} valde att ha Sten Sax Påse med {2}."
+		"sv"		"{default}{1} {lightgreen}valde att ha No Scope-duell med {default}{2}{lightgreen}."
 	}
 
 	"LR Mag4Mag Start"
 	{
-		"sv"		"{1} valde att ha Magasin För Magasin med {2}."
+		"sv"		"{default}{1} {lightgreen}valde att ha Magasin För Magasin med {default}{2}{lightgreen}."
 	}
 
 	"LR RR Start"
 	{
-		"sv"		"{1} valde att ha Rysk Roulette med {2}."
+		"sv"		"{default}{1} {lightgreen}valde att ha Rysk Roulette med {default}{2}{lightgreen}."
 	}
 
 	"LR Has Chosen to Rebel!"
 	{
-		"sv"		"{1} valde att bli en tungt beväpnad rebell!"
-	}
-
-	"Start Jump Contest"
-	{
-		"sv"		"{1} valde att ha en Hopptävling (om flest hopp) med {2}."
+		"sv"		"{default}{1} {lightgreen}valde att bli en tungt beväpnad rebell!"
 	}
 
 	"Start Brink of Death"
 	{
-		"sv"		"{1} valde att ha en Självmordsbenägen Hopptävling med {2}."
+		"sv"		"{default}{1} {lightgreen}valde att ha en Självmordsbenägen Hopptävling med {default}{2}{lightgreen}."
 	}
 
 	"Start Farthest Jump"
 	{
-		"sv"		"{1} valde att ha en Hopptävling (om längd) med {2}."
+		"sv"		"{default}{1} {lightgreen}valde att ha en Hopptävling (om längd) med {default}{2}{lightgreen}."
 	}
 
 	"No Rebels ATM"
@@ -385,17 +335,12 @@
 
 	"HP Win"
 	{
-		"sv"		"{1} vann Het Potatis-tävlingen - {2} dräpt."
+		"sv"		"{default}{1} {lightgreen}vann Het Potatis-tävlingen - {default}{2} {lightgreen}dräpt."
 	}
 
 	"HP Last One To Have The Potato"
 	{
 		"sv"		"Du var den sista som höll i potatisen!"
-	}
-
-	"Ts Muted"
-	{
-		"sv"		"Terroristerna är tystade de första {1} sekunderna av rundan!"
 	}
 
 	"Ts Can Speak Again"
@@ -415,7 +360,7 @@
 
 	"CT Attack T Gun"
 	{
-		"sv"		"{1} attackerade {2} som har ett vapen..."
+		"sv"		"{default}{1} {lightgreen}attackerade {default}{2} {lightgreen}som har ett vapen..."
 	}
 
 	"Rock"
@@ -435,17 +380,17 @@
 
 	"LR RPS No Answer"
 	{
-		"sv"		"{1} valde inte sten, sax eller påse, eller tog för lång tid på sig."
+		"sv"		"{default}{1} {lightgreen}valde inte sten, sax eller påse, eller tog för lång tid på sig."
 	}
 
 	"LR RPS Done"
 	{
-		"sv"		"{1} valde {2}, {3} valde {4} - {5} vann"
+		"sv"		"{default}{1} {lightgreen}valde {default}{2}{lightgreen}, {default}{3} {lightgreen}valde {default}{4} {lightgreen}- {default}{5} {lightgreen}vann"
 	}
 
 	"LR RPS Tie"
 	{
-		"sv"		"{1} valde {2}, {3} valde {4} - oavgjort"
+		"sv"		"{default}{1} {lightgreen}valde {default}{2}{lightgreen}, {default}{3} {lightgreen}valde {default}{4} {lightgreen}- oavgjort"
 	}
 
 	"LR Not With Bot"
@@ -460,17 +405,17 @@
 
 	"LR Delay Announcement"
 	{
-		"sv"		"Terrorister kan inte få sista önskningar förrän {1} sekund(er) har gått!"
+		"sv"		"Terrorister kan inte få sista önskningar förrän {default}{1} {lightgreen}sekund(er) har gått!"
 	}
 
 	"Freekill Slay"
 	{
-		"sv"		"{1} blev dräpt för att ha dödat för många icke-rebeller."
+		"sv"		"{default}{1} {lightgreen}blev dräpt för att ha dödat för många icke-rebeller."
 	}
 
 	"Freekill Kick"
 	{
-		"sv"		"{1} blev utkastad för att ha dödar för många icke-rebeller."
+		"sv"		"{default}{1} {lightgreen}blev utkastad för att ha dödar för många icke-rebeller."
 	}
 
 	"Freekill Kick Reason"
@@ -480,7 +425,7 @@
 
 	"Freekill Ban"
 	{
-		"sv"		"{1} blev bannlyst för att ha dödat för många icke-rebeller."
+		"sv"		"{default}{1} {lightgreen}blev bannlyst för att ha dödat för många icke-rebeller."
 	}
 
 	"Freekill Ban Reason"
@@ -495,17 +440,17 @@
 
 	"Race Won"
 	{
-		"sv"		"{1} vann Racet!"
+		"sv"		"{default}{1} {lightgreen}vann Racet!"
 	}
 
 	"Won Jump Contest"
 	{
-		"sv"		"{1} vann Hopptävlingen!"
+		"sv"		"{default}{1} {lightgreen}vann Hopptävlingen!"
 	}
 
 	"Russian Roulette - Hit"
 	{
-		"sv"		"Rysk Roulette: Skottet träffade {1}!"
+		"sv"		"Rysk Roulette: Skottet träffade {default}{1}{lightgreen}!"
 	}
 
 	"Russian Roulette - Miss"
@@ -515,62 +460,62 @@
 
 	"Randomly Chose First Player"
 	{
-		"sv"		"Slumpen valde {1} att skjuta först."
+		"sv"		"Slumpen valde {default}{1} {lightgreen}att skjuta först."
 	}
 
 	"LR Interference Slay"
 	{
-		"sv"		"{1} blev dräpt efter att ha attackerat {2} med {3} under sista önskan."
+		"sv"		"{default}{1} {lightgreen}blev dräpt efter att ha attackerat {default}{2}{lightgreen} med {default}{3}{lightgreen} under sista önskan."
 	}
 
 	"LR Interference Abort"
 	{
-		"sv"		"{1} attackerade {2} med {3}. Sista önskan avbruten."
+		"sv"		"{default}{1} {lightgreen}attackerade {default}{2}{lightgreen} med {default}{3}{lightgreen}. Sista önskan avbruten."
 	}
 
 	"LR Interference Slay - No Victim"
 	{
-		"sv"		"{1} blev dräpt efter att ha attackerat med {2} under sista önskan."
+		"sv"		"{default}{1} {lightgreen}blev dräpt efter att ha attackerat med {default}{2}{lightgreen} under sista önskan."
 	}
 
 	"LR Interference Abort - No Victim"
 	{
-		"sv"		"{1} attackade med {2}. Sista önskan avbruten."
+		"sv"		"{default}{1} {lightgreen}attackade med {default}{2}{lightgreen}. Sista önskan avbruten."
 	}
 
 	"LR Cheating Abort"
 	{
-		"sv"		"{1} fuskade! Sista önskan avbruten."
+		"sv"		"{default}{1} {lightgreen}fuskade! Sista önskan avbruten."
 	}
 
 	"LR Cheating Slay"
 	{
-		"sv"		"{1} blev dräpt för fusk under sista önskan."
+		"sv"		"{default}{1} {lightgreen}blev dräpt för fusk under sista önskan."
 	}
 
 	"Noscope Knife Attack Slay"
 	{
-		"sv"		"{1} blev dräpt efter att ha knivhuggit {2} under No Scope-duell."
+		"sv"		"{default}{1} {lightgreen}blev dräpt efter att ha knivhuggit {default}{2} {lightgreen}under No Scope-duell."
 	}
 
 	"Noscope Knife Attack Abort"
 	{
-		"sv"		"{1} knivhögg {2} - No Scope-duell avbruten."
+		"sv"		"{default}{1} {lightgreen}knivhögg {default}{2} {lightgreen}- No Scope-duell avbruten."
 	}
 
 	"S4S Rebel Slayed"
 	{
-		"sv"		"{1} blev dräpt efter att ha uppvisat dålig koncentration i Skott För Skott."
+		"sv"		"{default}{1} {lightgreen}blev dräpt efter att ha uppvisat dålig koncentration i Skott För Skott."
 	}
 
 	"S4S Rebel Aborted"
 	{
-		"sv"		"{1} uppvisade dålig koncentration och avbröt därmed Skott För Skott-duellen."
+		"sv"		"{default}{1} {lightgreen}uppvisade dålig koncentration och avbröt därmed Skott För Skott-duellen."
 	}
 
 	"M4M Mag Used"
 	{
-		"sv"		"{1} sköt upp sitt magasin."
+		"sv"		"{default}{1} {lightgreen}sköt upp sitt magasin."
 	}
 
 	"LR No CTs Available"
@@ -725,12 +670,12 @@
 
 	"Farthest Jump Won"
 	{
-		"sv"		"{1} gjorde det längsta hoppet med {3} jämfört med {2}s {4}."
+		"sv"		"{default}{1} {lightgreen}gjorde det längsta hoppet med {default}{3} {lightgreen}jämfört med {default}{2}{lightgreen}s {default}{4}{lightgreen}."
 	}
 
 	"Race Could Start Soon"
 	{
-		"sv"		"{1} valde Race som sin sista önskan. Håll utkik efter start- och målgång!"
+		"sv"		"{default}{1} {lightgreen}valde Race som sin sista önskan. Håll utkik efter start- och målgång!"
 	}
 
 	"On Ground"
@@ -756,6 +701,61 @@
 	"Fruit Ninja Score"
 	{
 		"sv"		"{1}: {2}\n{3}: {4}\nTid kvar att skiva frukt: {5} sekunder"
+	}
+
+	"Hot Potato PickUp"
+	{
+		"sv"		"{default}{1} {lightgreen}plockade upp potatisen!"
+	}
+
+	"Powered By Hosties"
+	{
+		"sv"		"Denna servern kränger falukorv tack vare {default}SM_Hosties v2{lightgreen}, njut!"
+	}
+
+	"Knife Fight Gun Attack Slay"
+	{
+		"sv"		"{default}{1} {lightgreen}blev dräpt efter att ha attackerat {default}{2} {lightgreen}med {default}{3} {lightgreen}under Knivduell."
+	}
+
+	"Hot Potato Attack Slay"
+	{
+		"sv"		"{default}{1} {lightgreen}blev dräpt efter att ha attackerat {default}{2} {lightgreen}under Het Potatis-tävling."
+	}
+
+	"Non LR Kill LR Slay"
+	{
+		"sv"		"Icke LR-spelare {default}{1} {lightgreen}blev dräpt efter att ha dödat LR-spelare {default}{2}{lightgreen}."
+	}
+
+	"S4S Shot Taken"
+	{
+		"sv"		"{default}{1} {lightgreen}har skjutit sitt skott."
+	}
+
+	"LR S4S Start"
+	{
+		"sv"		"{default}{1} {lightgreen}valde att ha Skott För Skott med {default}{2}{lightgreen}."
+	}
+
+	"LR HP Start"
+	{
+		"sv"		"{default}{1} {lightgreen}valde att ha Het Potatis-tävling med {default}{2}{lightgreen}."
+	}
+
+	"LR RPS Start"
+	{
+		"sv"		"{default}{1} {lightgreen}valde att ha Sten Sax Påse med {default}{2}{lightgreen}."
+	}
+
+	"Start Jump Contest"
+	{
+		"sv"		"{default}{1} {lightgreen}valde att ha en Hopptävling (om flest hopp) med {default}{2}{lightgreen}."
+	}
+
+	"Ts Muted"
+	{
+		"sv"		"Terroristerna är tystade de första {default}{1} {lightgreen}sekunderna av rundan!"
 	}
 
 }
