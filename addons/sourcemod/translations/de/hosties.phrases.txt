@@ -1,0 +1,21 @@
+// Exported from SourceMod Translator
+// Date: 2014-09-08 22:31:37 UTC
+// Language: German (de)
+// 
+// To view other translations for this plugin, please visit:
+// http://translator.mitchdempsey.com/sourcemod_plugins/148
+//
+"Phrases"
+{
+
+	"Pistol_USP"
+	{
+		"de"		"USP"
+	}
+
+	"Pistol_Deagle"
+	{
+		"de"		"Deagle"
+	}
+
+}

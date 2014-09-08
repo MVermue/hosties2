@@ -1,5 +1,5 @@
 // Exported from SourceMod Translator
-// Date: 2014-09-08 21:11:43 UTC
+// Date: 2014-09-08 22:31:37 UTC
 // Language: Russian (ru)
 // 
 // To view other translations for this plugin, please visit:
@@ -78,69 +78,49 @@
 		"ru"		"Ты уже бросил свой пистолет!"
 	}
 
-	"Hot Potato PickUp"
-	{
-		"ru"		"{1} подобрал картошку!"
-	}
-
 	"Powered By Hosties"
 	{
-		"ru"		"Сервер использует SM_Hosties 2!"
-	}
-
-	"Knife Fight Gun Attack Slay"
-	{
-		"ru"		"{1} был убит за атаку {2} с помощью {3} во время Боя на Ножах."
+		"ru"		"Сервер использует {default}SM_Hosties 2{lightgreen}!"
 	}
 
 	"Knife Fight Gun Attack Abort"
 	{
-		"ru"		"{1} ранил {2} с помощью {3} - Бой на Ножах отменен."
+		"ru"		"{default}{1} {lightgreen}ранил {default}{2} {lightgreen}с помощью {default}{3} {lightgreen}- Бой на Ножах отменен."
 	}
 
 	"Chicken Fight Gun Attack Slay"
 	{
-		"ru"		"{1} был убит за атаку {2} с помощью {3} во время Петушиного Боя."
-	}
-
-	"Chicken Fight Gun Attack Abort"
-	{
-		"ru"		"{1} ранил {2} с помощью {3} - Петушиный Бой отменен."
+		"ru"		"{default}{1} {lightgreen}был убит за атаку {default}{2} {lightgreen}с помощью {default}{3} {lightgreen}во время Петушиного Боя."
 	}
 
 	"Hot Potato Attack Slay"
 	{
-		"ru"		"{1} был убит за атаку {2} во время Горячей Картошки."
+		"ru"		"{default}{1} {lightgreen}был убит за атаку {default}{2} {lightgreen}во время Горячей Картошки."
 	}
 
 	"Hot Potato Attack Abort"
 	{
-		"ru"		"{1} ранил {2} - Горячая Картошка отменена."
+		"ru"		"{default}{1} {lightgreen}ранил {default}{2} {lightgreen}- Горячая Картошка отменена."
 	}
 
 	"New Rebel"
 	{
-		"ru"		"{1} бунтует!"
+		"ru"		"{default}{1} {lightgreen}бунтует!"
 	}
 
 	"Freeattack"
 	{
-		"ru"		"{1} атаковал {2}."
+		"ru"		"{default}{1} {lightgreen}атаковал {default}{2}{lightgreen}."
 	}
 
 	"Non LR Kill LR Slay"
 	{
-		"ru"		"Не-LR-игрок {1} был убит за убийство LR-игрока {2}."
-	}
-
-	"Non LR Kill LR Abort"
-	{
-		"ru"		"Не-LR-игрок {1} убил LR-игрока {2} - LR отменено."
+		"ru"		"Не-LR-игрок {default}{1} {lightgreen}был убит за убийство LR-игрока {default}{2}{lightgreen}."
 	}
 
 	"Rebel Kill"
 	{
-		"ru"		"{1} предотвратил бунт {2}."
+		"ru"		"{default}{1} {lightgreen}предотвратил бунт {default}{2}{lightgreen}."
 	}
 
 	"LR Available"
@@ -150,27 +130,27 @@
 
 	"LR Player Disconnect"
 	{
-		"ru"		"LR-игрок {1} покинул сервер - LR отменено."
+		"ru"		"LR-игрок {default}{1} {lightgreen}покинул сервер - LR отменено."
 	}
 
 	"Chicken Fight Win And Slay"
 	{
-		"ru"		"{1} выиграл Петушиный Бой - {2} убит."
+		"ru"		"{default}{1} {lightgreen}выиграл Петушиный Бой - {default}{2} {lightgreen}убит."
 	}
 
 	"Chicken Fight Win"
 	{
-		"ru"		"{1} выиграл Петушиный Бой."
+		"ru"		"{default}{1} {lightgreen}выиграл Петушиный Бой."
 	}
 
 	"Chicken Fight Kill Loser"
 	{
-		"ru"		"Убейте {1}!"
+		"ru"		"Убейте {default}{1}{lightgreen}!"
 	}
 
 	"S4S Shot Taken"
 	{
-		"ru"		"{1} сделал выстрел."
+		"ru"		"{default}{1} {lightgreen}сделал выстрел."
 	}
 
 	"Distance Meter"
@@ -233,11 +213,6 @@
 		"ru"		"Нет"
 	}
 
-	"Asking For Permission"
-	{
-		"ru"		"Спрашиваем разрешение у {1} на игру, т.к. вы - бунтовщик..."
-	}
-
 	"Target Is Not Alive Or In Wrong Team"
 	{
 		"ru"		"Оппонент уже не очень живой или не очень тюремщик для Последнего Желания."
@@ -245,7 +220,7 @@
 
 	"Declined LR Request"
 	{
-		"ru"		"{1} отклонил запрос на Последнее Желание."
+		"ru"		"{default}{1} {lightgreen}отклонил запрос на Последнее Желание."
 	}
 
 	"LR Partner Died"
@@ -260,77 +235,62 @@
 
 	"LR Request Decline Or Too Long"
 	{
-		"ru"		"{1} отклонил запрос на Последнее Желание или слишком долго думал."
+		"ru"		"{default}{1} {lightgreen}отклонил запрос на Последнее Желание или слишком долго думал."
 	}
 
 	"LR KF Start"
 	{
-		"ru"		"{1} выбрал Бой на ножах с {2}."
+		"ru"		"{default}{1} {lightgreen}выбрал Бой на ножах с {default}{2}{lightgreen}."
 	}
 
 	"LR S4S Start"
 	{
-		"ru"		"{1} выбрал Рулетку с {2}."
-	}
-
-	"LR GT Start"
-	{
-		"ru"		"{1} выбрал Метание с {2}."
+		"ru"		"{default}{1} {lightgreen}выбрал Рулетку с {default}{2}{lightgreen}."
 	}
 
 	"LR CF Start"
 	{
-		"ru"		"{1} выбрал Петушиный Бой с {2}."
+		"ru"		"{default}{1} {lightgreen}выбрал Петушиный Бой с {default}{2}{lightgreen}."
 	}
 
 	"LR HP Start"
 	{
-		"ru"		"{1} выбрал Горячую Картошку с {2}."
-	}
-
-	"LR DB Start"
-	{
-		"ru"		"{1} выбрал Вышибалы с {2}."
+		"ru"		"{default}{1} {lightgreen}выбрал Горячую Картошку с {default}{2}{lightgreen}."
 	}
 
 	"LR NS Start"
 	{
-		"ru"		"{1} выбрал Битву без Прицела с {2}."
+		"ru"		"{default}{1} {lightgreen}выбрал Битву без Прицела с {default}{2}{lightgreen}."
 	}
 
 	"LR RPS Start"
 	{
-		"ru"		"{1} выбрал Камень-Ножницы-Бумагу с {2}."
+		"ru"		"{default}{1} {lightgreen}выбрал Камень-Ножницы-Бумагу с {default}{2}{lightgreen}."
 	}
 
 	"LR Mag4Mag Start"
 	{
-		"ru"		"{1} выбрал Обойма на Обойму с {2}."
-	}
-
-	"LR RR Start"
-	{
-		"ru"		"{1} выбрал Русскую Рулетку с {2}."
+		"ru"		"{default}{1} {lightgreen}выбрал Обойма на Обойму с {default}{2}{lightgreen}."
 	}
 
 	"LR Has Chosen to Rebel!"
 	{
-		"ru"		"{1} решил взбунтоваться вместо LR"
+		"ru"		"{default}{1} {lightgreen}решил взбунтоваться вместо LR"
 	}
 
 	"Start Jump Contest"
 	{
-		"ru"		"{1} выбрал Попрыгунчики с {2}."
+		"ru"		"{default}{1} {lightgreen}выбрал Попрыгунчики с {default}{2}{lightgreen}."
 	}
 
 	"Start Brink of Death"
 	{
-		"ru"		"{1} выбрал Игра с Огнем с {2}."
+		"ru"		"{default}{1} {lightgreen}выбрал Игра с Огнем с {default}{2}{lightgreen}."
 	}
 
 	"Start Farthest Jump"
 	{
-		"ru"		"{1} выбрал Прыжки в Длину с {2}."
+		"ru"		"{default}{1} {lightgreen}выбрал Прыжки в Длину с {default}{2}{lightgreen}."
 	}
 
 	"No Rebels ATM"
@@ -353,11 +313,6 @@
 		"ru"		"Правила сервера:"
 	}
 
-	"HP Win"
-	{
-		"ru"		"{1} выиграл Горячую Картошку - {2} убит."
-	}
-
 	"HP Last One To Have The Potato"
 	{
 		"ru"		"Картошка последний раз была у вас!"
@@ -365,7 +320,7 @@
 
 	"Ts Muted"
 	{
-		"ru"		"Заключенным отключены микрофоны на {1} секунд!"
+		"ru"		"Заключенным отключены микрофоны на {default}{1} {lightgreen}секунд!"
 	}
 
 	"Ts Can Speak Again"
@@ -385,7 +340,7 @@
 
 	"CT Attack T Gun"
 	{
-		"ru"		"{1} атаковал {2} у которого есть оружие"
+		"ru"		"{default}{1} {lightgreen}атаковал {default}{2} {lightgreen}у которого есть оружие"
 	}
 
 	"Rock"
@@ -405,17 +360,12 @@
 
 	"LR RPS No Answer"
 	{
-		"ru"		"{1} ничего не выбрал"
-	}
-
-	"LR RPS Done"
-	{
-		"ru"		"{1} выбрал {2}, {3} выбрал {4} - {5} выиграл!"
+		"ru"		"{default}{1} {lightgreen}ничего не выбрал"
 	}
 
 	"LR RPS Tie"
 	{
-		"ru"		"{1} выбрал {2}, {3} тоже выбрал {4} - ничья!"
+		"ru"		"{default}{1} {lightgreen}выбрал {default}{2}{lightgreen}, {default}{3} {lightgreen}тоже выбрал {default}{4} {lightgreen}- ничья!"
 	}
 
 	"LR Not With Bot"
@@ -430,17 +380,17 @@
 
 	"LR Delay Announcement"
 	{
-		"ru"		"Заключенные не могут играть Последнее Желание первые {1} секунд!"
+		"ru"		"Заключенные не могут играть Последнее Желание первые {default}{1} {lightgreen}секунд!"
 	}
 
 	"Freekill Slay"
 	{
-		"ru"		"{1} был убит за массовый фрикилл"
+		"ru"		"{default}{1} {lightgreen}был убит за массовый фрикилл"
 	}
 
 	"Freekill Kick"
 	{
-		"ru"		"{1} был кикнут с сервера за массовый фрикилл"
+		"ru"		"{default}{1} {lightgreen}был кикнут с сервера за массовый фрикилл"
 	}
 
 	"Freekill Kick Reason"
@@ -450,7 +400,7 @@
 
 	"Freekill Ban"
 	{
-		"ru"		"{1} забанен за массовый фрикилл"
+		"ru"		"{default}{1} {lightgreen}забанен за массовый фрикилл"
 	}
 
 	"Freekill Ban Reason"
@@ -463,19 +413,14 @@
 		"ru"		"Тобой сделано {1} из {2} возможных убийств мирных заключенных..."
 	}
 
-	"Race Won"
-	{
-		"ru"		"{1} выиграл Гонку!"
-	}
-
 	"Won Jump Contest"
 	{
-		"ru"		"{1} выиграл в Попрыгунчики!"
+		"ru"		"{default}{1} {lightgreen}выиграл в Попрыгунчики!"
 	}
 
 	"Russian Roulette - Hit"
 	{
-		"ru"		"Русская Рулетка: попадание в {1}!"
+		"ru"		"Русская Рулетка: попадание в {default}{1}{lightgreen}!"
 	}
 
 	"Russian Roulette - Miss"
@@ -483,64 +428,49 @@
 		"ru"		"Русская Рулетка: мимо. Играем дальше..."
 	}
 
-	"Randomly Chose First Player"
-	{
-		"ru"		"Компьютер решил, что {1} будет стрелять первым."
-	}
-
 	"LR Interference Slay"
 	{
-		"ru"		"{1} был убит за атаку {2} с помощью {3} во время Последнего Желания."
+		"ru"		"{default}{1} {lightgreen}был убит за атаку {default}{2}{lightgreen} с помощью {default}{3}{lightgreen} во время Последнего Желания."
 	}
 
 	"LR Interference Abort"
 	{
-		"ru"		"{1} ранил {2} с помощью {3}. Последнее Желание отменено."
-	}
-
-	"LR Interference Slay - No Victim"
-	{
-		"ru"		"{1} был убит за атаку с помощью {2} во время Последнего Желания."
+		"ru"		"{default}{1} {lightgreen}ранил {default}{2}{lightgreen} с помощью {default}{3}{lightgreen}. Последнее Желание отменено."
 	}
 
 	"LR Interference Abort - No Victim"
 	{
-		"ru"		"{1} атаковал с помощью {2}. Последнее Желание отменено."
+		"ru"		"{default}{1} {lightgreen}атаковал с помощью {default}{2}{lightgreen}. Последнее Желание отменено."
 	}
 
 	"LR Cheating Abort"
 	{
-		"ru"		"{1} попытался смухлевать! Последнее Желание отменено."
+		"ru"		"{default}{1} {lightgreen}попытался смухлевать! Последнее Желание отменено."
 	}
 
 	"LR Cheating Slay"
 	{
-		"ru"		"{1} был убит за попытку смухлевать во время Последнего Желания."
+		"ru"		"{default}{1} {lightgreen}был убит за попытку смухлевать во время Последнего Желания."
 	}
 
 	"Noscope Knife Attack Slay"
 	{
-		"ru"		"{1} был убит за атаку ножом {2} во время Битвы без Прицела"
+		"ru"		"{default}{1} {lightgreen}был убит за атаку ножом {default}{2} {lightgreen}во время Битвы без Прицела"
 	}
 
 	"Noscope Knife Attack Abort"
 	{
-		"ru"		"{1} ранил ножом {2} - Битва без Прицела отменена."
-	}
-
-	"S4S Rebel Slayed"
-	{
-		"ru"		"{1} был убит за попытку бунтовать во время Рулетки."
+		"ru"		"{default}{1} {lightgreen}ранил ножом {default}{2} {lightgreen}- Битва без Прицела отменена."
 	}
 
 	"S4S Rebel Aborted"
 	{
-		"ru"		"{1} бунтует во время Рулетки - Рулетка отменена."
+		"ru"		"{default}{1} {lightgreen}бунтует во время Рулетки - Рулетка отменена."
 	}
 
 	"M4M Mag Used"
 	{
-		"ru"		"В обойме {1} кончились патроны."
+		"ru"		"В обойме {default}{1} {lightgreen}кончились патроны."
 	}
 
 	"LR No CTs Available"
@@ -695,12 +625,12 @@
 
 	"Farthest Jump Won"
 	{
-		"ru"		"{1} выиграл Прыжок в Длину с {3} против {4} у {2}."
+		"ru"		"{default}{1} {lightgreen}выиграл Прыжок в Длину с {default}{3} {lightgreen}против {default}{4}{lightgreen} у {default}{2}{lightgreen}."
 	}
 
 	"Race Could Start Soon"
 	{
-		"ru"		"{1} выбрал Гонку. Ищите Старт и Финиш!"
+		"ru"		"{default}{1} {lightgreen}выбрал Гонку. Ищите Старт и Финиш!"
 	}
 
 	"Shotgun Wars"
@@ -716,6 +646,76 @@
 	"SGW Win"
 	{
 		"ru"		"{default}{1} {lightgreen}выиграл Бой на Дробовиках"
+	}
+
+	"Hot Potato PickUp"
+	{
+		"ru"		"{default}{1} {lightgreen}подобрал картошку!"
+	}
+
+	"Knife Fight Gun Attack Slay"
+	{
+		"ru"		"{default}{1} {lightgreen}был убит за атаку {default}{2} {lightgreen}с помощью {default}{3} {lightgreen}во время Боя на Ножах."
+	}
+
+	"Chicken Fight Gun Attack Abort"
+	{
+		"ru"		"{default}{1} {lightgreen}ранил {default}{2} {lightgreen} с помощью {default}{3} {lightgreen}- Петушиный Бой отменен."
+	}
+
+	"Non LR Kill LR Abort"
+	{
+		"ru"		"Не-LR-игрок {default}{1} {lightgreen}убил LR-игрока {default}{2} {lightgreen}- LR отменено."
+	}
+
+	"Asking For Permission"
+	{
+		"ru"		"Спрашиваем разрешение у {default}{1} {lightgreen}на игру, т.к. вы - бунтовщик..."
+	}
+
+	"LR GT Start"
+	{
+		"ru"		"{default}{1} {lightgreen}выбрал Метание с {default}{2}{lightgreen}."
+	}
+
+	"LR DB Start"
+	{
+		"ru"		"{default}{1} {lightgreen}выбрал Вышибалы с {default}{2}{lightgreen}."
+	}
+
+	"LR RR Start"
+	{
+		"ru"		"{default}{1} {lightgreen}выбрал Русскую Рулетку с {default}{2}{lightgreen}."
+	}
+
+	"HP Win"
+	{
+		"ru"		"{default}{1} {lightgreen}выиграл Горячую Картошку - {default}{2} {lightgreen}убит."
+	}
+
+	"LR RPS Done"
+	{
+		"ru"		"{default}{1} {lightgreen}выбрал {default}{2}{lightgreen}, {default}{3} {lightgreen}выбрал {default}{4} {lightgreen}- {default}{5} {lightgreen}выиграл!"
+	}
+
+	"Race Won"
+	{
+		"ru"		"{default}{1} {lightgreen}выиграл Гонку!"
+	}
+
+	"Randomly Chose First Player"
+	{
+		"ru"		"Компьютер решил, что {default}{1} {lightgreen}будет стрелять первым."
+	}
+
+	"LR Interference Slay - No Victim"
+	{
+		"ru"		"{default}{1} {lightgreen}был убит за атаку с помощью {default}{2}{lightgreen} во время Последнего Желания."
+	}
+
+	"S4S Rebel Slayed"
+	{
+		"ru"		"{default}{1} {lightgreen}был убит за попытку бунтовать во время Рулетки."
 	}
 
 }
