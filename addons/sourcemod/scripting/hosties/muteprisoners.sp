@@ -291,7 +291,7 @@ public MutePrisoners_RoundStart(Handle:event, const String:name[], bool:dontBroa
 public Action:Timer_UnmutePrisoners(Handle:timer)
 {
 	UnmuteAlive();
-	PrintToChatAll(CHAT_BANNER, "Ts Can Speak Again");
+	CPrintToChatAll(CHAT_BANNER, "Ts Can Speak Again");
 	gH_Timer_Unmuter = INVALID_HANDLE;
 	
 	return Plugin_Stop;
