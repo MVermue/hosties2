@@ -16,7 +16,7 @@
 	"Tie and Extra"
 	{
 		"#format"	"{1:i}"
-		"en"		"Players' scores were the same, {default}{1} {lightgreenextra seconds have been added!"
+		"en"		"Players' scores were the same, {default}{1} {lightgreen}extra seconds have been added!"
 	}
 	"Obstacle"
 	{
