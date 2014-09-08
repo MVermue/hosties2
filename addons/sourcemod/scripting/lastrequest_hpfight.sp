@@ -10,7 +10,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.12"
+#define PLUGIN_VERSION "1.0.13"
 
 new g_LREntryNum;
 new g_This_LR_Type;
@@ -22,6 +22,9 @@ new String:g_sLR_Name[64];
 new Handle:g_hHealth = INVALID_HANDLE;
 new Handle:g_hSpeed = INVALID_HANDLE;
 new Handle:g_hAmmo = INVALID_HANDLE;
+
+new Float:g_fOldSpeed[MAXPLAYERS + 1] = {0.0,...};
+new Float:g_fOldGravi[MAXPLAYERS + 1] = {0.0,...};
 
 // menu handler
 new Handle:Menu = INVALID_HANDLE;
@@ -173,7 +176,8 @@ public LR_Stop(Type, Prisoner, Guard)
 		{
 			if (IsPlayerAlive(Prisoner))
 			{
-				SetEntityGravity(Prisoner, 1.0);
+				SetEntityGravity(Prisoner, g_fOldGravi[Prisoner]);
+				SetEntPropFloat( Prisoner, Prop_Data, "m_flLaggedMovementValue", g_fOldSpeed[Prisoner] );
 				SetEntityHealth(Prisoner, 100);
 				StripAllWeapons(Prisoner);
 				GiveItem(Prisoner, "weapon_knife", CS_SLOT_KNIFE);
@@ -184,7 +188,8 @@ public LR_Stop(Type, Prisoner, Guard)
 		{
 			if (IsPlayerAlive(Guard))
 			{
-				SetEntityGravity(Guard, 1.0);
+				SetEntityGravity(Guard, g_fOldGravi[Guard]);
+				SetEntPropFloat( Guard, Prop_Data, "m_flLaggedMovementValue", g_fOldSpeed[Guard] );
 				SetEntityHealth(Guard, 100);
 				StripAllWeapons(Guard);
 				GiveItem(Guard, "weapon_knife", CS_SLOT_KNIFE);
@@ -275,9 +280,15 @@ public LR_AfterMenu(weapon)
 	new ammoOffset = FindSendPropInfo("CCSPlayer", "m_iAmmo");
 	SetEntData(g_LR_Player_Prisoner, ammoOffset+(1*4), 0);
 	SetEntData(g_LR_Player_Guard, ammoOffset+(1*4), 0);
+
+	g_fOldGravi[g_LR_Player_Prisoner] = GetEntityGravity(g_LR_Player_Prisoner);
+	g_fOldGravi[g_LR_Player_Guard] = GetEntityGravity(g_LR_Player_Guard);
 	
 	SetEntityGravity(g_LR_Player_Prisoner, 1.0);
 	SetEntityGravity(g_LR_Player_Guard, 1.0);
+
+	g_fOldSpeed[g_LR_Player_Prisoner] = GetEntPropFloat( g_LR_Player_Prisoner, Prop_Data, "m_flLaggedMovementValue" );
+	g_fOldSpeed[g_LR_Player_Guard] = GetEntPropFloat( g_LR_Player_Guard, Prop_Data, "m_flLaggedMovementValue" );
 	
 	SetEntPropFloat( g_LR_Player_Prisoner, Prop_Data, "m_flLaggedMovementValue", GetConVarFloat(g_hSpeed) );
 	SetEntPropFloat( g_LR_Player_Guard, Prop_Data, "m_flLaggedMovementValue", GetConVarFloat(g_hSpeed) );
