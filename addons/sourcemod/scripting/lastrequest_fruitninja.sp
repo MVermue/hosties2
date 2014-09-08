@@ -12,10 +12,11 @@
 #include <hosties>
 #include <lastrequest>
 #include <autoexecconfig>
+#include <multicolors>
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.1.9"
+#define PLUGIN_VERSION "1.1.10"
 
 // This global will store the index number for the new Last Request
 new g_LREntryNum;
@@ -339,7 +340,7 @@ public MenuHandler2(Handle:menu, MenuAction:action, param1, param2)
 			{
 				if(IsClientTooNearObstacle(param1))
 				{
-					PrintToChat(param1, CHAT_BANNER, "Obstacle");
+					CPrintToChat(param1, CHAT_BANNER, "Obstacle");
 					DisplayMenu(FnTFSs, param1, 0);
 				}
 				else
@@ -361,7 +362,7 @@ public MenuHandler2(Handle:menu, MenuAction:action, param1, param2)
 			}
 			else
 			{
-				PrintToChat(param1, CHAT_BANNER,"On Ground");
+				CPrintToChat(param1, CHAT_BANNER,"On Ground");
 				DisplayMenu(FnTFSs, param1, 0);
 			}
 		}
@@ -386,19 +387,19 @@ public MenuHandler3(Handle:menu, MenuAction:action, param1, param2)
 			{
 				if(distanceBetweenSpawns >= FruitNinja_MaxDis)
 				{
-					PrintToChat(param1, CHAT_BANNER, "Distance too big");
+					CPrintToChat(param1, CHAT_BANNER, "Distance too big");
 					DisplayMenu(FnCTFSs, param1, 0);
 				}
 				else if(distanceBetweenSpawns <= FruitNinja_MinDis)
 				{
-					PrintToChat(param1, CHAT_BANNER, "Distance too small");
+					CPrintToChat(param1, CHAT_BANNER, "Distance too small");
 					DisplayMenu(FnCTFSs, param1, 0);
 				}
 				else
 				{
 					if(IsClientTooNearObstacle(param1))
 					{
-						PrintToChat(param1, CHAT_BANNER, "Obstacle");
+						CPrintToChat(param1, CHAT_BANNER, "Obstacle");
 						DisplayMenu(FnCTFSs, param1, 0);
 					}
 					else
@@ -418,7 +419,7 @@ public MenuHandler3(Handle:menu, MenuAction:action, param1, param2)
 			}
 			else
 			{
-				PrintToChat(param1, CHAT_BANNER, "On Ground");
+				CPrintToChat(param1, CHAT_BANNER, "On Ground");
 				DisplayMenu(FnCTFSs, param1, 0);
 			}
 		}
@@ -597,7 +598,7 @@ public FruitNinja_AfterMenu(Prisoner, Guard)
 	if (gH_Timer_Countdown == INVALID_HANDLE)
 		gH_Timer_Countdown = CreateTimer(1.0, Timer_Countdown, _, TIMER_REPEAT|TIMER_FLAG_NO_MAPCHANGE);
 	
-	PrintToChatAll(CHAT_BANNER, "LR FruitNinja Start", Prisoner, Guard);
+	CPrintToChatAll(CHAT_BANNER, "LR FruitNinja Start", Prisoner, Guard);
 }
 
 public Action:Timer_Countdown(Handle:timer)
@@ -935,7 +936,7 @@ public Action:FruitNinja( Handle:timer )
 		{
 			if(ExtraTimes == FruitNinja_ExTimeMax)
 			{
-				PrintToChatAll(CHAT_BANNER, "Tie and Slay");
+				CPrintToChatAll(CHAT_BANNER, "Tie and Slay");
 				FruitNinjaRunning = 0;
 				ForcePlayerSuicide( LR_Player_Guard );
 				ForcePlayerSuicide( LR_Player_Prisoner );
@@ -943,7 +944,7 @@ public Action:FruitNinja( Handle:timer )
 			}
 			else
 			{
-				PrintToChatAll(CHAT_BANNER, "Tie and Extra", FruitNinja_ExTime);
+				CPrintToChatAll(CHAT_BANNER, "Tie and Extra", FruitNinja_ExTime);
 				ExtraTimes += 1;
 				return Plugin_Continue;
 			}
