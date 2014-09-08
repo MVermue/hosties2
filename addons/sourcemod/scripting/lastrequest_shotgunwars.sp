@@ -29,7 +29,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.11"
+#define PLUGIN_VERSION "1.0.12"
 
 // This global will store the index number for the new Last Request
 new g_LREntryNum;
@@ -62,7 +62,8 @@ public OnPluginStart()
 	Hosties_CheckGame();
 	
 	// Load translations
-	LoadTranslations("shotgunwars.phrases");
+	LoadTranslations("common.phrases");
+	LoadTranslations("hosties.phrases");
 	
 	// Load the name in default server language
 	Format(g_sLR_Name, sizeof(g_sLR_Name), "%T", "Shotgun Wars", LANG_SERVER);

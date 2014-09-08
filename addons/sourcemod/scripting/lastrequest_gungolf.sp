@@ -14,7 +14,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.8"
+#define PLUGIN_VERSION "1.0.9"
 
 // Game types
 #define Game_CSS 0
@@ -107,7 +107,8 @@ public OnPluginStart()
 	Hosties_CheckGame();
 	
 	// Load translations
-	LoadTranslations("LR.GunGolf.phrases");
+	LoadTranslations("common.phrases");
+	LoadTranslations("hosties.phrases");
 	
 	// LR's name
 	Format(g_sLR_Name, sizeof(g_sLR_Name), "%t", "GunGolf", LANG_SERVER);
