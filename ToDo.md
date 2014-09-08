@@ -19,17 +19,12 @@
 + Warning Weapon, allowes CTs to give warning shots to Ts
 + Stop cts from lining up T's and killing them
 + Control
-+ Anti Gun Plant
++ Anti Gun Plant ( https://forums.alliedmods.net/showpost.php?p=1966727 )
 + I mean the last request "Freeday"
 + Players choose: "Freeday"
  + He is killed (auto slay)
  + In the next round is distinguished (beacon, color) 
 + How do I set it so lr can only be used once per player. I do not want people able to use it more than once. It is last request after all.
-+ Add noscope method ( https://forums.alliedmods.net/showpost.php?p=2095775&postcount=2 )
-+ Fix Server crash when bots joined a team
-+ Improve 3th person
-+ Fix a bug in paper stone scissors
-+ Add colors.inc
 
 1.Admin Menu
  + Make Rebel
