@@ -11,7 +11,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.14"
+#define PLUGIN_VERSION "1.0.15"
 
 new g_LREntryNum;
 new g_This_LR_Type;
@@ -44,7 +44,8 @@ public OnPluginStart()
 	Hosties_CheckGame();
 	
 	// Load translations
-	LoadTranslations("hpfight.phrases");
+	LoadTranslations("common.phrases");
+	LoadTranslations("hosties.phrases");
 	
 	// Name of the LR
 	Format(g_sLR_Name, sizeof(g_sLR_Name), "%T", "HP Fight", LANG_SERVER);

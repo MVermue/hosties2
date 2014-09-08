@@ -16,7 +16,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.1.10"
+#define PLUGIN_VERSION "1.1.11"
 
 // This global will store the index number for the new Last Request
 new g_LREntryNum;
@@ -92,7 +92,8 @@ public OnPluginStart()
 	Hosties_CheckGame();
 	
 	// Load translations
-	LoadTranslations("LR.Fruitninja.phrases");
+	LoadTranslations("common.phrases");
+	LoadTranslations("hosties.phrases");
 	
 	// Detect game
 	if(g_Game == 0)
