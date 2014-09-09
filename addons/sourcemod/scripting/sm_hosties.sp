@@ -44,6 +44,8 @@
 #define 	MAX_DISPLAYNAME_SIZE		64
 #define 	MAX_DATAENTRY_SIZE			5
 #define 	SERVERTAG					"SM Hosties v2.1"
+#define 	LOG_DIR 					"hosties"
+#define 	LOG_FILE_NAME				"hosties"
 
 // Note: you cannot safely turn these modules on and off yet. Use cvars to disable functionality.
 
@@ -148,6 +150,11 @@ new gA_FreekillsOfCT[MAXPLAYERS+1];
 // ConVars
 new Handle:gH_Cvar_Add_ServerTag = INVALID_HANDLE;
 new Handle:gH_Cvar_Display_Advert = INVALID_HANDLE;
+new Handle:gH_Cvar_LogLevel = INVALID_HANDLE;
+new Handle:gH_Cvar_LogEnable = INVALID_HANDLE;
+
+new gShadow_LogLevel;
+new bool:gShadow_LogEnable;
 
 public Plugin:myinfo =
 {
@@ -175,6 +182,11 @@ public OnPluginStart()
 	// Create ConVars
 	gH_Cvar_Add_ServerTag = AutoExecConfig_CreateConVar("sm_hosties_add_servertag", "1", "Enable or disable automatic adding of SM_Hosties in sv_tags (visible from the server browser in CS:S): 0 - disable, 1 - enable", FCVAR_PLUGIN, true, 0.0, true, 1.0);
 	gH_Cvar_Display_Advert = AutoExecConfig_CreateConVar("sm_hosties_display_advert", "1", "Enable or disable the display of the Powered by SM Hosties message at the start of each round.", FCVAR_PLUGIN, true, 0.0, true, 1.0);
+
+	gH_Cvar_LogEnable = AutoExecConfig_CreateConVar("sm_hosties_logging_enable", "1", "Enable or disable logging", FCVAR_PLUGIN, true, 0.0, true, 1.0);
+	gShadow_LogEnable = true;
+	gH_Cvar_LogLevel = AutoExecConfig_CreateConVar("sm_hosties_logging_level", "3", "From which level should be logged?", FCVAR_PLUGIN, true, 0.0, true, 1.0);
+	gShadow_LogLevel = 3;
 	
 	AutoExecConfig_CreateConVar("sm_hosties_version", PLUGIN_VERSION, "SM_Hosties plugin version (unchangeable)", FCVAR_PLUGIN|FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY|FCVAR_DONTRECORD);
 	
@@ -190,6 +202,9 @@ public OnPluginStart()
 	}
 	
 	RegAdminCmd("sm_hostiesadmin", Command_HostiesAdmin, ADMFLAG_SLAY);
+
+	HookConVarChange(gH_Cvar_LogEnable, Hosties_CvarChanged);
+	HookConVarChange(gH_Cvar_LogLevel, Hosties_CvarChanged);
 	
 	#if (MODULE_STARTWEAPONS == 1)
 	StartWeapons_OnPluginStart();
@@ -324,6 +339,9 @@ public OnConfigsExecuted()
 	{
 		ServerCommand("sv_tags %s\n", SERVERTAG);
 	}
+
+	gShadow_LogEnable = GetConVarBool(gH_Cvar_LogEnable);
+	gShadow_LogLevel = GetConVarInt(gH_Cvar_LogLevel);
 	
 	#if (MODULE_FREEKILL == 1)
 	Freekillers_OnConfigsExecuted();
@@ -352,6 +370,18 @@ public OnConfigsExecuted()
 	#if (MODULE_STARTWEAPONS == 1)
 	StartWeapons_OnConfigsExecuted();
 	#endif
+}
+
+public Hosties_CvarChanged(Handle:cvar, const String:oldValue[], const String:newValue[])
+{
+	if (cvar == gH_Cvar_LogEnable)
+	{
+		gShadow_LogEnable = bool:StringToInt(newValue);
+	}
+	else if (cvar == gH_Cvar_LogLevel)
+	{
+		gShadow_LogLevel = StringToInt(newValue);
+	}
 }
 
 public OnClientPutInServer(client)
