@@ -1,5 +1,5 @@
 // Exported from SourceMod Translator
-// Date: 2014-09-09 12:13:09 UTC
+// Date: 2014-09-09 13:29:35 UTC
 // Language: Russian (ru)
 // 
 // To view other translations for this plugin, please visit:
@@ -778,6 +778,11 @@
 		"ru"		"Tec 9"
 	}
 
+	"Respawn Player"
+	{
+		"ru"		"Возродить игрока"
+	}
+
 	"HP Fight"
 	{
 		"ru"		"ХП битва"
@@ -856,6 +861,21 @@
 	"HF Win"
 	{
 		"ru"		"{1} победил в ХП Битве!"
+	}
+
+	"Player Alive"
+	{
+		"ru"		"Этот игрок и так живой"
+	}
+
+	"Respawned Target"
+	{
+		"ru"		"Игрок {default}{1} {lightgreen}возрожден"
+	}
+
+	"Respawn Data Unavailable"
+	{
+		"ru"		"Игрок {default}{1} {lightgreen}не имеет места смерти, поэтому он отправляется в клетки."
 	}
 
 }

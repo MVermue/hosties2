@@ -1,5 +1,5 @@
 // Exported from SourceMod Translator
-// Date: 2014-09-08 22:31:37 UTC
+// Date: 2014-09-09 13:29:33 UTC
 // Language: German (de)
 // 
 // To view other translations for this plugin, please visit:
@@ -16,6 +16,46 @@
 	"Pistol_Deagle"
 	{
 		"de"		"Deagle"
+	}
+
+	"Ts Muted"
+	{
+		"de"		"Terroristen sind die ersten {default}{1} {lightgreen}Sekunden einer Runde stummgeschalten!"
+	}
+
+	"Declined LR Request"
+	{
+		"de"		"{default}{1} {lightgreen}hat ihre LR Anfrage abgelehnt."
+	}
+
+	"Freeattack"
+	{
+		"de"		"{default}{1} {lightgreen}hat {default}{2} {lightgreen}angegriffen."
+	}
+
+	"Race Won"
+	{
+		"de"		"{default}{1} {lightgreen}gewinnt das Rennen!"
+	}
+
+	"Target Is Not Alive Or In Wrong Team"
+	{
+		"de"		"Der ausgewählte Spieler ist nicht am leben oder ist im falschen Team."
+	}
+
+	"NSW_Scout"
+	{
+		"de"		"Scout"
+	}
+
+	"LR Aborted"
+	{
+		"de"		"Alle aktiven Last Requests wurden abgebrochen!"
+	}
+
+	"NSW_SG550"
+	{
+		"de"		"SG550"
 	}
 
 }

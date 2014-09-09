@@ -11,7 +11,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.15"
+#define PLUGIN_VERSION "1.0.16"
 
 new g_LREntryNum;
 new g_This_LR_Type;
@@ -63,7 +63,7 @@ public OnPluginStart()
 	
 	// menu
 
-	decl String:sBuffer1[16], String:sBuffer2[16], String:sBuffer3[16], String:sBuffer4[16], String:sBuffer5[16], String:sBuffer6[16];
+	decl String:sBuffer1[64], String:sBuffer2[64], String:sBuffer3[64], String:sBuffer4[64], String:sBuffer5[64], String:sBuffer6[64];
 
 	Format(sBuffer1, sizeof(sBuffer1), "%t", "M4A1 Fight", "M4A1");
 	Format(sBuffer2, sizeof(sBuffer2), "%t", "AK47 Fight", "AK47");
