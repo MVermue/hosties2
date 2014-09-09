@@ -24,12 +24,13 @@
 #include <smlib>
 #include <cstrike>
 #include <hosties>
+#include <hosties_logging>
 #include <lastrequest>
 #include <multicolors>
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.12"
+#define PLUGIN_VERSION "1.0.13"
 
 // This global will store the index number for the new Last Request
 new g_LREntryNum;
@@ -125,6 +126,7 @@ public ShotgunWars_Start(Handle:LR_Array, iIndexInArray)
 		}
 		
 		CPrintToChatAll(CHAT_BANNER, "LR SGW Start", LR_Player_Prisoner, LR_Player_Guard);
+		Log_Info("hosties", "shotgunwars", _, CHAT_BANNER, "LR SGW Start", LR_Player_Prisoner, LR_Player_Guard);
 	}
 }
 
@@ -140,6 +142,7 @@ public ShotgunWars_Stop(This_LR_Type, LR_Player_Prisoner, LR_Player_Guard)
 				SetEntityHealth(LR_Player_Prisoner, 100);
 				GiveItem(LR_Player_Prisoner, "weapon_knife", CS_SLOT_KNIFE);
 				CPrintToChatAll(CHAT_BANNER, "SGW Win", LR_Player_Prisoner);
+				Log_Info("hosties", "shotgunwars", _, CHAT_BANNER, "SGW Win", LR_Player_Prisoner);
 			}
 		}
 		if (IsClientInGame(LR_Player_Guard))
@@ -150,6 +153,7 @@ public ShotgunWars_Stop(This_LR_Type, LR_Player_Prisoner, LR_Player_Guard)
 				SetEntityHealth(LR_Player_Guard, 100);
 				GiveItem(LR_Player_Guard, "weapon_knife", CS_SLOT_KNIFE);
 				CPrintToChatAll(CHAT_BANNER, "SGW Win", LR_Player_Guard);
+				Log_Info("hosties", "shotgunwars", _, CHAT_BANNER, "SGW Win", LR_Player_Guard);
 			}
 		}
 	}

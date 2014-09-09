@@ -10,13 +10,14 @@
 #include <smlib>
 #include <cstrike>
 #include <hosties>
+#include <hosties_logging>
 #include <lastrequest>
 #include <autoexecconfig>
 #include <multicolors>
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.1.11"
+#define PLUGIN_VERSION "1.1.12"
 
 // This global will store the index number for the new Last Request
 new g_LREntryNum;
@@ -600,6 +601,7 @@ public FruitNinja_AfterMenu(Prisoner, Guard)
 		gH_Timer_Countdown = CreateTimer(1.0, Timer_Countdown, _, TIMER_REPEAT|TIMER_FLAG_NO_MAPCHANGE);
 	
 	CPrintToChatAll(CHAT_BANNER, "LR FruitNinja Start", Prisoner, Guard);
+	Log_Info("hosties", "fruitninja", _, CHAT_BANNER, "LR FruitNinja Start", Prisoner, Guard);
 }
 
 public Action:Timer_Countdown(Handle:timer)
@@ -1023,6 +1025,7 @@ public Action:FruitNinja( Handle:timer )
 				
 				PrintHintText(LR_Player_Guard, "%t", "Fruit Ninja Winner", LR_Player_Guard_Name, FruitNinjaCounter[0], LR_Player_Prisoner_Name, FruitNinjaCounter[1], WinnerName, WinnerCount );
 				PrintHintText(LR_Player_Prisoner, "%t", "Fruit Ninja Winner", LR_Player_Guard_Name, FruitNinjaCounter[0], LR_Player_Prisoner_Name, FruitNinjaCounter[1], WinnerName, WinnerCount );
+				Log_Info("hosties", "fruitninja", _, "%t", "Fruit Ninja Winner", LR_Player_Guard_Name, FruitNinjaCounter[0], LR_Player_Prisoner_Name, FruitNinjaCounter[1], WinnerName, WinnerCount );
 			}
 			return Plugin_Stop;
 		}
@@ -1107,6 +1110,7 @@ public Action:FruitNinja( Handle:timer )
 				
 				PrintHintText(LR_Player_Prisoner, "%t", "Fruit Ninja Winner", LR_Player_Guard_Name, FruitNinjaCounter[0], LR_Player_Prisoner_Name, FruitNinjaCounter[1], WinnerName, WinnerCount );
 				PrintHintText(LR_Player_Guard, "%t", "Fruit Ninja Winner", LR_Player_Guard_Name, FruitNinjaCounter[0], LR_Player_Prisoner_Name, FruitNinjaCounter[1], WinnerName, WinnerCount );
+				Log_Info("hosties", "fruitninja", _, "%t", "Fruit Ninja Winner", LR_Player_Guard_Name, FruitNinjaCounter[0], LR_Player_Prisoner_Name, FruitNinjaCounter[1], WinnerName, WinnerCount );
 			}
 			return Plugin_Stop;
 		}

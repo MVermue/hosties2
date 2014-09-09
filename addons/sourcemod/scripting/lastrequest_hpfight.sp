@@ -5,13 +5,14 @@
 #include <cstrike>
 #include <smlib>
 #include <hosties>
+#include <hosties_logging>
 #include <lastrequest>
 #include <autoexecconfig>
 #include <multicolors>
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.17"
+#define PLUGIN_VERSION "1.0.18"
 
 new g_LREntryNum;
 new g_This_LR_Type;
@@ -184,6 +185,8 @@ public LR_Stop(Type, Prisoner, Guard)
 				StripAllWeapons(Prisoner);
 				GiveItem(Prisoner, "weapon_knife", CS_SLOT_KNIFE);
 				CPrintToChatAll(CHAT_BANNER, "HF Win", Prisoner);
+				Log_Info("hosties", "hpfight", _, CHAT_BANNER, "HF Win", Prisoner);
+
 			}
 		}
 		if (IsClientInGame(Guard))
@@ -196,6 +199,8 @@ public LR_Stop(Type, Prisoner, Guard)
 				StripAllWeapons(Guard);
 				GiveItem(Guard, "weapon_knife", CS_SLOT_KNIFE);
 				CPrintToChatAll(CHAT_BANNER, "HF Win", Guard);
+				Log_Info("hosties", "hpfight", _, CHAT_BANNER, "HF Win", Guard);
+
 			}
 		}
 	}
@@ -220,6 +225,7 @@ public LR_AfterMenu(weapon)
 			wep2 = GivePlayerItem(g_LR_Player_Guard, "weapon_m4a1");
 			
 			CPrintToChatAll(CHAT_BANNER, "LR M4A1 Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
+			Log_Info("hosties", "hpfight", _, CHAT_BANNER, "LR M4A1 Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
 		}
 		case 1:
 		{
@@ -227,6 +233,7 @@ public LR_AfterMenu(weapon)
 			wep2 = GivePlayerItem(g_LR_Player_Guard, "weapon_ak47");
 			
 			CPrintToChatAll(CHAT_BANNER, "LR AK47 Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
+			Log_Info("hosties", "hpfight", _, CHAT_BANNER, "LR AK47 Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
 		}
 		case 2:
 		{
@@ -236,6 +243,7 @@ public LR_AfterMenu(weapon)
 				wep2 = GivePlayerItem(g_LR_Player_Guard, "weapon_mp5navy");
 				
 				CPrintToChatAll(CHAT_BANNER, "LR MP5 Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
+				Log_Info("hosties", "hpfight", _, CHAT_BANNER, "LR MP5 Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
 			}
 			else if (GetEngineVersion() == Engine_CSGO)
 			{
@@ -243,6 +251,7 @@ public LR_AfterMenu(weapon)
 				wep2 = GivePlayerItem(g_LR_Player_Guard, "weapon_bizon");
 				
 				CPrintToChatAll(CHAT_BANNER, "LR Bizon Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
+				Log_Info("hosties", "hpfight", _, CHAT_BANNER, "LR Bizon Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
 			}
 		}
 		case 3:
@@ -259,6 +268,7 @@ public LR_AfterMenu(weapon)
 			}
 			
 			CPrintToChatAll(CHAT_BANNER, "LR Galil Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
+			Log_Info("hosties", "hpfight", _, CHAT_BANNER, "LR Galil Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
 		}
 		case 4:
 		{
@@ -266,6 +276,7 @@ public LR_AfterMenu(weapon)
 			wep2 = GivePlayerItem(g_LR_Player_Guard, "weapon_p90");
 			
 			CPrintToChatAll(CHAT_BANNER, "LR P90 Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
+			Log_Info("hosties", "hpfight", _, CHAT_BANNER, "LR P90 Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
 		}
 		case 5:
 		{
@@ -273,6 +284,7 @@ public LR_AfterMenu(weapon)
 			wep2 = GivePlayerItem(g_LR_Player_Guard, "weapon_m249");
 			
 			CPrintToChatAll(CHAT_BANNER, "LR MGUN Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
+			Log_Info("hosties", "hpfight", _, CHAT_BANNER, "LR MGUN Start", g_LR_Player_Prisoner, g_LR_Player_Guard);
 		}
 	}
 	
