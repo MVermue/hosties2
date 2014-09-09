@@ -120,6 +120,11 @@ public TeamOverlays_RoundEnd(Handle:event, const String:name[], bool:dontBroadca
 			iOverlayLength = strlen(gShadow_T_Material);
 			strcopy(theOverlay, iOverlayLength-FILE_SEPARATOR_LENGTH, gShadow_T_Material);
 			ShowOverlayToAll(theOverlay);
+
+			if(gShadow_LogEnable && gShadow_LogLevel <= 2)
+			{
+				Log_Debug(LOG_DIR, "teamoverlays", _, "ShowOverlayToAll was fired");
+			}
 		}
 	}
 	else if (winner_team == CS_TEAM_CT)
@@ -128,7 +133,12 @@ public TeamOverlays_RoundEnd(Handle:event, const String:name[], bool:dontBroadca
 		{
 			iOverlayLength = strlen(gShadow_CT_Material);
 			strcopy(theOverlay, iOverlayLength-FILE_SEPARATOR_LENGTH, gShadow_CT_Material);
-			ShowOverlayToAll(theOverlay);		
+			ShowOverlayToAll(theOverlay);
+
+			if(gShadow_LogEnable && gShadow_LogLevel <= 2)
+			{
+				Log_Debug(LOG_DIR, "teamoverlays", _, "ShowOverlayToAll was fired");
+			}
 		}
 	}
 }

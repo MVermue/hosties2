@@ -45,7 +45,6 @@
 #define 	MAX_DATAENTRY_SIZE			5
 #define 	SERVERTAG					"SM Hosties v2.1"
 #define 	LOG_DIR 					"hosties"
-#define 	LOG_FILE_NAME				"hosties"
 
 // Note: you cannot safely turn these modules on and off yet. Use cvars to disable functionality.
 
@@ -88,6 +87,12 @@ new Handle:gH_TopMenu = INVALID_HANDLE;
 new TopMenuObject:gM_Hosties = INVALID_TOPMENUOBJECT;
 
 new Handle:gH_Cvar_Thirdperson = INVALID_HANDLE;
+
+new Handle:gH_Cvar_LogLevel = INVALID_HANDLE;
+new Handle:gH_Cvar_LogEnable = INVALID_HANDLE;
+
+new gShadow_LogLevel;
+new bool:gShadow_LogEnable;
 
 #if (MODULE_FREEKILL == 1)
 new Handle:gH_Cvar_Freekill_Sound = INVALID_HANDLE;
@@ -150,11 +155,6 @@ new gA_FreekillsOfCT[MAXPLAYERS+1];
 // ConVars
 new Handle:gH_Cvar_Add_ServerTag = INVALID_HANDLE;
 new Handle:gH_Cvar_Display_Advert = INVALID_HANDLE;
-new Handle:gH_Cvar_LogLevel = INVALID_HANDLE;
-new Handle:gH_Cvar_LogEnable = INVALID_HANDLE;
-
-new gShadow_LogLevel;
-new bool:gShadow_LogEnable;
 
 public Plugin:myinfo =
 {
@@ -185,7 +185,7 @@ public OnPluginStart()
 
 	gH_Cvar_LogEnable = AutoExecConfig_CreateConVar("sm_hosties_logging_enable", "1", "Enable or disable logging", FCVAR_PLUGIN, true, 0.0, true, 1.0);
 	gShadow_LogEnable = true;
-	gH_Cvar_LogLevel = AutoExecConfig_CreateConVar("sm_hosties_logging_level", "3", "From which level should be logged?", FCVAR_PLUGIN, true, 0.0, true, 1.0);
+	gH_Cvar_LogLevel = AutoExecConfig_CreateConVar("sm_hosties_logging_level", "3", "From which level should be logged? default = 0; trace = 1; debug = 2; info = 3; warn = 4; error = 5", FCVAR_PLUGIN, true, 0.0, true, 1.0);
 	gShadow_LogLevel = 3;
 	
 	AutoExecConfig_CreateConVar("sm_hosties_version", PLUGIN_VERSION, "SM_Hosties plugin version (unchangeable)", FCVAR_PLUGIN|FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY|FCVAR_DONTRECORD);

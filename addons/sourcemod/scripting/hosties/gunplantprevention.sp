@@ -69,15 +69,27 @@ public Action:Timer_GunPlantPrevention(Handle:timer, any:data)
 			case (0):
 			{
 				ForcePlayerSuicide(original_owner);
+				if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+				{
+					Log_Info(LOG_DIR, "gunplantprevention", _, "Detected Gun Planting by %N - Player was slayed", original_owner);
+				}
 			}
 			case (1):
 			{
 				AcceptEntityInput(weapon, "kill");
+				if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+				{
+					Log_Info(LOG_DIR, "gunplantprevention", _, "Detected Gun Planting by %N - Entity deleted", original_owner);
+				}
 			}
 			case (2):
 			{
 				AcceptEntityInput(weapon, "kill");
 				ForcePlayerSuicide(original_owner);
+				if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+				{
+					Log_Info(LOG_DIR, "gunplantprevention", _, "Detected Gun Planting by %N - Player was slayed & Entity deleted", original_owner);
+				}
 			}
 		}
 	}
