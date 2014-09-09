@@ -27,6 +27,7 @@
 #include <emitsoundany>
 #include <autoexecconfig>
 #include <multicolors>
+#include <hosties_logging>
 
 #undef REQUIRE_PLUGIN
 #undef REQUIRE_EXTENSIONS
