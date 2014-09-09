@@ -1,5 +1,5 @@
 // Exported from SourceMod Translator
-// Date: 2014-09-08 22:31:37 UTC
+// Date: 2014-09-09 12:13:09 UTC
 // Language: Russian (ru)
 // 
 // To view other translations for this plugin, please visit:
@@ -540,12 +540,12 @@
 
 	"Pistol_FiveSeven"
 	{
-		"ru"		"Five-Seven"
+		"ru"		"Pistol_FiveSeven"
 	}
 
 	"Pistol_Dualies"
 	{
-		"ru"		"Dual Elites"
+		"ru"		"Dualies"
 	}
 
 	"Pistol_USP"
@@ -716,6 +716,146 @@
 	"S4S Rebel Slayed"
 	{
 		"ru"		"{default}{1} {lightgreen}был убит за попытку бунтовать во время Рулетки."
+	}
+
+	"Weapon Selection Menu"
+	{
+		"ru"		"Гольф: выбирете оружие"
+	}
+
+	"Point Selection Menu"
+	{
+		"ru"		"Гольф: выбирете место, куда бросать"
+	}
+
+	"Point_Selection"
+	{
+		"ru"		"Место, где я стою"
+	}
+
+	"Obstacle"
+	{
+		"ru"		"Вы слишком близко находитесь с каким-то препятствием!"
+	}
+
+	"GG Winner"
+	{
+		"ru"		"{1} победил в Гольфе!"
+	}
+
+	"GG Start"
+	{
+		"ru"		"{1} играет в Гольф с {2}!"
+	}
+
+	"GG Stopped"
+	{
+		"ru"		"Гольф остановлен!"
+	}
+
+	"On Ground"
+	{
+		"ru"		"Вы должны быть на земле, чтобы выбрать местоположение!"
+	}
+
+	"GunGolf"
+	{
+		"ru"		"Gun Golf"
+	}
+
+	"Pistol_P250"
+	{
+		"ru"		"P250"
+	}
+
+	"Pistol_P2000"
+	{
+		"ru"		"P2000"
+	}
+
+	"Pistol_Tec9"
+	{
+		"ru"		"Tec 9"
+	}
+
+	"HP Fight"
+	{
+		"ru"		"ХП битва"
+	}
+
+	"M4A1 Fight"
+	{
+		"ru"		"Битва на {1}"
+	}
+
+	"MP5 Fight"
+	{
+		"ru"		"Битва на {1}"
+	}
+
+	"Bizon Fight"
+	{
+		"ru"		"Битва на {1}"
+	}
+
+	"Galil Fight"
+	{
+		"ru"		"Битва на {1}"
+	}
+
+	"AK47 Fight"
+	{
+		"ru"		"Битва на {1}"
+	}
+
+	"P90 Fight"
+	{
+		"ru"		"Битва на {1}"
+	}
+
+	"MachineGun Fight"
+	{
+		"ru"		"Битва на {1}"
+	}
+
+	"LR M4A1 Start"
+	{
+		"ru"		"{1} выбрал ХП битву (M4A1) с {2}."
+	}
+
+	"LR MP5 Start"
+	{
+		"ru"		"{1} выбрал ХП битву (MP5) с {2}."
+	}
+
+	"LR Bizon Start"
+	{
+		"ru"		"{1} выбрал ХП битву (Bizon) с {2}."
+	}
+
+	"LR Galil Start"
+	{
+		"ru"		"{1} выбрал ХП битву (Galil) с {2}."
+	}
+
+	"LR AK47 Start"
+	{
+		"ru"		"{1} выбрал ХП битву (AK47) с {2}."
+	}
+
+	"LR P90 Start"
+	{
+		"ru"		"{1} выбрал ХП битву (P90) с {2}."
+	}
+
+	"LR MGUN Start"
+	{
+		"ru"		"{1} выбрал ХП битву (M249) с {2}."
+	}
+
+	"HF Win"
+	{
+		"ru"		"{1} победил в ХП Битве!"
 	}
 
 }
