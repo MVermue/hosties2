@@ -11,7 +11,7 @@
 
 #pragma semicolon 1
 
-#define PLUGIN_VERSION "1.0.16"
+#define PLUGIN_VERSION "1.0.17"
 
 new g_LREntryNum;
 new g_This_LR_Type;
@@ -65,22 +65,22 @@ public OnPluginStart()
 
 	decl String:sBuffer1[64], String:sBuffer2[64], String:sBuffer3[64], String:sBuffer4[64], String:sBuffer5[64], String:sBuffer6[64];
 
-	Format(sBuffer1, sizeof(sBuffer1), "%t", "M4A1 Fight", "M4A1");
-	Format(sBuffer2, sizeof(sBuffer2), "%t", "AK47 Fight", "AK47");
+	Format(sBuffer1, sizeof(sBuffer1), "%t", "HPFight Menu", "M4A1");
+	Format(sBuffer2, sizeof(sBuffer2), "%t", "HPFight Menu", "AK47");
 	if(GetEngineVersion() == Engine_CSS)
 	{
-		Format(sBuffer3, sizeof(sBuffer3), "%t", "MP5 Fight", "MP5");
+		Format(sBuffer3, sizeof(sBuffer3), "%t", "HPFight Menu", "MP5");
 	}
 	else if(GetEngineVersion() == Engine_CSGO)
 	{
-		Format(sBuffer3, sizeof(sBuffer3), "%t", "Bizon Fight", "Bizon");
+		Format(sBuffer3, sizeof(sBuffer3), "%t", "HPFight Menu", "Bizon");
 	}
-	Format(sBuffer4, sizeof(sBuffer4), "%t", "Galil Fight", "Galil");
-	Format(sBuffer5, sizeof(sBuffer5), "%t", "P90 Fight", "P90");
-	Format(sBuffer6, sizeof(sBuffer6), "%t", "MachineGun Fight", "MachineGun");
+	Format(sBuffer4, sizeof(sBuffer4), "%t", "HPFight Menu", "Galil");
+	Format(sBuffer5, sizeof(sBuffer5), "%t", "HPFight Menu", "P90");
+	Format(sBuffer6, sizeof(sBuffer6), "%t", "HPFight Menu", "MachineGun");
 
 	Menu = CreateMenu(MenuHandler);
-	SetMenuTitle(Menu, "HP Fights");
+	SetMenuTitle(Menu, "%t", "HPFight Title");
 	AddMenuItem(Menu, "M1", sBuffer1);
 	AddMenuItem(Menu, "M2", sBuffer2);
 	if(GetEngineVersion() == Engine_CSS)

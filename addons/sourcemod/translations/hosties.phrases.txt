@@ -1,5 +1,5 @@
 // Exported from SourceMod Translator
-// Date: 2014-09-09 13:29:36 UTC
+// Date: 2014-09-09 18:37:21 UTC
 // Language: English (en)
 // 
 // To view other translations for this plugin, please visit:
@@ -687,7 +687,7 @@
 	"Race Could Start Soon"
 	{
 		"#format"	"{1:N}"
-		"en"		"{default}{1} {lightgreen}picked the Race LR. Watch for starting &amp; ending points!"
+		"en"		"{default}{1} {lightgreen}picked the Race LR. Watch for starting &amp;amp; ending points!"
 	}
 
 	"Respawned Target"
@@ -1019,6 +1019,17 @@
 	{
 		"#format"	"{1:N},{2:N},{3:3.1f},{4:3.1f}"
 		"en"		"{default}{1} {lightgreen}won the farthest jump with {default}{3} {lightgreen}compared to {default}{2}{lightgreen}s {default}{4}{lightgreen}."
+	}
+
+	"HPFight Title"
+	{
+		"en"		"HP Fights"
+	}
+
+	"HPFight Menu"
+	{
+		"#format"	"{1:s}"
+		"en"		"{1} Fight"
 	}
 
 }

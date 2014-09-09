@@ -1,5 +1,5 @@
 // Exported from SourceMod Translator
-// Date: 2014-09-09 13:29:35 UTC
+// Date: 2014-09-09 18:37:20 UTC
 // Language: Russian (ru)
 // 
 // To view other translations for this plugin, please visit:
@@ -876,6 +876,11 @@
 	"Respawn Data Unavailable"
 	{
 		"ru"		"Игрок {default}{1} {lightgreen}не имеет места смерти, поэтому он отправляется в клетки."
+	}
+
+	"HPFight Menu"
+	{
+		"ru"		"Битва на {1}"
 	}
 
 }
