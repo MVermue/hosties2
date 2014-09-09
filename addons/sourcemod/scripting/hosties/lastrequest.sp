@@ -906,7 +906,11 @@ public LastRequest_RoundStart(Handle:event, const String:name[], bool:dontBroadc
 		if (gShadow_Announce_Delay_Enable)
 		{
 			CPrintToChatAll(CHAT_BANNER, "LR Delay Announcement", RoundToNearest(gShadow_LR_Delay_Enable_Time));
-			Log_Debug(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Delay Announcement", RoundToNearest(gShadow_LR_Delay_Enable_Time));
+
+			if(gShadow_LogEnable && gShadow_LogLevel <= 2)
+			{
+				Log_Debug(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Delay Announcement", RoundToNearest(gShadow_LR_Delay_Enable_Time));
+			}
 		}
 	}
 	else
@@ -945,7 +949,10 @@ StopActiveLRs(client)
 		iArraySize--;
 	}
 	CShowActivity(client, "%t", "LR Aborted");
-	Log_Info(LOG_DIR, "lastrequest", _, "%t", "LR Aborted");
+	if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+	{
+		Log_Info(LOG_DIR, "lastrequest", _, "%t", "LR Aborted");
+	}
 }
 
 public LastRequest_RoundEnd(Handle:event, const String:name[], bool:dontBroadcast)
@@ -990,7 +997,11 @@ public LastRequest_PlayerDeath(Handle:event, const String:name[], bool:dontBroad
 				if (attacker != LR_Player_Prisoner && attacker != LR_Player_Guard \
 					&& attacker && (type != LR_Rebel))
 				{
-					Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Non LR Kill LR Abort", attacker, victim);
+					if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+					{
+						Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Non LR Kill LR Abort", attacker, victim);
+					}
+
 					if (!gShadow_LR_NonContKiller_Action)
 					{
 						CPrintToChatAll(CHAT_BANNER, "Non LR Kill LR Abort", attacker, victim);
@@ -1014,7 +1025,11 @@ public LastRequest_PlayerDeath(Handle:event, const String:name[], bool:dontBroad
 	
 	if ((Ts > 0) && gShadow_Announce_RebelDown && g_bIsARebel[victim] && attacker && (attacker != victim))
 	{
-		Log_Info(LOG_DIR, "rebel", _, CHAT_BANNER, "Rebel Kill", attacker, victim);
+		if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+		{
+			Log_Info(LOG_DIR, "rebel", _, CHAT_BANNER, "Rebel Kill", attacker, victim);
+		}
+
 		if (gShadow_SendGlobalMsgs)
 		{
 			CPrintToChatAll(CHAT_BANNER, "Rebel Kill", attacker, victim);
@@ -1047,7 +1062,10 @@ public LastRequest_PlayerDeath(Handle:event, const String:name[], bool:dontBroad
 			new ignore;
 			Call_Finish(_:ignore);
 
-			Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Available");
+			if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+			{
+				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Available");
+			}
 		
 			if (gShadow_Announce_LR)
 			{
@@ -1091,7 +1109,12 @@ public LastRequest_PlayerHurt(Handle:event, const String:name[], bool:dontBroadc
 				if (!g_bIsARebel[attacker] && (GetClientTeam(attacker) == CS_TEAM_T))
 				{
 					g_bIsARebel[attacker] = true;
-					Log_Info(LOG_DIR, "rebel", _, CHAT_BANNER, "New Rebel", attacker);
+
+					if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+					{
+						Log_Info(LOG_DIR, "rebel", _, CHAT_BANNER, "New Rebel", attacker);
+					}
+
 					if (gShadow_Announce_Rebel && IsClientInGame(attacker))
 					{
 						if (gShadow_SendGlobalMsgs)
@@ -1152,7 +1175,12 @@ public LastRequest_PlayerHurt(Handle:event, const String:name[], bool:dontBroadc
 		if (IsClientInGame(attacker))
 		{
 			g_bIsARebel[attacker] = true;
-			Log_Info(LOG_DIR, "rebel", _, CHAT_BANNER, "New Rebel", attacker);
+
+			if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+			{
+				Log_Info(LOG_DIR, "rebel", _, CHAT_BANNER, "New Rebel", attacker);
+			}
+
 			if (gShadow_Announce_Rebel)
 			{
 				if (gShadow_SendGlobalMsgs)
@@ -1189,7 +1217,11 @@ public LastRequest_PlayerHurt(Handle:event, const String:name[], bool:dontBroadc
 					{
 						if (IsClientInGame(idx))
 						{
-							Log_Info(LOG_DIR, "rebel", _, CHAT_BANNER, "CT Attack T Gun", attacker, target);
+							if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+							{
+								Log_Info(LOG_DIR, "rebel", _, CHAT_BANNER, "CT Attack T Gun", attacker, target);
+							}
+
 							if(gShadow_Announce_CT_FreeHit != 2)
 							{
 								PrintToConsole(idx, CHAT_BANNER, "CT Attack T Gun", attacker, target);
@@ -1208,7 +1240,11 @@ public LastRequest_PlayerHurt(Handle:event, const String:name[], bool:dontBroadc
 				{
 					if (IsClientInGame(idx))
 					{
-						Log_Info(LOG_DIR, "rebel", _, CHAT_BANNER, "Freeattack", attacker, target);
+						if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+						{
+							Log_Info(LOG_DIR, "rebel", _, CHAT_BANNER, "Freeattack", attacker, target);
+						}
+
 						if(gShadow_Announce_CT_FreeHit != 2)
 						{
 							PrintToConsole(idx, CHAT_BANNER, "Freeattack", attacker, target);
@@ -1249,7 +1285,11 @@ public LastRequest_PlayerDisconnect(Handle:event, const String:name[], bool:dont
 				CleanupLastRequest(client, idx);
 				RemoveFromArray(gH_DArray_LR_Partners, idx);
 				CPrintToChatAll(CHAT_BANNER, "LR Player Disconnect", client);
-				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Player Disconnect", client);
+
+				if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+				{
+					Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Player Disconnect", client);
+				}
 			}
 		}
 	}
@@ -1466,7 +1506,10 @@ public LastRequest_BulletImpact(Handle:event, const String:name[], bool:dontBroa
 	if (!g_bIsARebel[attacker] && gShadow_RebelOnImpact && (GetClientTeam(attacker) == CS_TEAM_T) && !Local_IsClientInLR(attacker))
 	{
 		g_bIsARebel[attacker] = true;
-		Log_Info(LOG_DIR, "rebel", _, CHAT_BANNER, "New Rebel", attacker);
+		if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+		{
+			Log_Info(LOG_DIR, "rebel", _, CHAT_BANNER, "New Rebel", attacker);
+		}
 		
 		if (gShadow_ColorRebels)
 		{
@@ -1628,7 +1671,12 @@ public LastRequest_WeaponFire(Handle:event, const String:name[], bool:dontBroadc
 							{
 								M4M_RoundsFired = 0;
 								SetArrayCell(gH_DArray_LR_Partners, idx, M4M_RoundsFired, _:Block_Global2);
-								Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "M4M Mag Used", client);
+								
+								if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+								{
+									Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "M4M Mag Used", client);
+								}
+
 								if (gShadow_Announce_Shot4Shot)
 								{
 									if (gShadow_SendGlobalMsgs)
@@ -1679,7 +1727,11 @@ public LastRequest_WeaponFire(Handle:event, const String:name[], bool:dontBroadc
 							CPrintToChat(LR_Player_Prisoner, CHAT_BANNER, "S4S Shot Taken", client);
 						}
 					}
-					Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "S4S Shot Taken", client);
+
+					if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+					{
+						Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "S4S Shot Taken", client);
+					}
 					
 					// give the opposite LR player 1 bullet in their deagle
 					if (client == LR_Player_Prisoner)
@@ -1754,7 +1806,10 @@ public LastRequest_WeaponFire(Handle:event, const String:name[], bool:dontBroadc
 										CPrintToChat(LR_Player_Prisoner, CHAT_BANNER, "S4S Shot Taken", client);
 									}
 								}
-								Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "S4S Shot Taken", client);
+								if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+								{
+									Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "S4S Shot Taken", client);
+								}
 								
 								// give the opposite LR player 1 bullet in their deagle
 								if (client == LR_Player_Prisoner)
@@ -1831,8 +1886,11 @@ public Action:OnTakeDamage(victim, &attacker, &inflictor, &Float:damage, &damage
 						{
 							KillAndReward(victim, attacker);
 							CPrintToChatAll(CHAT_BANNER, "Russian Roulette - Hit", victim);
-							Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Russian Roulette - Hit", victim);
 
+							if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+							{
+								Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Russian Roulette - Hit", victim);
+							}
 						}
 						default:
 						{
@@ -3648,7 +3706,11 @@ InitializeGame(iPartnersIndex)
 
 			// announce LR
 			CPrintToChatAll(CHAT_BANNER, "LR KF Start", LR_Player_Prisoner, LR_Player_Guard);
-			Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR KF Start", LR_Player_Prisoner, LR_Player_Guard);
+
+			if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+			{
+				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR KF Start", LR_Player_Prisoner, LR_Player_Guard);
+			}
 		}
 		case LR_Shot4Shot:
 		{
@@ -3728,7 +3790,11 @@ InitializeGame(iPartnersIndex)
 			SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, Pistol_Guard, _:Block_GuardData);
 			
 			CPrintToChatAll(CHAT_BANNER, "LR S4S Start", LR_Player_Prisoner, LR_Player_Guard);
-			Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR S4S Start", LR_Player_Prisoner, LR_Player_Guard);
+
+			if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+			{
+				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR S4S Start", LR_Player_Prisoner, LR_Player_Guard);
+			}
 			
 			// randomize who starts first
 			new s4sPlayerFirst = GetRandomInt(0, 1);
@@ -3831,7 +3897,11 @@ InitializeGame(iPartnersIndex)
 
 			// announce LR
 			CPrintToChatAll(CHAT_BANNER, "LR GT Start", LR_Player_Prisoner, LR_Player_Guard);
-			Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR GT Start", LR_Player_Prisoner, LR_Player_Guard);
+
+			if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+			{
+				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR GT Start", LR_Player_Prisoner, LR_Player_Guard);
+			}
 		}
 		case LR_ChickenFight:
 		{
@@ -3851,7 +3921,11 @@ InitializeGame(iPartnersIndex)
 
 			// announce LR
 			CPrintToChatAll(CHAT_BANNER, "LR CF Start", LR_Player_Prisoner, LR_Player_Guard);
-			Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR CF Start", LR_Player_Prisoner, LR_Player_Guard);
+
+			if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+			{
+				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR CF Start", LR_Player_Prisoner, LR_Player_Guard);
+			}
 		}
 		case LR_HotPotato:
 		{
@@ -3938,7 +4012,10 @@ InitializeGame(iPartnersIndex)
 			
 			// announce LR
 			CPrintToChatAll(CHAT_BANNER, "LR HP Start", LR_Player_Prisoner, LR_Player_Guard);
-			Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR HP Start", LR_Player_Prisoner, LR_Player_Guard);
+			if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+			{
+				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR HP Start", LR_Player_Prisoner, LR_Player_Guard);
+			}
 		}
 		case LR_Dodgeball:
 		{
@@ -3995,7 +4072,11 @@ InitializeGame(iPartnersIndex)
 
 			// announce LR
 			CPrintToChatAll(CHAT_BANNER, "LR DB Start", LR_Player_Prisoner, LR_Player_Guard);
-			Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR DB Start", LR_Player_Prisoner, LR_Player_Guard);
+
+			if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+			{
+				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR DB Start", LR_Player_Prisoner, LR_Player_Guard);
+			}
 		}
 		case LR_NoScope:
 		{
@@ -4038,7 +4119,11 @@ InitializeGame(iPartnersIndex)
 			SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, WeaponChoice, _:Block_Global2);
 			
 			CPrintToChatAll(CHAT_BANNER, "LR NS Start", LR_Player_Prisoner, LR_Player_Guard);
-			Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR NS Start", LR_Player_Prisoner, LR_Player_Guard);
+
+			if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+			{
+				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR NS Start", LR_Player_Prisoner, LR_Player_Guard);
+			}
 			
 			if (gShadow_LR_NoScope_Delay > 0)
 			{
@@ -4139,7 +4224,11 @@ InitializeGame(iPartnersIndex)
 
 			// announce LR
 			CPrintToChatAll(CHAT_BANNER, "LR RPS Start", LR_Player_Prisoner, LR_Player_Guard);
-			Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR RPS Start", LR_Player_Prisoner, LR_Player_Guard);
+
+			if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+			{
+				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR RPS Start", LR_Player_Prisoner, LR_Player_Guard);
+			}
 		}
 		case LR_Rebel:
 		{
@@ -4172,7 +4261,11 @@ InitializeGame(iPartnersIndex)
 			
 			// announce LR
 			CPrintToChatAll(CHAT_BANNER, "LR Has Chosen to Rebel!", LR_Player_Prisoner);
-			Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Has Chosen to Rebel", LR_Player_Prisoner);
+
+			if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+			{
+				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Has Chosen to Rebel", LR_Player_Prisoner);
+			}
 		}
 		case LR_Mag4Mag:
 		{
@@ -4256,7 +4349,11 @@ InitializeGame(iPartnersIndex)
 			SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, Pistol_Guard, _:Block_GuardData);
 			
 			CPrintToChatAll(CHAT_BANNER, "LR Mag4Mag Start", LR_Player_Prisoner, LR_Player_Guard);
-			Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Mag4Mag Start", LR_Player_Prisoner, LR_Player_Guard);
+
+			if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+			{
+				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Mag4Mag Start", LR_Player_Prisoner, LR_Player_Guard);
+			}
 			
 			SetEntDataFloat(Pistol_Prisoner, g_Offset_SecAttack, 5000.0);
 			SetEntDataFloat(Pistol_Guard, g_Offset_SecAttack, 5000.0);
@@ -4373,7 +4470,10 @@ InitializeGame(iPartnersIndex)
 			EquipPlayerWeapon(LR_Player_Guard, Pistol_Guard);
 				
 			CPrintToChatAll(CHAT_BANNER, "LR RR Start", LR_Player_Prisoner, LR_Player_Guard);
-			Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR RR Start", LR_Player_Prisoner, LR_Player_Guard);
+			if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+			{
+				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR RR Start", LR_Player_Prisoner, LR_Player_Guard);
+			}
 			
 			// randomize who starts first
 			if (GetRandomInt(0, 1) == 0)
@@ -4437,7 +4537,11 @@ InitializeGame(iPartnersIndex)
 					}
 					
 					CPrintToChatAll(CHAT_BANNER, "Start Jump Contest", LR_Player_Prisoner, LR_Player_Guard);
-					Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Start Jump Contest", LR_Player_Prisoner, LR_Player_Guard);
+
+					if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+					{
+						Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Start Jump Contest", LR_Player_Prisoner, LR_Player_Guard);
+					}
 					
 					if (!gShadow_NoBlock)
 					{
@@ -4462,7 +4566,11 @@ InitializeGame(iPartnersIndex)
 					SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, 0, _:Block_GuardData);					
 					
 					CPrintToChatAll(CHAT_BANNER, "Start Farthest Jump", LR_Player_Prisoner, LR_Player_Guard);
-					Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Start Farthest Jump", LR_Player_Prisoner, LR_Player_Guard);
+
+					if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+					{
+						Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Start Farthest Jump", LR_Player_Prisoner, LR_Player_Guard);
+					}
 					
 					// start detection timer
 					if (g_FarthestJumpTimer == INVALID_HANDLE)
@@ -4498,7 +4606,11 @@ InitializeGame(iPartnersIndex)
 					TeleportEntity(LR_Player_Guard, Prisoner_Position, NULL_VECTOR, NULL_VECTOR);
 					
 					CPrintToChatAll(CHAT_BANNER, "Start Brink of Death", LR_Player_Prisoner, LR_Player_Guard);
-					Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Start Brink of Death", LR_Player_Prisoner, LR_Player_Guard);
+
+					if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+					{
+						Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Start Brink of Death", LR_Player_Prisoner, LR_Player_Guard);
+					}
 					
 					// timer to quit the LR
 					CreateTimer(22.0, Timer_JumpContestOver, _, TIMER_FLAG_NO_MAPCHANGE);
@@ -4649,14 +4761,22 @@ public Action:Timer_FarthestJumpDetector(Handle:timer)
 						{
 							CPrintToChatAll(CHAT_BANNER, "Farthest Jump Won", LR_Player_Prisoner, LR_Player_Guard, Prisoner_Distance, Guard_Distance);
 							KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
-							Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Farthest Jump Won", LR_Player_Prisoner, LR_Player_Guard, Prisoner_Distance, Guard_Distance);
+
+							if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+							{
+								Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Farthest Jump Won", LR_Player_Prisoner, LR_Player_Guard, Prisoner_Distance, Guard_Distance);
+							}
 						}
 						// award ties to the guard
 						else if (Guard_Distance >= Prisoner_Distance)
 						{
 							CPrintToChatAll(CHAT_BANNER, "Farthest Jump Won", LR_Player_Guard, LR_Player_Prisoner, Guard_Distance, Prisoner_Distance);
 							KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
-							Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Farthest Jump Won", LR_Player_Guard, LR_Player_Prisoner, Guard_Distance, Prisoner_Distance);
+
+							if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+							{
+								Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Farthest Jump Won", LR_Player_Guard, LR_Player_Prisoner, Guard_Distance, Prisoner_Distance);
+							}
 						}						
 					}
 				}
@@ -4694,14 +4814,22 @@ public Action:Timer_JumpContestOver(Handle:timer)
 						if (Prisoner_JumpCount > Guard_JumpCount)
 						{
 							CPrintToChatAll(CHAT_BANNER, "Won Jump Contest", LR_Player_Prisoner);
-							Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Won Jump Contest", LR_Player_Prisoner);
 							KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
+
+							if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+							{
+								Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Won Jump Contest", LR_Player_Prisoner);
+							}
 						}
 						else
 						{
 							CPrintToChatAll(CHAT_BANNER, "Won Jump Contest", LR_Player_Guard);
-							Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Won Jump Contest", LR_Player_Guard);
 							KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
+
+							if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+							{
+								Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Won Jump Contest", LR_Player_Guard);
+							}
 						}
 					}
 					case Jump_BrinkOfDeath:
@@ -4732,7 +4860,11 @@ public Action:Timer_JumpContestOver(Handle:timer)
 						}						
 						
 						CPrintToChatAll(CHAT_BANNER, "Won Jump Contest", winner);
-						Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Won Jump Contest", winner);
+
+						if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+						{
+							Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Won Jump Contest", winner);
+						}
 					}
 				}
 			}
@@ -5147,13 +5279,21 @@ public Action:Timer_Race(Handle:timer)
 					{
 						KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
 						CPrintToChatAll(CHAT_BANNER, "Race Won", LR_Player_Prisoner);
-						Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Race Won", LR_Player_Prisoner);
+						
+						if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+						{
+							Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Race Won", LR_Player_Prisoner);
+						}
 					}
 					else
 					{
 						KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
 						CPrintToChatAll(CHAT_BANNER, "Race Won", LR_Player_Guard);
-						Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Race Won", LR_Player_Guard);
+						
+						if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+						{
+							Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Race Won", LR_Player_Guard);
+						}
 					}
 				}
 				
@@ -5243,7 +5383,10 @@ public RPSmenuHandler(Handle:menu, MenuAction:action, client, param2)
 						{
 							if (client == LR_Player_Prisoner)
 							{
-								Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR RPS Tie", LR_Player_Prisoner, RPSc2, LR_Player_Guard, RPSc1);
+								if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+								{
+									Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR RPS Tie", LR_Player_Prisoner, RPSc2, LR_Player_Guard, RPSc1);
+								}
 								if (gShadow_SendGlobalMsgs)
 								{
 									CPrintToChatAll(CHAT_BANNER, "LR RPS Tie", LR_Player_Prisoner, RPSc2, LR_Player_Guard, RPSc1);
@@ -5256,7 +5399,10 @@ public RPSmenuHandler(Handle:menu, MenuAction:action, client, param2)
 							}
 							else
 							{
-								Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR RPS Tie", LR_Player_Guard, RPSc1, LR_Player_Prisoner, RPSc2);
+								if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+								{
+									Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR RPS Tie", LR_Player_Guard, RPSc1, LR_Player_Prisoner, RPSc2);
+								}
 								if (gShadow_SendGlobalMsgs)
 								{
 									CPrintToChatAll(CHAT_BANNER, "LR RPS Tie", LR_Player_Guard, RPSc1, LR_Player_Prisoner, RPSc2);
@@ -5306,14 +5452,22 @@ public RPSmenuHandler(Handle:menu, MenuAction:action, client, param2)
 						{
 							KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
 							CPrintToChatAll(CHAT_BANNER, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Guard);
-							Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Guard);
+
+							if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+							{
+								Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Guard);
+							}
 						}
 						// otherwise the Prisoner has won
 						else
 						{
 							KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
 							CPrintToChatAll(CHAT_BANNER, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Prisoner);
-							Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Prisoner);
+
+							if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+							{
+								Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Prisoner);
+							}
 						}				
 					}				
 				}		
@@ -5404,7 +5558,11 @@ public Action:Timer_HotPotatoDone(Handle:timer, any:HotPotato_ID)
 				
 				KillAndReward(HPloser, HPwinner);
 				CPrintToChatAll(CHAT_BANNER, "HP Win", HPwinner, HPloser);
-				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "HP Win", HPwinner, HPloser);
+
+				if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+				{
+					Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "HP Win", HPwinner, HPloser);
+				}
 				
 				if (gShadow_LR_HotPotato_Mode != 2)
 				{
@@ -5438,14 +5596,22 @@ public Action:Timer_ChickenFight(Handle:timer)
 					if (gShadow_LR_ChickenFight_Slay)
 					{
 						CPrintToChatAll(CHAT_BANNER, "Chicken Fight Win And Slay", LR_Player_Prisoner, LR_Player_Guard);
-						Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Chicken Fight Win And Slay", LR_Player_Prisoner, LR_Player_Guard);
+
+						if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+						{
+							Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Chicken Fight Win And Slay", LR_Player_Prisoner, LR_Player_Guard);
+						}
 						KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
 					}
 					else
 					{
 						CPrintToChatAll(CHAT_BANNER, "Chicken Fight Win", LR_Player_Prisoner);
 						CPrintToChat(LR_Player_Prisoner, "Chicken Fight Kill Loser", LR_Player_Guard);
-						Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Chicken Fight Win", LR_Player_Prisoner);
+
+						if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+						{
+							Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Chicken Fight Win", LR_Player_Prisoner);
+						}
 						
 						GivePlayerItem(LR_Player_Prisoner, "weapon_knife");
 						
@@ -5460,14 +5626,22 @@ public Action:Timer_ChickenFight(Handle:timer)
 					if (gShadow_LR_ChickenFight_Slay)
 					{
 						CPrintToChatAll(CHAT_BANNER, "Chicken Fight Win And Slay", LR_Player_Guard, LR_Player_Prisoner);
-						Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Chicken Fight Win And Slay", LR_Player_Guard, LR_Player_Prisoner);
+
+						if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+						{
+							Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Chicken Fight Win And Slay", LR_Player_Guard, LR_Player_Prisoner);
+						}
 						KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
 					}
 					else
 					{
 						CPrintToChatAll(CHAT_BANNER, "Chicken Fight Win", LR_Player_Guard);
 						CPrintToChat(LR_Player_Guard, "Chicken Fight Kill Loser", LR_Player_Prisoner);
-						Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Chicken Fight Win", LR_Player_Guard);
+
+						if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+						{
+							Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "Chicken Fight Win", LR_Player_Guard);
+						}
 						
 						GivePlayerItem(LR_Player_Guard, "weapon_knife");
 						
@@ -5744,17 +5918,29 @@ DecideRebelsFate(rebeller, LRIndex, victim=0)
 			if (victim == 0)
 			{
 				CPrintToChatAll(CHAT_BANNER, "LR Interference Abort - No Victim", rebeller, sWeaponName);
-				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Interference Abort - No Victim", rebeller, sWeaponName);
+
+				if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+				{
+					Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Interference Abort - No Victim", rebeller, sWeaponName);
+				}
 			}
 			else if (victim == -1)
 			{
 				CPrintToChatAll(CHAT_BANNER, "LR Cheating Abort", rebeller);
-				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Cheating Abort", rebeller);
+
+				if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+				{
+					Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Cheating Abort", rebeller);
+				}
 			}
 			else
 			{
 				CPrintToChatAll(CHAT_BANNER, "LR Interference Abort", rebeller, victim, sWeaponName);
-				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Interference Abort", rebeller, victim, sWeaponName);
+
+				if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+				{
+					Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Interference Abort", rebeller, victim, sWeaponName);
+				}
 			}	
 		}
 		case 2:
@@ -5766,17 +5952,29 @@ DecideRebelsFate(rebeller, LRIndex, victim=0)
 			if (victim == 0)
 			{
 				CPrintToChatAll(CHAT_BANNER, "LR Interference Slay - No Victim", rebeller, sWeaponName);
-				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Interference Slay - No Victim", rebeller, sWeaponName);
+
+				if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+				{
+					Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Interference Slay - No Victim", rebeller, sWeaponName);
+				}
 			}
 			else if (victim == -1)
 			{
 				CPrintToChatAll(CHAT_BANNER, "LR Cheating Slay", rebeller);
-				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Cheating Slay", rebeller);
+
+				if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+				{
+					Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Cheating Slay", rebeller);
+				}
 			}
 			else
 			{
 				CPrintToChatAll(CHAT_BANNER, "LR Interference Slay", rebeller, victim, sWeaponName);
-				Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Interference Slay", rebeller, victim, sWeaponName);
+
+				if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+				{
+					Log_Info(LOG_DIR, "lastrequest", _, CHAT_BANNER, "LR Interference Slay", rebeller, victim, sWeaponName);
+				}
 			}		
 		}
 	}
