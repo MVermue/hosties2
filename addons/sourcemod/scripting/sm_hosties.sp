@@ -70,8 +70,6 @@
 #define	MODULE_RESPAWN						1
 // Add control system
 #define	MODULE_CONTROL						0
-// Add gunplant prevention
-#define	MODULE_GUNPLANTPREVENTION			1
 
 /******************************************************************************
                    !EDIT BELOW THIS COMMENT AT YOUR OWN PERIL!
@@ -139,9 +137,6 @@ new gA_FreekillsOfCT[MAXPLAYERS+1];
 #endif
 #if (MODULE_CONTROL == 1)
 #include "hosties/control.sp"
-#endif
-#if (MODULE_GUNPLANTPREVENTION == 1)
-#include "hosties/gunplantprevention.sp"
 #endif
 
 // ConVars
@@ -225,9 +220,6 @@ public OnPluginStart()
 	#endif
 	#if (MODULE_CONTROL == 1)
 	Control_OnPluginStart();
-	#endif
-	#if (MODULE_GUNPLANTPREVENTION == 1)
-	GunPlantPrevention_OnPluginStart();
 	#endif
 	
 	AutoExecConfig_CleanFile();
