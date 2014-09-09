@@ -70,6 +70,8 @@
 #define	MODULE_RESPAWN						1
 // Add control system
 #define	MODULE_CONTROL						0
+// Add gunplant prevention
+#define	MODULE_GUNPLANTPREVENTION			1
 
 /******************************************************************************
                    !EDIT BELOW THIS COMMENT AT YOUR OWN PERIL!
@@ -137,6 +139,9 @@ new gA_FreekillsOfCT[MAXPLAYERS+1];
 #endif
 #if (MODULE_CONTROL == 1)
 #include "hosties/control.sp"
+#endif
+#if (MODULE_GUNPLANTPREVENTION == 1)
+#include "hosties/gunplantprevention.sp"
 #endif
 
 // ConVars
@@ -221,6 +226,9 @@ public OnPluginStart()
 	#if (MODULE_CONTROL == 1)
 	Control_OnPluginStart();
 	#endif
+	#if (MODULE_GUNPLANTPREVENTION == 1)
+	GunPlantPrevention_OnPluginStart();
+	#endif
 	
 	AutoExecConfig_CleanFile();
 	AutoExecConfig_ExecuteFile();
@@ -266,11 +274,12 @@ public OnAllPluginsLoaded()
 
 public APLRes:AskPluginLoad2(Handle:h_Myself, bool:bLateLoaded, String:sError[], error_max)
 {
-	if (GetEngineVersion() == Engine_CSS)
+	new EngineVersion:engine = GetEngineVersion();
+	if (engine == Engine_CSS)
 	{
 		g_Game = Game_CSS;
 	}
-	else if (GetEngineVersion() == Engine_CSGO)
+	else if (engine == Engine_CSGO)
 	{
 		g_Game = Game_CSGO;
 	}
