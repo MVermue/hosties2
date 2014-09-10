@@ -76,6 +76,8 @@ public Action:Timer_GunPlantPrevention(Handle:timer, any:data)
 			}
 			case (1):
 			{
+				if (Client_GetActiveWeapon(new_owner) == weapon)
+					FakeClientCommand(new_owner, "use weapon_knife");
 				AcceptEntityInput(weapon, "kill");
 				if(gShadow_LogEnable && gShadow_LogLevel <= 3)
 				{
@@ -84,6 +86,8 @@ public Action:Timer_GunPlantPrevention(Handle:timer, any:data)
 			}
 			case (2):
 			{
+				if (Client_GetActiveWeapon(new_owner) == weapon)
+					FakeClientCommand(new_owner, "use weapon_knife");
 				AcceptEntityInput(weapon, "kill");
 				ForcePlayerSuicide(original_owner);
 				if(gShadow_LogEnable && gShadow_LogLevel <= 3)
