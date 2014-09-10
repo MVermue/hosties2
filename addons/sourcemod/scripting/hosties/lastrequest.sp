@@ -766,7 +766,7 @@ public Native_LR_Initialize(Handle:h_Plugin, iNumParameters)
 			{
 				ThrowNativeError(SP_ERROR_NATIVE, "InitializeLR Failure (One of the participants died already).");
 			}
-			else if (GetClientTeam(LR_Player_Prisoner) < CS_TEAM_T || GetClientTeam(LR_Player_Guard) < CS_TEAM_T || GetClientTeam(LR_Player_Prisoner) == GetClientTeam(LR_Player_Guard))
+			else if (GetClientTeam(LR_Player_Prisoner) < CS_TEAM_T || GetClientTeam(g_LR_Player_Guard[LR_Player_Prisoner]) < CS_TEAM_T || GetClientTeam(LR_Player_Prisoner) == GetClientTeam(g_LR_Player_Guard[LR_Player_Prisoner]))
 			{
 				ThrowNativeError(SP_ERROR_NATIVE, "InitializeLR Failure (One of the participants is in the wrong team).");
 			}
