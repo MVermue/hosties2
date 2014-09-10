@@ -255,7 +255,7 @@ public MutePrisoners_RoundEnd(Handle:event, const String:name[], bool:dontBroadc
 	
 	if (gH_Timer_Unmuter != INVALID_HANDLE)
 	{
-		CloseHandle(gH_Timer_Unmuter);
+		//CloseHandle(gH_Timer_Unmuter);
 		gH_Timer_Unmuter = INVALID_HANDLE;
 	}
 }
@@ -295,15 +295,16 @@ public MutePrisoners_RoundStart(Handle:event, const String:name[], bool:dontBroa
 
 public Action:Timer_UnmutePrisoners(Handle:timer)
 {
-	UnmuteAlive();
-	CPrintToChatAll(CHAT_BANNER, "Ts Can Speak Again");
-
-	if(gShadow_LogEnable && gShadow_LogLevel <= 3)
-	{
-		Log_Info(LOG_DIR, "muteprisoners", _, CHAT_BANNER, "Ts Can Speak Again");
-	}
-	gH_Timer_Unmuter = INVALID_HANDLE;
+	if (gH_Timer_Unmuter == timer) {
+		UnmuteAlive();
+		CPrintToChatAll(CHAT_BANNER, "Ts Can Speak Again");
 	
+		if(gShadow_LogEnable && gShadow_LogLevel <= 3)
+		{
+			Log_Info(LOG_DIR, "muteprisoners", _, CHAT_BANNER, "Ts Can Speak Again");
+		}
+		gH_Timer_Unmuter = INVALID_HANDLE;
+	}
 	return Plugin_Stop;
 }
 
