@@ -758,15 +758,15 @@ public Native_LR_Initialize(Handle:h_Plugin, iNumParameters)
 		if(LR_Player_Prisoner != 0 && g_LR_Player_Guard[LR_Player_Prisoner] != 0)
 		{
 			//Let's make sure the LR's don't get started when they shouldn't before we start it
-			if (!GetClientInGame(LR_Player_Prisoner) || !GetClientInGame(g_LR_Player_Guard[LR_Player_Prisoner]))
+			if (!IsClientInGame(LR_Player_Prisoner) || !IsClientInGame(g_LR_Player_Guard[LR_Player_Prisoner]))
 			{
 				ThrowNativeError(SP_ERROR_NATIVE, "InitializeLR Failure (One of the participants left the game already).");
 			}
-			else if (!IsPlayerAlive(LR_Player_Prisoner) || !IsPlayerAlive(g_LR_Player_Guard[LR_Player_Prisoner])
+			else if (!IsPlayerAlive(LR_Player_Prisoner) || !IsPlayerAlive(g_LR_Player_Guard[LR_Player_Prisoner]))
 			{
 				ThrowNativeError(SP_ERROR_NATIVE, "InitializeLR Failure (One of the participants died already).");
 			}
-			else if (GetClientTeam(LR_Player_Prisoner) < CS_TEAM_T || GetClientTeam(LR_Player_Guard) < CS_TEAM_T || GetClientTeam(LR_Player_Prisoner) == GetClientTeam(LR_Player_Guard))
+			else if (GetClientTeam(LR_Player_Prisoner) < CS_TEAM_T || GetClientTeam(g_LR_Player_Guard[LR_Player_Prisoner]) < CS_TEAM_T || GetClientTeam(LR_Player_Prisoner) == GetClientTeam(g_LR_Player_Guard[LR_Player_Prisoner]))
 			{
 				ThrowNativeError(SP_ERROR_NATIVE, "InitializeLR Failure (One of the participants is in the wrong team).");
 			}
