@@ -1,6 +1,8 @@
 # [CS:S/CS:GO] SM Hosties v2 #
 by: databomb, dataviruset and DorCoMaNdO
 
+[![Alt text](https://travis-ci.org/Bara20/SM_Hosties2.svg?branch=master)](https://travis-ci.org/Bara20/SM_Hosties2)
+
 ##### Description:
 
 This is a re-write of SM_Hosties v1.x from dataviruset. This allows support for multiple LRs occuring simultaneously as well as a plethora of additional last request games and new cvars for the most customizable Hosties yet.
