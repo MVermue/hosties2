@@ -757,7 +757,24 @@ public Native_LR_Initialize(Handle:h_Plugin, iNumParameters)
 		}
 		if(LR_Player_Prisoner != 0 && g_LR_Player_Guard[LR_Player_Prisoner] != 0)
 		{
-			if(!IsLastRequestAutoStart(g_selection[LR_Player_Prisoner]))
+			//Let's make sure the LR's don't get started when they shouldn't before we start it
+			if (!GetClientInGame(LR_Player_Prisoner) || !GetClientInGame(g_LR_Player_Guard[LR_Player_Prisoner]))
+			{
+				ThrowNativeError(SP_ERROR_NATIVE, "InitializeLR Failure (One of the participants left the game already).");
+			}
+			else if (!IsPlayerAlive(LR_Player_Prisoner) || !IsPlayerAlive(g_LR_Player_Guard[LR_Player_Prisoner])
+			{
+				ThrowNativeError(SP_ERROR_NATIVE, "InitializeLR Failure (One of the participants died already).");
+			}
+			else if (GetClientTeam(LR_Player_Prisoner) < CS_TEAM_T || GetClientTeam(LR_Player_Guard) < CS_TEAM_T || GetClientTeam(LR_Player_Prisoner) == GetClientTeam(LR_Player_Guard))
+			{
+				ThrowNativeError(SP_ERROR_NATIVE, "InitializeLR Failure (One of the participants is in the wrong team).");
+			}
+			else if (Local_IsClientInLR(g_LR_Player_Guard[LR_Player_Prisoner]))
+			{
+				ThrowNativeError(SP_ERROR_NATIVE, "InitializeLR Failure (Guard already in an active LR).");
+			}
+			else if(!IsLastRequestAutoStart(g_selection[LR_Player_Prisoner]))
 			{
 				new iArrayIndex = PushArrayCell(gH_DArray_LR_Partners, g_selection[LR_Player_Prisoner]);
 				SetArrayCell(gH_DArray_LR_Partners, iArrayIndex, LR_Player_Prisoner, _:Block_Prisoner);
@@ -962,6 +979,14 @@ public LastRequest_RoundEnd(Handle:event, const String:name[], bool:dontBroadcas
 	
 	// Set variable to know that the round has ended
 	g_bRoundInProgress = false;
+	
+	// Properly stop the active Last Requests
+	new iArraySize = GetArraySize(gH_DArray_LR_Partners);
+	for (new idx = 0; idx < iArraySize; idx++)
+	{	
+		new LR_Player_Prisoner = GetArrayCell(gH_DArray_LR_Partners, idx, _:Block_Prisoner);
+		CleanupLastRequest(LR_Player_Prisoner, idx);           
+	}
 	
 	// Remove all the LR data
 	ClearArray(gH_DArray_LR_Partners);
