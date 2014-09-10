@@ -196,7 +196,7 @@ public OnPluginStart()
 		if ((gH_Cvar_Thirdperson = FindConVar("sv_allow_thirdperson")) != INVALID_HANDLE)
 		{
 			SetConVarInt(gH_Cvar_Thirdperson, 1);
-			HookConVarChange(gH_Cvar_Thirdperson, ConVarChanged);
+			HookConVarChange(gH_Cvar_Thirdperson, Hosties_CvarChanged);
 		}
 		else LogError("Valve removed or changed the cvar to allow for thirdperson in LR's :(");
 	}
@@ -382,6 +382,13 @@ public Hosties_CvarChanged(Handle:cvar, const String:oldValue[], const String:ne
 	{
 		gShadow_LogLevel = StringToInt(newValue);
 	}
+	else if (cvar == gH_Cvar_Thirdperson)
+	{
+		if(StringToInt(newValue) != 1)
+		{
+			SetConVarInt(gH_Cvar_Thirdperson, 1);
+		}
+	}
 }
 
 public OnClientPutInServer(client)
@@ -450,17 +457,6 @@ public HostiesCategoryHandler(Handle:h_TopMenu, TopMenuAction:action, TopMenuObj
 			{
 				Format(buffer, maxlength, "Hosties");
 			}
-		}
-	}
-}
-
-public ConVarChanged(Handle:cvar, const String:oldVal[], const String:newVal[])
-{
-	if (cvar == gH_Cvar_Thirdperson)
-	{
-		if(StringToInt(newVal) != 1)
-		{
-			SetConVarInt(gH_Cvar_Thirdperson, 1);
 		}
 	}
 }
