@@ -102,7 +102,7 @@ public OnConfigsExecuted()
 	static bool:bFreedayAdded = false;
 	if (!bFreedayAdded)
 	{
-		g_LREntryNum = AddLastRequestToList(Freeday_Start, Freeday_Stop, g_sLR_Name);
+		g_LREntryNum = AddLastRequestToList(Freeday_Start, Freeday_Stop, g_sLR_Name, false);
 		bFreedayAdded = true;
 	}	
 }
@@ -182,6 +182,7 @@ public Freeday_Start(Handle:LR_Array, iIndexInArray)
 		}
 		if(count != 1)
 		{
+			CPrintToChat(LR_Player_Prisoner, CHAT_BANNER, "LR Freeday T Count");
 			return;
 		}
 
