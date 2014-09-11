@@ -188,6 +188,17 @@ native InitializeLR(prisoner);
  */
 native CleanupLR(prisoner);
 
+/**
+ * Find the LR partner the client was trying to LR with
+ * (for use when autostart is set to false)
+ * 
+ * @param client				Client Index
+ * @return 					Partner when the partner was found
+ * 								else 0
+ * @error					Client is not ingame or dead
+ */
+native GetPotentialLRPartner(client);
+
 stock SetThirdPerson(client)
 {
 	if (IsValidEntity(client) && IsClientInGame(client))
