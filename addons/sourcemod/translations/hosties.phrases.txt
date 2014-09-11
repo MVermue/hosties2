@@ -1045,19 +1045,23 @@
 	"LR Freeday Prepare"
 	{
 		"#format"	"{1:N}"
-		"en"		"{default}{1} {lightgreen}has in the next round Freeday."
+		"en"		"{default}{1} {lightgreen}will get a Freeday next round."
 	}
 
 	"LR Freeday Start"
 	{
 		"#format"	"{1:N}"
-		"en"		"{default}{1} {lightgreen}has now a freeday!"
+		"en"		"{default}{1} {lightgreen}has now got a freeday!"
 	}
 
 	"LR Freeday End"
 	{
 		"#format"	"{1:N}"
-		"en"		"Freeday for {default}{1} {lightgreen} is now over."
+		"en"		"Freeday for {default}{1} {lightgreen}is now over."
 	}
 
+	"LR Freeday T Count"
+	{
+		"en"		"You can only use this Last Request when you are the last Terrorist alive."
+	}
 }
