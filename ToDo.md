@@ -1,13 +1,10 @@
-##### To Do List:
+##### ToDo List:
 
 + Race beam rings won't disappear when LR is stopped and new points are selected RaceStartPointHandler (create entity for beacon code?)
 + improve hot potato uniquness (GetRandomInt(1, 31337))
 + cvar for starting HP for LRs
 + cvar for ending HP for LRs
 + Make ClosePotentialLRMenus only affect those who are actually inside an LR menu
-
-###### Possible new cvars:
-
 + countdown time in race
 + ES Hosties Features Not Yet Implemented or Suggestions from SM_Hosties Thread:
 + Logging for events (LR Win, Lose)
@@ -19,12 +16,12 @@
 + Warning Weapon, allowes CTs to give warning shots to Ts
 + Stop cts from lining up T's and killing them
 + Control
-+ Anti Gun Plant ( https://forums.alliedmods.net/showpost.php?p=1966727 )
 + I mean the last request "Freeday"
 + Players choose: "Freeday"
  + He is killed (auto slay)
  + In the next round is distinguished (beacon, color) 
 + How do I set it so lr can only be used once per player. I do not want people able to use it more than once. It is last request after all.
++ Add primary and secondary ammo to GiveItem ( like this: stock GiveItem(client, const String:sWeapon[], slot, bool:bAmmoReplace = false, iPrimary, iSecondary, bool:bNoScope = false) )
 
 1.Admin Menu
  + Make Rebel
