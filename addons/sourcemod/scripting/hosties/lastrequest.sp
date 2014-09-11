@@ -669,6 +669,7 @@ LastRequest_APL()
 	CreateNative("ChangeRebelStatus", Native_ChangeRebelStatus);
 	CreateNative("InitializeLR", Native_LR_Initialize);
 	CreateNative("CleanupLR", Native_LR_Cleanup);
+	CreateNative("GetPotentialLRPartner", Native_GetPotentialLRPartner);
 	
 	RegPluginLibrary("lastrequest");
 }
@@ -905,6 +906,30 @@ Local_IsClientInLR(client)
 		}
 	}
 	return 0;
+}
+
+public Native_GetPotentialLRPartner(Handle:h_Plugin, iNumParameters)
+{
+	new client = GetNativeCell(1);
+	if (IsClientInGame(client) && IsPlayerAlive(client))
+	{
+		new team = GetClientTeam(client);
+		if (team == CS_TEAM_T)
+		{
+			return g_LR_Player_Guard[client];
+		}
+		else if (team == CS_TEAM_CT)
+		{
+			for (new i = 1; i <= MaxClients; i++)
+			{
+				if (IsClientInGame(i) && IsPlayerAlive(i) && g_LR_Player_Guard[i] == client)
+					return i;
+			}
+			return 0;
+		}
+		else return ThrowNativeError(SP_ERROR_NATIVE, "Given client index (%d) not in a playing team", client);
+	}
+	return ThrowNativeError(SP_ERROR_NATIVE, "Given client index (%d) not in game", client);
 }
 
 public LastRequest_RoundStart(Handle:event, const String:name[], bool:dontBroadcast)
