@@ -687,7 +687,7 @@
 	"Race Could Start Soon"
 	{
 		"#format"	"{1:N}"
-		"en"		"{default}{1} {lightgreen}picked the Race LR. Watch for starting &amp;amp; ending points!"
+		"en"		"{default}{1} {lightgreen}picked the Race LR. Watch for starting and ending points!"
 	}
 
 	"Respawned Target"
@@ -1030,6 +1030,34 @@
 	{
 		"#format"	"{1:s}"
 		"en"		"{1} Fight"
+	}
+
+	"Respawn Usage"
+	{
+		"en"		"Usage: sm_hrespawn <#userid|name>"
+	}
+
+	"LR Freeday"
+	{
+		"en"		"Freeday"
+	}
+
+	"LR Freeday Prepare"
+	{
+		"#format"	"{1:N}"
+		"en"		"{default}{1} {lightgreen}has in the next round Freeday."
+	}
+
+	"LR Freeday Start"
+	{
+		"#format"	"{1:N}"
+		"en"		"{default}{1} {lightgreen}has now a freeday!"
+	}
+
+	"LR Freeday End"
+	{
+		"#format"	"{1:N"
+		"en"		"Freeday for {default}{1} {lightgreen} is now over."
 	}
 
 }

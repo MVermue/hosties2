@@ -35,7 +35,7 @@ public Action:Command_Respawn(client, args)
 {
 	if (args < 1)
 	{
-		CReplyToCommand(client, "{green}[SM] {lightgreen}Usage: sm_hrespawn <#userid|name>");
+		CReplyToCommand(client, CHAT_BANNER, "Respawn Usage");
 		return Plugin_Handled;
 	}
 

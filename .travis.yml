@@ -20,3 +20,4 @@ script:
   - ./spcomp lastrequest_gungolf.sp
   - ./spcomp lastrequest_hpfight.sp
   - ./spcomp lastrequest_shotgunwars.sp
+  - ./spcomp lastrequest_freeday.sp
