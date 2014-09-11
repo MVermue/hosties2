@@ -154,9 +154,10 @@ stock CacheTheFile(const String:path[], MediaType:filetype)
 	}
 }
 
-stock GiveItem(client, const String:sWeapon[], slot, bool:bAmmoReplace = false, bool:bNoScope = false)
+// #pragma deprecated Use Hosties_GiveItem instead!
+stock GiveItem(client, const String:sWeapon[], iSlot, bool:bAmmoReplace = false, bool:bNoScope = false)
 {
-	new iWeapon = GetPlayerWeaponSlot(client, slot);
+	new iWeapon = GetPlayerWeaponSlot(client, iSlot);
 	new Handle:hPack;
 
 	if (iWeapon != INVALID_ENT_REFERENCE)
@@ -168,7 +169,7 @@ stock GiveItem(client, const String:sWeapon[], slot, bool:bAmmoReplace = false, 
 	CreateDataTimer(0.1, Timer_GiveItem, hPack);
 
 	WritePackCell(hPack, GetClientUserId(client));
-	WritePackCell(hPack, slot);
+	WritePackCell(hPack, iSlot);
 	WritePackCell(hPack, bAmmoReplace);
 	WritePackCell(hPack, bNoScope);
 
@@ -177,14 +178,14 @@ stock GiveItem(client, const String:sWeapon[], slot, bool:bAmmoReplace = false, 
 
 public Action:Timer_GiveItem(Handle:timer, Handle:hPack)
 {
-	new client, slot;
+	new client, iSlot;
 	new bool:bAmmoReplace, bool:bNoScope;
 	decl String:sWeapon[64];
 
 	ResetPack(hPack);
 
 	client = GetClientOfUserId(ReadPackCell(hPack));
-	slot = ReadPackCell(hPack);
+	iSlot = ReadPackCell(hPack);
 	bAmmoReplace = ReadPackCell(hPack);
 	bNoScope = ReadPackCell(hPack);
 
@@ -192,7 +193,7 @@ public Action:Timer_GiveItem(Handle:timer, Handle:hPack)
 
 	if(IsClientInGame(client))
 	{
-		new iWeapon = GetPlayerWeaponSlot(client, slot);
+		new iWeapon = GetPlayerWeaponSlot(client, iSlot);
 
 		if (iWeapon != INVALID_ENT_REFERENCE)
 		{
@@ -230,6 +231,79 @@ public Action:Timer_GiveItem(Handle:timer, Handle:hPack)
 				{
 					Weapon_SetClips(iItem, 7, 35);
 				}
+			}
+		}
+	}
+}
+
+// Not finished yet
+stock Hosties_GiveItem(client, const String:sWeapon[], iSlot, bool:bAmmoReplace = false, iPrimary, iSecondary, bool:bNoScope = false)
+{
+	new iWeapon = GetPlayerWeaponSlot(client, iSlot);
+	new Handle:hPack;
+
+	if (iWeapon != INVALID_ENT_REFERENCE)
+	{
+		RemovePlayerItem(client, iWeapon);
+		AcceptEntityInput(iWeapon, "Kill");
+	}
+
+	CreateDataTimer(0.1, Timer_Hosties_GiveItem, hPack);
+
+	WritePackCell(hPack, GetClientUserId(client));
+	WritePackCell(hPack, iSlot);
+	WritePackCell(hPack, bAmmoReplace);
+	if(bAmmoReplace)
+	{
+		WritePackCell(hPack, iPrimary);
+		WritePackCell(hPack, iSecondary);
+	}
+	WritePackCell(hPack, bNoScope);
+
+	WritePackString(hPack, sWeapon);
+}
+
+public Action:Timer_Hosties_GiveItem(Handle:timer, Handle:hPack)
+{
+	new client, iSlot, iPrimary, iSecondary;
+	new bool:bAmmoReplace, bool:bNoScope;
+	decl String:sWeapon[64];
+
+	ResetPack(hPack);
+
+	client = GetClientOfUserId(ReadPackCell(hPack));
+	iSlot = ReadPackCell(hPack);
+	bAmmoReplace = ReadPackCell(hPack);
+	if(bAmmoReplace)
+	{
+		iPrimary = ReadPackCell(hPack);
+		iSecondary = ReadPackCell(hPack);
+	}
+	bNoScope = ReadPackCell(hPack);
+
+	ReadPackString(hPack, sWeapon, sizeof(sWeapon));
+
+	if(IsClientInGame(client))
+	{
+		new iWeapon = GetPlayerWeaponSlot(client, iSlot);
+
+		if (iWeapon != INVALID_ENT_REFERENCE)
+		{
+			return;
+		}
+		else
+		{
+			new iItem = GivePlayerItem(client, sWeapon);
+			EquipPlayerWeapon(client, iItem);
+
+			if(bAmmoReplace)
+			{
+				Weapon_SetClips(iItem, iPrimary, iSecondary);
+			}
+
+			if(bNoScope)
+			{
+				SetNoScope(iItem);
 			}
 		}
 	}
