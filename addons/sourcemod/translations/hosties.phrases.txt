@@ -1056,7 +1056,7 @@
 
 	"LR Freeday End"
 	{
-		"#format"	"{1:N"
+		"#format"	"{1:N}"
 		"en"		"Freeday for {default}{1} {lightgreen} is now over."
 	}
 
